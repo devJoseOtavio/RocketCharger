@@ -32,11 +32,11 @@
 
       <form id="form" class="form">
         <div class="form-control">
-          <label for="fullName">Nome Completo *</label>
+          <label for="fullName">Nome Completo: *</label>
           <input
             type="text"
             id="fullName"
-            placeholder="Digite seu nome completo..."
+            placeholder="Ex: João da Silva"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -56,8 +56,8 @@
         </div>
 
         <div class="form-control">
-          <label for="cellphone">Telefone *</label>
-          <input type="text" id="cellphone" placeholder="(DDD)XXXXX-XXXX" />
+          <label for="cellphone">Seu Telefone com DDD *</label>
+          <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Mensagem de erro</small>
@@ -89,17 +89,6 @@
         </div>
 
         <div class="form-control">
-          <label for="complement">Complemento</label>
-          <input
-            type="text"
-            id="complement"
-            placeholder="Informe um complemento(opcional)"
-          />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-        </div>
-
-        <div class="form-control">
           <label for="houseNumber">Número *</label>
           <input
             type="text"
@@ -109,6 +98,17 @@
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Mensagem de erro</small>
+        </div>
+
+        <div class="form-control">
+          <label for="complement">Complemento</label>
+          <input
+            type="text"
+            id="complement"
+            placeholder="Informe um complemento(opcional)"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
         </div>
 
         <div class="form-control">
@@ -152,7 +152,7 @@
 
         <div class="form-control">
           <label for="email">Email *</label>
-          <input type="email" id="email" placeholder="Digite seu e-mail..." />
+          <input type="email" id="email" placeholder="Ex: meuemail@provedor.com" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Mensagem de erro</small>
