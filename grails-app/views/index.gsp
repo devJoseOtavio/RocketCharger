@@ -37,6 +37,7 @@
             type="text"
             id="fullName"
             placeholder="Ex: João da Silva"
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -49,6 +50,7 @@
             type="text"
             id="idRegister"
             placeholder="Preencha seu CPF..."
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -57,7 +59,17 @@
 
         <div class="form-control">
           <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" />
+          <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" autocomplete="off" />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Email *</label>
+          <input type="email" id="email" 
+          placeholder="Ex: meuemail@provedor.com" 
+          autocomplete="off"/>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Mensagem de erro</small>
@@ -69,6 +81,7 @@
             type="number"
             id="postalCode"
             placeholder="Digite o seu CEP..."
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -82,6 +95,7 @@
             id="address"
             placeholder="Digite o seu endereço residêncial..."
             disabled
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -94,6 +108,7 @@
             type="text"
             id="houseNumber"
             placeholder="Informe o número de sua residência!"
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -106,6 +121,7 @@
             type="text"
             id="complement"
             placeholder="Informe um complemento(opcional)"
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -118,6 +134,7 @@
             id="province"
             placeholder="Informe o seu bairro..."
             disabled
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -131,6 +148,7 @@
             id="city"
             placeholder="Informe a sua cidade..."
             disabled
+            autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -144,15 +162,8 @@
             id="state"
             placeholder="Informe o seu estado..."
             disabled
+            autocomplete="off"
           />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
-        </div>
-
-        <div class="form-control">
-          <label for="email">Email *</label>
-          <input type="email" id="email" placeholder="Ex: meuemail@provedor.com" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small>Mensagem de erro</small>
@@ -167,7 +178,7 @@
       src="https://kit.fontawesome.com/c8d140aaae.js"
       crossorigin="anonymous"
     ></script>
-    <asset:javascript src="form.js"></asset:javascript>
-    <asset:javascript src="script.js"></asset:javascript>
+    <asset:javascript src="form.js"/>
+    <asset:javascript src="script.js"/>
   </body>
 </html>
