@@ -8,11 +8,11 @@ function checkAddress() {
 }
 
 function showAddress(data) {
-  const address = document.querySelector("#address");
-  const province = document.querySelector("#province");
-  const state = document.querySelector("#state");
-  const city = document.querySelector("#city");
-  const complement = document.getElementById("complement");
+  let address = document.querySelector("#address");
+  let province = document.querySelector("#province");
+  let state = document.querySelector("#state");
+  let city = document.querySelector("#city");
+  let complement = document.getElementById("complement");
 
   if (data.erro) {
     setErrorFor(postalCode, "Não foi possível localizar o endereço"),
