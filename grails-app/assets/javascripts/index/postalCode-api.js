@@ -14,13 +14,7 @@ function showAddress(data) {
   let city = document.querySelector("#city");
   let complement = document.getElementById("complement");
 
-  if (data.erro) {
-    setErrorFor(postalCode, "Não foi possível localizar o endereço"),
-      (address.value = ""),
-      (province.value = ""),
-      (state.value = ""),
-      (city.value = "");
-  } else {
+  if (!data.erro) {
     setSucessFor(postalCode),
       setSucessFor(address),
       setSucessFor(province),
@@ -31,5 +25,12 @@ function showAddress(data) {
     province.value = `${data.bairro}`;
     state.value = `${data.uf}`;
     city.value = `${data.localidade}`;
+    return;
   }
+
+  setErrorFor(postalCode, "Não foi possível localizar o endereço"),
+    (address.value = ""),
+    (province.value = ""),
+    (state.value = ""),
+    (city.value = "");
 }

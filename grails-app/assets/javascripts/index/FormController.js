@@ -1,6 +1,6 @@
 const form = document.getElementById("form");
-const fullName = document.getElementById("fullName");
-const idRegister = document.getElementById("idRegister");
+const cName = document.getElementById("cName");
+const cpfCnpj = document.getElementById("cpfCnpj");
 const cellphone = document.getElementById("cellphone");
 const postalCode = document.getElementById("postalCode");
 const email = document.getElementById("email");
@@ -16,69 +16,93 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   checkInput();
 });
-
-fullName.addEventListener("input", () => {
+cName.addEventListener("input", (event) => {
   checkName();
 });
 
-idRegister.addEventListener("input", () => {
-  checkId();
+cpfCnpj.addEventListener("input", (event) => {
+  let cpfCnpjValue = cpfCnpj.value;
+  if (cpfCnpjValue.length == 11) {
+    checkCpf();
+  } else {
+    checkCnpj();
+  }
 });
 
-cellphone.addEventListener("input", () => {
+cellphone.addEventListener("input", (event) => {
   checkCellphone();
 });
 
-postalCode.addEventListener("input", () => {
+postalCode.addEventListener("input", (event) => {
   checkPostal_code();
   checkAddress();
 });
 
-houseNumber.addEventListener("input", () => {
+houseNumber.addEventListener("input", (event) => {
   checkHouse_number();
 });
 
-email.addEventListener("input", () => {
+email.addEventListener("input", (event) => {
   checkEmail();
 });
 
-// VALIDAÇÕES!!!
 function checkName() {
-  let fullNameValue = fullName.value;
-  if (!fullNameValue) {
-    setErrorFor(fullName, "O seu nome é obrigatório!");
+  const cNameValue = cName.value;
+  if (cNameValue === "") {
+    setErrorFor(cName, "O seu nome é obrigatório!");
   } else {
-    setSucessFor(fullName);
+    setSucessFor(cName);
   }
 }
 
-function checkId() {
-  let idRegisterValue = idRegister.value;
-  if (!idRegisterValue) {
-    setErrorFor(idRegister, "Preencha seu CPF!");
+function checkCpf() {
+  let cpfCnpjValue = cpfCnpj.value;
+  if (!cpfCnpjValue) {
+    setErrorFor(cpfCnpj, "Preencha seu CPF");
   } else if (
-    idRegisterValue.length !== 11 ||
-    idRegisterValue == "00000000000" ||
-    idRegisterValue == "11111111111" ||
-    idRegisterValue == "22222222222" ||
-    idRegisterValue == "33333333333" ||
-    idRegisterValue == "44444444444" ||
-    idRegisterValue == "55555555555" ||
-    idRegisterValue == "66666666666" ||
-    idRegisterValue == "77777777777" ||
-    idRegisterValue == "88888888888" ||
-    idRegisterValue == "99999999999"
+    cpfCnpjValue.length !== 11 ||
+    cpfCnpjValue == "00000000000" ||
+    cpfCnpjValue == "11111111111" ||
+    cpfCnpjValue == "22222222222" ||
+    cpfCnpjValue == "33333333333" ||
+    cpfCnpjValue == "44444444444" ||
+    cpfCnpjValue == "55555555555" ||
+    cpfCnpjValue == "66666666666" ||
+    cpfCnpjValue == "77777777777" ||
+    cpfCnpjValue == "88888888888" ||
+    cpfCnpjValue == "99999999999"
   ) {
-    setErrorFor(idRegister, "O cpf informado é inválido!");
+    setErrorFor(cpfCnpj, "O cpf informado é inválido");
   } else {
-    setSucessFor(idRegister);
+    setSucessFor(cpfCnpj);
+  }
+}
+
+function checkCnpj() {
+  let cpfCnpjValue = cpfCnpj.value;
+  if (
+    cpfCnpjValue.length !== 14 ||
+    cpfCnpjValue == "00000000000000" ||
+    cpfCnpjValue == "11111111111111" ||
+    cpfCnpjValue == "22222222222222" ||
+    cpfCnpjValue == "33333333333333" ||
+    cpfCnpjValue == "44444444444444" ||
+    cpfCnpjValue == "55555555555555" ||
+    cpfCnpjValue == "66666666666666" ||
+    cpfCnpjValue == "77777777777777" ||
+    cpfCnpjValue == "88888888888888" ||
+    cpfCnpjValue == "99999999999999"
+  ) {
+    setErrorFor(cpfCnpj, "O CNPJ informado é inválido");
+  } else {
+    setSucessFor(cpfCnpj);
   }
 }
 
 function checkEmail() {
   let emailValue = email.value;
   if (!emailValue) {
-    setErrorFor(email, "O email é obrigatório!");
+    setErrorFor(email, "O email é obrigatório");
   } else {
     setSucessFor(email);
   }
@@ -87,9 +111,9 @@ function checkEmail() {
 function checkCellphone() {
   let cellphoneValue = cellphone.value;
   if (!cellphoneValue) {
-    setErrorFor(cellphone, "Digite seu número de telefone!");
-  } else if (cellphoneValue.length <= 10) {
-    setErrorFor(cellphone, "Número inválido!");
+    setErrorFor(cellphone, "Digite seu número de telefone");
+  } else if (cellphoneValue.length !== 11) {
+    setErrorFor(cellphone, "Número inválido");
   } else {
     setSucessFor(cellphone);
   }
@@ -100,7 +124,7 @@ function checkPostal_code() {
   if (!postalCodeValue) {
     setErrorFor(postalCode, "Favor informar o CEP!");
   } else if (postalCodeValue.length !== 8) {
-    setErrorFor(postalCode, "O CEP informado está incorreto...");
+    setErrorFor(postalCode, "O CEP informado está incorreto");
   } else {
     setSucessFor(postalCode);
   }
@@ -108,15 +132,21 @@ function checkPostal_code() {
 function checkHouse_number() {
   let houseNumberValue = houseNumber.value;
   if (!houseNumberValue) {
-    setErrorFor(houseNumber, "Favor informar número da residência!");
+    setErrorFor(houseNumber, "Favor informar número da residência");
   } else {
     setSucessFor(houseNumber);
   }
 }
 
 function checkInput() {
+  let cpfCnpjValue = cpfCnpj.value;
   checkName();
-  checkId();
+  checkCpf();
+  if (cpfCnpjValue.length == 11) {
+    checkCpf();
+  } else {
+    checkCnpj();
+  }
   checkCellphone();
   checkPostal_code();
   checkHouse_number();
@@ -124,7 +154,6 @@ function checkInput() {
 
   let formControls = form.querySelectorAll(".form-control");
   let formIsValid = [...formControls].every((formControl) => {
-    //transformando em array
     return formControl.className === "form-control success";
   });
 
@@ -139,23 +168,19 @@ function setErrorFor(input, message) {
   let formControl = input.parentElement;
   let small = formControl.querySelector("small");
 
-  //msg de erro
   small.innerText = message;
-
-  //add class erro
   formControl.className = "form-control error";
 }
 
 function setSucessFor(input) {
   let formControl = input.parentElement;
-  //Adicionar a classe de sucesso
   formControl.className = "form-control success";
 }
 
 function returnInfos() {
   return {
-    name: fullName.value,
-    id: idRegister.value,
+    name: cName.value,
+    cpf_cnpj: cpfCnpj.value,
     contact: cellphone.value,
     postal_Code: postalCode.value,
     email: email.value,

@@ -1,5 +1,10 @@
   <head>
-  <asset:stylesheet src="style.css" />
+        <script
+      src="https://kit.fontawesome.com/c8d140aaae.js"
+      crossorigin="anonymous"
+    ></script>
+  <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
+  <asset:stylesheet src="index/style.css" />
     <title>Cadastro RocketCharger</title>
   </head>
 
@@ -7,19 +12,15 @@
     <div class="container">
       <div class="header">
         <h2>Crie sua conta, é grátis!</h2>
-        <img
-          id="image"
-          src="https://www.asaas.com/assets/favicon-14e590c1a04095a343f34c60b0456560.ico"
-          alt="Imagem com a letra A e duas asas ao seus lados representando a logo em fundo azul e letra na cor branca"
-        />
+        <asset:image src="rocketico.ico" alt="Imagem com a letra A e duas asas ao seus lados representando a logo em fundo azul e letra na cor branca" />
       </div>
 
       <form id="form" class="form">
         <div class="form-control">
-          <label for="nomeCompleto">Nome Completo: *</label>
+          <label for="cName">Nome Completo: *</label>
           <input
             type="text"
-            id="fullName"
+            id="cName"
             placeholder="Ex: João da Silva"
             autocomplete="off"
           />
@@ -29,11 +30,11 @@
         </div>
 
         <div class="form-control">
-          <label for="cpf">CPF *</label>
+          <label for="cpfCnpj">CPF/CNPJ *</label>
           <input
             type="text"
-            id="idRegister"
-            placeholder="Preencha seu CPF"
+            id="cpfCnpj"
+            placeholder="Preencha seu CPF/CNPJ"
             autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -42,7 +43,7 @@
         </div>
 
         <div class="form-control">
-          <label for="telefoneCelular">Seu Telefone com DDD *</label>
+          <label for="cellphone">Seu Telefone com DDD *</label>
           <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" autocomplete="off" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -60,11 +61,11 @@
         </div>
 
         <div class="form-control">
-          <label for="cep">CEP *</label>
+          <label for="postalCode">CEP *</label>
           <input
             type="number"
             id="postalCode"
-            placeholder="Digite o seu CEP..."
+            placeholder="Digite o seu CEP"
             autocomplete="off"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -73,7 +74,7 @@
         </div>
 
         <div class="form-control">
-          <label for="endereco">Endereço</label>
+          <label for="address">Endereço</label>
           <input
             type="text"
             id="address"
@@ -87,7 +88,7 @@
         </div>
 
         <div class="form-control">
-          <label for="numeroCasa">Número *</label>
+          <label for="houseNumber">Número *</label>
           <input
             type="text"
             id="houseNumber"
@@ -100,7 +101,7 @@
         </div>
 
         <div class="form-control">
-          <label for="complemento">Complemento</label>
+          <label for="complement">Complemento</label>
           <input
             type="text"
             id="complement"
@@ -158,10 +159,6 @@
         </button>
       </form>
     </div>
-    <script
-      src="https://kit.fontawesome.com/c8d140aaae.js"
-      crossorigin="anonymous"
-    ></script>
     <asset:javascript src="index/FormController.js"/>
     <asset:javascript src="index/postalCode-api.js"/>
   </body>
