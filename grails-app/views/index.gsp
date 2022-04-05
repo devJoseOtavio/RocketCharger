@@ -26,7 +26,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -39,7 +39,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -47,7 +47,7 @@
           <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" autocomplete="off" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -57,7 +57,7 @@
           autocomplete="off"/>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -70,7 +70,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -84,7 +84,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -97,7 +97,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -123,7 +123,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -137,7 +137,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <div class="form-control">
@@ -151,7 +151,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small>Mensagem de erro</small>
+          <small></small>
         </div>
 
         <button type="submit" id="button">

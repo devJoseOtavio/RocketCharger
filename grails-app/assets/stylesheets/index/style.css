@@ -87,7 +87,6 @@ body {
 #button:hover {
   background: linear-gradient(90deg, #0030b9 0%, #6c757d 100%);
 }
-/* Error and Success */
 
 .form-control.success input {
   border-color: #0030b9;
