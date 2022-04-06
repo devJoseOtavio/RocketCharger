@@ -21,6 +21,7 @@
           <input
             type="text"
             id="cName"
+            name="cName"
             placeholder="Ex: João da Silva"
             autocomplete="off"
           />
@@ -32,8 +33,9 @@
         <div class="form-control">
           <label for="cpfCnpj">CPF/CNPJ *</label>
           <input
-            type="text"
+            type="number"
             id="cpfCnpj"
+            name="cpfCnpj"
             placeholder="Preencha seu CPF/CNPJ"
             autocomplete="off"
           />
@@ -44,7 +46,7 @@
 
         <div class="form-control">
           <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text" id="cellphone" placeholder="Ex: 11 98765-4321" autocomplete="off" />
+          <input type="text" id="cellphone" name="cellphone" placeholder="Ex: 11 98765-4321" autocomplete="off" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small></small>
@@ -52,7 +54,7 @@
 
         <div class="form-control">
           <label for="email">Email *</label>
-          <input type="email" id="email" 
+          <input type="email" id="email" name="email"
           placeholder="Ex: meuemail@provedor.com" 
           autocomplete="off"/>
           <i class="fas fa-exclamation-circle"></i>
@@ -65,6 +67,7 @@
           <input
             type="number"
             id="postalCode"
+            name="postalCode"
             placeholder="Digite o seu CEP"
             autocomplete="off"
           />
@@ -78,6 +81,7 @@
           <input
             type="text"
             id="address"
+            name="address"
             placeholder="Digite o seu endereço residêncial"
             disabled
             autocomplete="off"
@@ -92,6 +96,7 @@
           <input
             type="text"
             id="houseNumber"
+            name="houseNumber"
             placeholder="Informe o número de sua residência"
             autocomplete="off"
           />
@@ -105,6 +110,7 @@
           <input
             type="text"
             id="complement"
+            name="complement"
             placeholder="Informe um complemento (opcional)"
             autocomplete="off"
           />
@@ -117,6 +123,7 @@
           <input
             type="text"
             id="province"
+            name="province"
             placeholder="Informe o seu bairro"
             disabled
             autocomplete="off"
@@ -131,6 +138,7 @@
           <input
             type="text"
             id="city"
+            name="city"
             placeholder="Informe a sua cidade"
             disabled
             autocomplete="off"
@@ -145,6 +153,7 @@
           <input
             type="text"
             id="state"
+            name="state"
             placeholder="Informe o seu estado"
             disabled
             autocomplete="off"

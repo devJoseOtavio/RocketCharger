@@ -1,10 +1,12 @@
 function checkAddress() {
   let postalCode = document.querySelector("#postalCode").value;
-  let url = `https://viacep.com.br/ws/${postalCode}/json/`;
+  if (postalCode.length == 8) {
+    let url = `https://viacep.com.br/ws/${postalCode}/json/`;
 
-  fetch(url).then(function (response) {
-    response.json().then(showAddress);
-  });
+    fetch(url).then(function (response) {
+      response.json().then(showAddress);
+    });
+  }
 }
 
 function showAddress(data) {

@@ -16,6 +16,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   checkInput();
 });
+
 cName.addEventListener("input", (event) => {
   checkName();
 });
@@ -141,7 +142,6 @@ function checkHouse_number() {
 function checkInput() {
   let cpfCnpjValue = cpfCnpj.value;
   checkName();
-  checkCpf();
   if (cpfCnpjValue.length == 11) {
     checkCpf();
   } else {
@@ -158,9 +158,15 @@ function checkInput() {
   });
 
   if (formIsValid) {
+    let infosCustomer = {};
+    let data = new FormData(form);
+    data.forEach(function (value, key) {
+      infosCustomer[key] = value;
+    });
     alert("Formulário enviado!");
     console.log("O formulário foi enviado");
-    console.log(returnInfos());
+    console.log(infosCustomer);
+    form.reset();
   }
 }
 
