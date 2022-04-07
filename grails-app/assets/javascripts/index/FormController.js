@@ -1,4 +1,4 @@
-const form = document.getElementById("form");
+const form = document.querySelector("form");
 const cName = document.getElementById("cName");
 const cpfCnpj = document.getElementById("cpfCnpj");
 const cellphone = document.getElementById("cellphone");
@@ -49,7 +49,7 @@ email.addEventListener("input", (event) => {
 
 function checkName() {
   const cNameValue = cName.value;
-  if (cNameValue === "") {
+  if (!cNameValue) {
     setErrorFor(cName, "O seu nome é obrigatório!");
   } else {
     setSucessFor(cName);
@@ -167,34 +167,20 @@ function checkInput() {
     console.log("O formulário foi enviado");
     console.log(infosCustomer);
     form.reset();
+    cName.focus();
   }
 }
-
-function setErrorFor(input, message) {
+  function setSucessFor(input) {
   let formControl = input.parentElement;
-  let small = formControl.querySelector("small");
 
-  small.innerText = message;
-  formControl.className = "form-control error";
-}
+  $(formControl).addClass("form-control success").removeClass("error");
+  }
 
-function setSucessFor(input) {
-  let formControl = input.parentElement;
-  formControl.className = "form-control success";
-}
+  function setErrorFor(input, message) {
+    let formControl = input.parentElement;
+    let small = formControl.querySelector(".js-msg");
 
-function returnInfos() {
-  return {
-    name: cName.value,
-    cpf_cnpj: cpfCnpj.value,
-    contact: cellphone.value,
-    postal_Code: postalCode.value,
-    email: email.value,
-    address: address.value,
-    houseNumber: houseNumber.value,
-    complement: complement.value,
-    province: province.value,
-    city: city.value,
-    state: state.value,
-  };
-}
+    small.innerText = message;
+    $(formControl).addClass("form-control error").removeClass("success");
+  }
+
