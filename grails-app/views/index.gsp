@@ -18,11 +18,11 @@
 
       <form autocomplete="off" class="form" >
         <div class="form-control">
-          <label for="cName">Nome Completo: *</label>
+          <label for="customerName">Nome Completo: *</label>
           <input
             type="text"
-            id="cName"
-            name="cName"
+            id="customerName"
+            name="customerName"
             placeholder="Ex: João da Silva"
           />
           <i class="fas fa-exclamation-circle"></i>

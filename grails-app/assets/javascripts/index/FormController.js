@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const cName = document.getElementById("cName");
+const customerName = document.getElementById("customerName");
 const cpfCnpj = document.getElementById("cpfCnpj");
 const cellphone = document.getElementById("cellphone");
 const postalCode = document.getElementById("postalCode");
@@ -17,7 +17,7 @@ form.addEventListener("submit", (event) => {
   checkInput();
 });
 
-cName.addEventListener("input", (event) => {
+customerName.addEventListener("input", (event) => {
   checkName();
 });
 
@@ -35,12 +35,12 @@ cellphone.addEventListener("input", (event) => {
 });
 
 postalCode.addEventListener("input", (event) => {
-  checkPostal_code();
+  checkPostalCode();
   checkAddress();
 });
 
 houseNumber.addEventListener("input", (event) => {
-  checkHouse_number();
+  checkHouseNumber();
 });
 
 email.addEventListener("input", (event) => {
@@ -48,11 +48,11 @@ email.addEventListener("input", (event) => {
 });
 
 function checkName() {
-  const cNameValue = cName.value;
-  if (!cNameValue) {
-    setErrorFor(cName, "O seu nome é obrigatório!");
+  const customerNameValue = customerName.value;
+  if (!customerNameValue) {
+    setErrorFor(customerName, "O seu nome é obrigatório!");
   } else {
-    setSucessFor(cName);
+    setSucessFor(customerName);
   }
 }
 
@@ -120,7 +120,7 @@ function checkCellphone() {
   }
 }
 
-function checkPostal_code() {
+function checkPostalCode() {
   let postalCodeValue = postalCode.value;
   if (!postalCodeValue) {
     setErrorFor(postalCode, "Favor informar o CEP!");
@@ -130,7 +130,7 @@ function checkPostal_code() {
     setSucessFor(postalCode);
   }
 }
-function checkHouse_number() {
+function checkHouseNumber() {
   let houseNumberValue = houseNumber.value;
   if (!houseNumberValue) {
     setErrorFor(houseNumber, "Favor informar número da residência");
@@ -148,8 +148,8 @@ function checkInput() {
     checkCnpj();
   }
   checkCellphone();
-  checkPostal_code();
-  checkHouse_number();
+  checkPostalCode();
+  checkHouseNumber();
   checkEmail();
 
   let formControls = form.querySelectorAll(".form-control");
@@ -167,20 +167,19 @@ function checkInput() {
     console.log("O formulário foi enviado");
     console.log(infosCustomer);
     form.reset();
-    cName.focus();
+    customerName.focus();
   }
 }
-  function setSucessFor(input) {
+function setSucessFor(input) {
   let formControl = input.parentElement;
 
   $(formControl).addClass("form-control success").removeClass("error");
-  }
+}
 
-  function setErrorFor(input, message) {
-    let formControl = input.parentElement;
-    let small = formControl.querySelector(".js-msg");
+function setErrorFor(input, message) {
+  let formControl = input.parentElement;
+  let small = formControl.querySelector(".js-msg");
 
-    small.innerText = message;
-    $(formControl).addClass("form-control error").removeClass("success");
-  }
-
+  small.innerText = message;
+  $(formControl).addClass("form-control error").removeClass("success");
+}
