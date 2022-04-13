@@ -12,13 +12,12 @@
     </tr>
     <g:each var="payer" in="${payerList}">
         <tr>
-            <td>${payer.name}</td>
+            <td>${payer.customerName}</td>
             <td>${payer.email}</td>
-            <td>${payer.nascimento}</td>
-            <td>${payer.cep}</td>
-            <td>${payer.endereco}</td>
-            <td>${payer.cidade}</td>
-            <td>${payer.estado}</td>
+            <td>${payer.postalCode}</td>
+            <td>${payer.address}</td>
+            <td>${payer.city}</td>
+            <td>${payer.state}</td>
             <td>
                 <a href="#">Alterar</a><br>
         </tr>
