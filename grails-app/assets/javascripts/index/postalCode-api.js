@@ -31,8 +31,8 @@ function showAddress(data) {
   }
 
   setErrorFor(postalCode, "Não foi possível localizar o endereço"),
-    (address.value = ""),
-    (province.value = ""),
-    (state.value = ""),
-    (city.value = "");
+    (address.value = "");
+  province.value = "";
+  state.value = "";
+  city.value = "";
 }

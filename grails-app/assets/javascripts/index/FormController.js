@@ -11,6 +11,10 @@ const complement = document.getElementById("complement");
 const province = document.getElementById("province");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
+const correctCpfLength = 11;
+const correctCnpjLength = 14;
+const correctCellphoneLength = 11;
+const correctPostalCodeLength = 8;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -23,7 +27,7 @@ customerName.addEventListener("input", (event) => {
 
 cpfCnpj.addEventListener("input", (event) => {
   let cpfCnpjValue = cpfCnpj.value;
-  if (cpfCnpjValue.length == 11) {
+  if (cpfCnpjValue.length == correctCpfLength) {
     checkCpf();
   } else {
     checkCnpj();
@@ -61,7 +65,7 @@ function checkCpf() {
   if (!cpfCnpjValue) {
     setErrorFor(cpfCnpj, "Preencha seu CPF");
   } else if (
-    cpfCnpjValue.length !== 11 ||
+    cpfCnpjValue.length !== correctCpfLength ||
     cpfCnpjValue == "00000000000" ||
     cpfCnpjValue == "11111111111" ||
     cpfCnpjValue == "22222222222" ||
@@ -82,7 +86,7 @@ function checkCpf() {
 function checkCnpj() {
   let cpfCnpjValue = cpfCnpj.value;
   if (
-    cpfCnpjValue.length !== 14 ||
+    cpfCnpjValue.length !== correctCnpjLength ||
     cpfCnpjValue == "00000000000000" ||
     cpfCnpjValue == "11111111111111" ||
     cpfCnpjValue == "22222222222222" ||
@@ -113,7 +117,7 @@ function checkCellphone() {
   let cellphoneValue = cellphone.value;
   if (!cellphoneValue) {
     setErrorFor(cellphone, "Digite seu número de telefone");
-  } else if (cellphoneValue.length !== 11) {
+  } else if (cellphoneValue.length !== correctCellphoneLength) {
     setErrorFor(cellphone, "Número inválido");
   } else {
     setSucessFor(cellphone);
@@ -124,7 +128,7 @@ function checkPostalCode() {
   let postalCodeValue = postalCode.value;
   if (!postalCodeValue) {
     setErrorFor(postalCode, "Favor informar o CEP!");
-  } else if (postalCodeValue.length !== 8) {
+  } else if (postalCodeValue.length !== correctPostalCodeLength) {
     setErrorFor(postalCode, "O CEP informado está incorreto");
   } else {
     setSucessFor(postalCode);
@@ -142,7 +146,7 @@ function checkHouseNumber() {
 function checkInput() {
   let cpfCnpjValue = cpfCnpj.value;
   checkName();
-  if (cpfCnpjValue.length == 11) {
+  if (cpfCnpjValue.length == correctCpfLength) {
     checkCpf();
   } else {
     checkCnpj();
@@ -178,8 +182,8 @@ function setSucessFor(input) {
 
 function setErrorFor(input, message) {
   let formControl = input.parentElement;
-  let small = formControl.querySelector(".js-msg");
+  let smallDisplayError = formControl.querySelector(".js-msg");
 
-  small.innerText = message;
+  smallDisplayError.innerText = message;
   $(formControl).addClass("form-control error").removeClass("success");
 }
