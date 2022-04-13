@@ -1,6 +1,7 @@
 function checkAddress() {
   let postalCode = document.querySelector("#postalCode").value;
-  if (postalCode.length == 8) {
+  let correctPostalCodeLength = 8;
+  if (postalCode.length == correctPostalCodeLength) {
     let url = `https://viacep.com.br/ws/${postalCode}/json/`;
 
     fetch(url).then(function (response) {
