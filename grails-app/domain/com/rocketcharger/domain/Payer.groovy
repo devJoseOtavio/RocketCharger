@@ -9,7 +9,8 @@ class Payer {
     String endereco
     String cidade
     String estado
-
+    
+    
      static constraints = {
         name size: 3..100, nulllable: true
         id size: 10..10, nulllable: true

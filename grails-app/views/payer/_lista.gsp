@@ -21,7 +21,6 @@
             <td>${payer.estado}</td>
             <td>
                 <a href="#">Alterar</a><br>
-                <a href="#">Excluir</a>
         </tr>
         </g:each>
     </table>
