@@ -4,11 +4,10 @@ class Payer {
 
     String name
     String email
-    Date nascimento
-    String cep
-    String endereco
-    String cidade
-    String estado
+    String postalCode
+    String address
+    String city
+    String state
     
     
      static constraints = {
