@@ -10,7 +10,7 @@
     </div>
 
     <div id="divLista">
-        <g:render template="lista" model="[payerList: payerList]"></g:render>
+        <g:render template="list" model="[payerList: payerList]"></g:render>
     </div>
 
     <div id="divForm"></div>
