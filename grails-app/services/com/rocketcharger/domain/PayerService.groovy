@@ -7,7 +7,6 @@ class PayerService {
         Payer payer = new Payer(params)
         payer.name = params.name
         payer.save(failOnError: true)
-        // println(params)
         return payer
     }
 }

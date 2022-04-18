@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>Gerenciamento de pagamentos</title>
 </head>
 <body>
     
     <div>
-        <g:link controller="payer" action="adicionar" update="divForm">Adicionar pagador</g:link>
+        <g:link controller="payer" action="create" update="divForm">Adicionar pagador</g:link>
     </div>
 
     <div id="divLista">

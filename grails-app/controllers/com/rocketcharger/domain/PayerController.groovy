@@ -14,8 +14,7 @@ class PayerController {
   
     }
 
-    def adicionar() {
-        // return [lista: Payer.getAll()]
+    def create() {
     }
 
     def save () {
@@ -24,7 +23,6 @@ class PayerController {
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Ocorreu um erro"] as JSON)
-            println(e)
         } 
     }
 }
