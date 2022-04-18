@@ -1,13 +1,13 @@
-
+<html>
 <g:if test="${payerList?.size() > 0}">
     <table>
     <tr>
-        <th>name</th>
-        <th>email</th>
-        <th>cep</th>
-        <th>endereço</th>
-        <th>cidade</th>
-        <th>estado</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>CEP</th>
+        <th>Endereço</th>
+        <th>Cidade</th>
+        <th>Estado</th>
     </tr>
     <g:each var="payer" in="${payerList}">
         <tr>
@@ -17,12 +17,12 @@
             <td>${payer.address}</td>
             <td>${payer.city}</td>
             <td>${payer.state}</td>
-            <td>
-                <a href="#">Alterar</a><br>
         </tr>
         </g:each>
     </table>
+    <a href="#">Alterar</a><br>
 </g:if>
 <g:else>
-    Não há pagadores.
+    <div>Não há pagadores.</div>
 </g:else>
+</html>
