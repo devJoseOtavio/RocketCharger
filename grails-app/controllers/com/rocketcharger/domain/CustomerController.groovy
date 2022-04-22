@@ -1,99 +1,42 @@
 package com.rocketcharger.domain
 
+import com.rocketcharger.domain.customer.Customer
+
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 
 class CustomerController {
+     def customerService
 
-    CustomerService customerService
-
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond customerService.list(params), model:[customerCount: customerService.count()]
-    }
-
-    def show(Long id) {
-        respond customerService.get(id)
+     
+   def index() {  
+        return [customerList: Customer.getAll()]
     }
 
     def create() {
-        respond new Customer(params)
     }
 
-    def save(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
+    def save() {
         try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*' { respond customer, [status: CREATED] }
-        }
+            customerService.save(params)
+            render([success: true] as JSON)
+        } catch(Exception e) {
+            render([success: false, message: "Ocorreu um erro"] as JSON)
+        } 
     }
 
-    def edit(Long id) {
-        respond customerService.get(id)
+    def update() {
+         try {
+            customerService.save(params)
+            Map info = [customer: customerService.getCustomer(params.int("id"))]
+            render([success: true, html: g.render(template:"/customer/template/show/_form", model: info)] as JSON)
+        } catch(Exception e) {
+            render([success: false, message: "Ocorreu um erro"] as JSON)
+        } 
     }
 
-    def update(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
-        try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'edit'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*'{ respond customer, [status: OK] }
-        }
+    def show() {
+        return [customer: customerService.getCustomer(params.int("id"))]
     }
-
-    def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
-
-        customerService.delete(id)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
-}
+ }

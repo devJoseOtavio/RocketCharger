@@ -1,18 +1,33 @@
 package com.rocketcharger.domain
 
-import grails.gorm.services.Service
+import grails.gorm.transactions.*
+import com.rocketcharger.domain.customer.Customer
 
-@Service(Customer)
-interface CustomerService {
+class CustomerService {
 
-    Customer get(Serializable id)
+     def save(Map params) {
+         Customer customer = new Customer(params)
+         customer.save(failOnError: true)
+     }
 
-    List<Customer> list(Map args)
+    def getCustomer(Integer id){
+        return Customer.get(id)
+    }
 
-    Long count()
-
-    void delete(Serializable id)
-
-    Customer save(Customer customer)
-
+    def update(Map params){
+         if (params.id) {
+            Customer customer = Customer.get(params.int("id"))
+            customer.name = params.name
+            customer.email = params.email
+            customer.cpfCnpj = params.cpfCnpj
+            customer.postalCode = params.postalCode
+            customer.address = params.address
+            customer.province = params.province
+            customer.city = params.city
+            customer.state = params.state
+            customer.save(flush: true, failOnError: true)
+       } else {
+            throw new Exception("Erro ao realizar edição")
+       }
+    }
 }

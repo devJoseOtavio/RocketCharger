@@ -9,10 +9,18 @@ $(document).ready(function () {
       customer[key] = value;
     });
 
-    $.post("/payer/save", customer, function (response) {
+    var redirect;
+
+    if ($(this).find(".js-customer-id").val()) {
+      redirect = "/customer/update";
+    } else {
+      redirect = "/customer/save";
+    }
+
+    $.post(redirect, customer, function (response) {
       console.log(response);
       if (response.success) {
-        window.location.href = "/payer/";
+        window.location.href = "/customer";
       } else {
         alert("Houve um erro");
       }

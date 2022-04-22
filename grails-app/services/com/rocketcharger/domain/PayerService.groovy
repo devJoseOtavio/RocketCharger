@@ -3,10 +3,30 @@ package com.rocketcharger.domain
 import com.rocketcharger.domain.payer.Payer
 
 class PayerService {
+
     def save(Map params) {
         Payer payer = new Payer(params)
-        payer.name = params.name
         payer.save(failOnError: true)
-        return payer
+       }
+        
+    def getPayer(Integer id){
+         return Payer.get(id)
+    }
+
+    def update(Map params){
+        if (params.id) {
+            Payer payer = Payer.get(params.int("id"))
+            payer.name = params.name
+            payer.email = params.email
+            payer.cpfCnpj = params.cpfCnpj
+            payer.postalCode = params.postalCode
+            payer.address = params.address
+            payer.province = params.province
+            payer.city = params.city
+            payer.state = params.state
+            payer.save(flush: true, failOnError: true)
+       } else {
+            throw new Exception("Erro ao realizar edição")
+       }
     }
 }
