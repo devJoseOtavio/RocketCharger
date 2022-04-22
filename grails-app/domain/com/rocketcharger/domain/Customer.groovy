@@ -1,17 +1,19 @@
-package com.rocketcharger.domain
+package com.rocketcharger.domain.customer
 
 class Customer {
 
     String name
-    String cpf
     String email
+    String cpfCnpj
     String postalCode
-    String adress
+    String address
+    String province
     String city
     String state
+    
+     static constraints = {
+        name size: 3..100, nulllable: true
+        email size: 5..100, nulllable: true
 
-    static constraints = {
-        nome size: 5..150
-        email size: 5..120
     }
 }
