@@ -22,6 +22,12 @@
           <td>${customer.province}</td>
           <td>${customer.city}</td>
           <td>${customer.state}</td>
+            <td>
+              <a
+                href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}"
+                >Editar dados</a
+              >
+            </td>
         </tr>
     </a>
         </g:each>

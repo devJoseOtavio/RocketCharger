@@ -25,4 +25,17 @@ class CustomerController {
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
+
+    def update() {
+       try {
+            customerService.update(params)
+            render([success: true] as JSON)
+        } catch(Exception e) {
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+        } 
+    }
+
+    def show() {
+        return [customer: customerService.getCustomer(params.int("id"))]
+    }
  }
