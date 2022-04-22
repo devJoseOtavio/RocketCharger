@@ -12,7 +12,6 @@
     <div id="divLista">
         <g:render template="list" model="[payerList: payerList]"></g:render>
     </div>
-
     <div id="divForm"></div>
 
 </body>

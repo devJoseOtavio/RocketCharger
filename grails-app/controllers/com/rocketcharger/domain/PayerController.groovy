@@ -11,18 +11,30 @@ class PayerController {
 
     def index() {  
        return [payerList: Payer.getAll()]
-  
     }
 
     def create() {
     }
 
-    def save () {
+     def save() {
         try {
             payerService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Ocorreu um erro"] as JSON)
+            render([success: false, message: "Erro ao tentar salvar"] as JSON)
         } 
+    }
+
+    def update() {
+        try {
+            payerService.update(params)
+            render([success: true] as JSON)
+        } catch(Exception e) {
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+        } 
+    }
+
+    def show() {
+         return [payer: payerService.getPayer(params.int("id"))]
     }
 }

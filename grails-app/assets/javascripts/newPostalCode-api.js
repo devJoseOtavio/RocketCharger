@@ -23,6 +23,5 @@ function showAddress(data) {
     province.value = `${data.bairro}`;
     state.value = `${data.uf}`;
     city.value = `${data.localidade}`;
-    return;
   }
 }

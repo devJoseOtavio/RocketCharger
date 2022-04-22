@@ -1,20 +1,21 @@
-<html lang="pt-br">
-<head>
+<html>
+    <head>
     <title>Adicionar pagador</title>
     <asset:javascript src="application.js"/>
-</head>
+    </head>
+    <body>
         <form action="${ g.createLink(controller: 'payer', action: 'save') }"> 
-            <input type="text" name="name" placeholder="Ex: João Da Silva"><br>
-            <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ"><br>
-            <input type="text" name="email" placeholder="Ex: email@meuprovedor.com"><br>
-            <input type="text" name="postalCode" id="postalCode" placeholder="CEP"><br>
-            <input type="text" name="address" id="address" placeholder="Endereço"><br>
-            <input type="text" name="province" id="province" placeholder="Bairro"><br>
-            <input type="text" name="city" id="city" placeholder="Cidade"><br>
-            <input type="text" name="state" id="state" placeholder="Estado"><br>
-            <button type="submit">Salvar</button>
+            <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" required><br>
+            <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" required><br>
+            <input type="email" name="email" placeholder="Ex: email@meuprovedor.com" required><br>
+            <input type="text" name="postalCode" id="postalCode" placeholder="CEP" required><br>
+            <input type="text" name="address" id="address" placeholder="Endereço" required><br>
+            <input type="text" name="province" id="province" placeholder="Bairro" required><br>
+            <input type="text" name="city" id="city" placeholder="Cidade" required><br>
+            <input type="text" name="state" id="state" placeholder="Estado" required><br>
+            <button type="submit">Criar</button>
         </form>
-    <asset:javascript src="payerCreateSave/payerCreateSave.js" />
-    <asset:javascript src="payerCreateSave/payerPostalCode-api.js" />
+    <asset:javascript src="payer/payerCreateSave.js" />
+    <asset:javascript src="newPostalCode-api.js" />
     </body>
 </html>
