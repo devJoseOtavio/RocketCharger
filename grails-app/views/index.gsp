@@ -1,77 +1,173 @@
-<!doctype html>
-<html>
-<head>
-    <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
-</head>
-<body>
-<content tag="nav">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-            <li class="dropdown-item"><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-            <li class="dropdown-item"><a href="#">App version:
-                <g:meta name="info.app.version"/></a>
-            </li>
-            <li role="separator" class="dropdown-divider"></li>
-            <li class="dropdown-item"><a href="#">Grails version:
-                <g:meta name="info.app.grailsVersion"/></a>
-            </li>
-            <li class="dropdown-item"><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-            <li class="dropdown-item"><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-            <li role="separator" class="dropdown-divider"></li>
-            <li class="dropdown-item"><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                <li class="dropdown-item"><a href="#">${plugin.name} - ${plugin.version}</a></li>
-            </g:each>
-        </ul>
-    </li>
-</content>
+  <head>
+        <script
+      src="https://kit.fontawesome.com/c8d140aaae.js"
+      crossorigin="anonymous"
+    ></script>
+   <meta name="layout" content="main">
+  <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
+  <asset:stylesheet src="index/style.css" />
+    <title>Cadastro RocketCharger</title>
+  </head>
 
-<div class="svg" role="presentation">
-    <div class="grails-logo-container">
-        <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-    </div>
-</div>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Crie sua conta, é grátis!</h2>
+        <asset:image src="rocketico.ico" alt="Imagem com a letra A e duas asas ao seus lados representando a logo em fundo azul e letra na cor branca" />
+      </div>
 
-<div id="content" role="main">
-    <section class="row colset-2-its">
-        <h1>Welcome to Grails</h1>
-
-        <p>
-            Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display
-            whatever content you may choose. Below is a list of controllers that are currently deployed in
-            this application, click on each to execute its default action:
-        </p>
-
-        <div id="controllers" role="navigation">
-            <h2>Available Controllers:</h2>
-            <ul>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                    <li class="controller">
-                        <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                    </li>
-                </g:each>
-            </ul>
+      <form autocomplete="off" class="form" >
+        <div class="form-control">
+          <label for="customerName">Nome Completo: *</label>
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Ex: João da Silva"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg"></small>
         </div>
-    </section>
-</div>
 
-</body>
+        <div class="form-control">
+          <label for="cpfCnpj">CPF/CNPJ *</label>
+          <input
+            type="number"
+            id="cpfCnpj"
+            name="cpfCnpj"
+            placeholder="Preencha seu CPF/CNPJ"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="cellphone">Seu Telefone com DDD *</label>
+          <input type="text" id="cellphone" name="cellphone" placeholder="Ex: 11 98765-1111" />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email"
+          placeholder="Ex: meuemail@provedor.com"/>
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="postalCode">CEP *</label>
+          <input
+            type="text"
+            id="postalCode"
+            name="postalCode"
+            placeholder="Digite o seu CEP"
+            maxlength="8"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="address">Endereço</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Digite o seu endereço residêncial"
+            disabled
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="houseNumber">Número *</label>
+          <input
+            type="text"
+            id="houseNumber"
+            name="houseNumber"
+            placeholder="Informe o número de sua residência"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="complement">Complemento</label>
+          <input
+            type="text"
+            id="complement"
+            name="complement"
+            placeholder="Informe um complemento (opcional)"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+        </div>
+
+        <div class="form-control">
+          <label for="province">Bairro *</label>
+          <input
+            type="text"
+            id="province"
+            name="province"
+            placeholder="Informe o seu bairro"
+            disabled
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="city">Cidade *</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Informe a sua cidade"
+            disabled
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <div class="form-control">
+          <label for="state">Estado *</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="Informe o seu estado"
+            disabled
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg
+          "></small>
+        </div>
+
+        <button type="submit" id="button">
+          <strong>Enviar formulário</strong>
+        </button>
+      </form>
+    </div>
+    <asset:javascript src="index/FormController.js"/>
+    <asset:javascript src="index/postalCodeApi.js"/>
+  </body>
 </html>
