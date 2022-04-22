@@ -14,13 +14,7 @@
     <g:layoutHead/>
 </head>
 <body>
-<<<<<<< HEAD
 <g:layoutBody/>
 <asset:javascript src="application.js"/>
-=======
-
-<g:layoutBody/>
-
->>>>>>> Adding-MVC
 </body>
 </html>
