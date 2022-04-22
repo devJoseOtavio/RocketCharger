@@ -2,11 +2,8 @@
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
-    <asset:javascript src="application.js"/>
-    <asset:stylesheet src="payer/edit.css" />
-    <asset:javascript src="payer/payerEdit.js" />
-    <asset:javascript src="payer/payerCreateSave.js" />  
 </head>
+    <asset:javascript src="application.js"/>
 <body>
     <form action="${ g.createLink(controller: 'payer', action: 'save') }" > 
         <input type="hidden" class="js-payer-id" name="id" value="1">
@@ -21,5 +18,10 @@
         <button class="js-editPayer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
     </form> 
+    
+    <asset:stylesheet src="payer/edit.css" />
+    <asset:javascript src="payer/payerEdit.js" />
+    <asset:javascript src="payer/payerCreateSave.js" /> 
+    <asset:javascript src="newPostalCode-api.js" />
 </body>
 </html>

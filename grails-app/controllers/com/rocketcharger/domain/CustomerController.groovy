@@ -27,12 +27,11 @@ class CustomerController {
     }
 
     def update() {
-         try {
-            customerService.save(params)
-            Map info = [customer: customerService.getCustomer(params.int("id"))]
-            render([success: true, html: g.render(template:"/customer/template/show/_form", model: info)] as JSON)
+       try {
+            customerService.update(params)
+            render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Ocorreu um erro"] as JSON)
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
         } 
     }
 

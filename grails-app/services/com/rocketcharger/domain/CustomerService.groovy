@@ -1,8 +1,9 @@
 package com.rocketcharger.domain
 
-import grails.gorm.transactions.*
 import com.rocketcharger.domain.customer.Customer
+import grails.gorm.transactions.Transactional 
 
+@Transactional
 class CustomerService {
 
      def save(Map params) {
@@ -10,12 +11,16 @@ class CustomerService {
          customer.save(failOnError: true)
      }
 
+      def index() {
+        return Customer.getAll()
+    }
+
     def getCustomer(Integer id){
         return Customer.get(id)
     }
 
     def update(Map params){
-         if (params.id) {
+        if (params.id) {
             Customer customer = Customer.get(params.int("id"))
             customer.name = params.name
             customer.email = params.email
@@ -29,5 +34,5 @@ class CustomerService {
        } else {
             throw new Exception("Erro ao realizar edição")
        }
-    }
+    } 
 }

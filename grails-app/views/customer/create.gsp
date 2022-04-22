@@ -15,7 +15,8 @@
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
             <button type="submit">Criar</button>
         </form>
+        
     <asset:javascript src="customer/customerCreateSave.js" />
-    <asset:javascript src="payer/payerPostalCode-api.js" />
+    <asset:javascript src="newPostalCode-api.js" />
     </body>
 </html>

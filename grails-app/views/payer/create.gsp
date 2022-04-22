@@ -1,8 +1,9 @@
-<html lang="pt-br">
-<head>
+<html>
+    <head>
     <title>Adicionar pagador</title>
     <asset:javascript src="application.js"/>
-</head>
+    </head>
+    <body>
         <form action="${ g.createLink(controller: 'payer', action: 'save') }"> 
             <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" required><br>
             <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" required><br>
@@ -15,6 +16,6 @@
             <button type="submit">Criar</button>
         </form>
     <asset:javascript src="payer/payerCreateSave.js" />
-    <asset:javascript src="payer/payerPostalCode-api.js" />
+    <asset:javascript src="newPostalCode-api.js" />
     </body>
 </html>

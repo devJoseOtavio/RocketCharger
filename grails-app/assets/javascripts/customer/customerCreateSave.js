@@ -20,9 +20,8 @@ $(document).ready(function () {
     $.post(redirect, customer, function (response) {
       console.log(response);
       if (response.success) {
-        window.location.href = "/customer";
-      } else {
-        alert("Houve um erro");
+        window.location.href = "/customer/index";
+        return;
       }
     });
   });

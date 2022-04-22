@@ -13,16 +13,15 @@
         <th>Estado</th>
     </tr>
     <g:each var="customer" in="${customerList}">
-     
         <tr>
-            <td>${customer.name} </td>
-            <td>${customer.email}</td>
-            <td>${customer.cpfCnpj}</td>
-            <td>${customer.postalCode}</td>
-            <td>${customer.address}</td>
-            <td>${customer.province}</td>
-            <td>${customer.city}</td>
-            <td>${customer.state}</td>
+          <td>${customer.name}</td>
+          <td>${customer.email}</td>
+          <td>${customer.cpfCnpj}</td>
+          <td>${customer.postalCode}</td>
+          <td>${customer.address}</td>
+          <td>${customer.province}</td>
+          <td>${customer.city}</td>
+          <td>${customer.state}</td>
             <td>
               <a
                 href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}"

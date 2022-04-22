@@ -4,8 +4,8 @@
       <table>
         <tr>
           <th>Nome</th>
-          <th>E-mail</th>
           <th>CPF/CNPJ</th>
+          <th>E-mail</th>
           <th>CEP</th>
           <th>Endereço</th>
           <th>Bairro</th>
@@ -15,8 +15,8 @@
         <g:each var="payer" in="${payerList}">
           <tr>
             <td>${payer.name}</td>
-            <td>${payer.email}</td>
             <td>${payer.cpfCnpj}</td>
+            <td>${payer.email}</td>
             <td>${payer.postalCode}</td>
             <td>${payer.address}</td>
             <td>${payer.province}</td>

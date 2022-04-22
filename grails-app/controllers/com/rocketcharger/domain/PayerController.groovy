@@ -16,18 +16,18 @@ class PayerController {
     def create() {
     }
 
-    def update(){
+     def save() {
         try {
-            payerService.update(params)
+            payerService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Ocorreu um erro aqui"] as JSON)
+            render([success: false, message: "Erro ao tentar salvar"] as JSON)
         } 
     }
 
-    def save() {
+    def update() {
         try {
-            payerService.save(params)
+            payerService.update(params)
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Erro ao tentar atualizar"] as JSON)
