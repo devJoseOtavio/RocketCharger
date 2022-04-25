@@ -1,28 +1,51 @@
-document.getElementById("postalCode").addEventListener("input", checkAddress);
+function postalCodeApi() {
+  var teste = this;
 
-function checkAddress() {
-  var postalCode = document.querySelector("#postalCode").value;
-  let correctPostalCodeLength = 8;
-  if (postalCode.length == correctPostalCodeLength) {
-    let url = `https://viacep.com.br/ws/${postalCode}/json/`;
+  document
+    .getElementById("postalCode")
+    .addEventListener("input", PostalCodeApi);
 
-    fetch(url).then(function (response) {
-      response.json().then(showAddress);
-    });
-  }
+  teste.getPostalCodeInfo = function (postalCode) {
+    var postalCode = document.querySelector("#postalCode").value;
+    let correctPostalCodeLength = 8;
+    if (postalCode.length == correctPostalCodeLength) {
+      let url = `https://viacep.com.br/ws/${postalCode}/json/`;
+
+      fetch(url).then(function (response) {
+        return response;
+      });
+    }
+  };
 }
 
-function showAddress(data) {
-  let address = document.querySelector("#address");
-  let province = document.querySelector("#province");
-  let state = document.querySelector("#state");
-  let city = document.querySelector("#city");
+var PostalCodeApi;
 
-  if (!data.erro) {
-    address.value = `${data.logradouro}`;
-    province.value = `${data.bairro}`;
-    state.value = `${data.uf}`;
-    city.value = `${data.localidade}`;
-    return;
-  }
-}
+$(document).ready(function () {
+  PostalCodeApi = new postalCodeApi();
+});
+
+PostalCodeApi.getPostalCodeInfo(postalCode);
+// function checkAddress() {
+//   var postalCode = document.querySelector("#postalCode").value;
+//   let correctPostalCodeLength = 8;
+//   if (postalCode.length == correctPostalCodeLength) {
+//     let url = `https://viacep.com.br/ws/${postalCode}/json/`;
+
+//     fetch(url).then(function (response) {
+//       response.json().then(showAddress);
+//     });
+//   }
+// }
+
+// function showAddress(data) {
+//   if (!data.erro) {
+//     let address = document.querySelector("#address");
+//     let district = document.querySelector("#district");
+//     let state = document.querySelector("#state");
+//     let city = document.querySelector("#city");
+//     address.value = `${data.logradouro}`;
+//     district.value = `${data.bairro}`;
+//     state.value = `${data.uf}`;
+//     city.value = `${data.localidade}`;
+//   }
+// }

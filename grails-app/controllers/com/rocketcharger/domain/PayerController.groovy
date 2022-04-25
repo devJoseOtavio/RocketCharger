@@ -11,11 +11,9 @@ class PayerController {
 
     def index() {  
        return [payerList: Payer.getAll()]
-  
     }
 
-    def create() {
-    }
+    def create() { }
 
     def save () {
         try {

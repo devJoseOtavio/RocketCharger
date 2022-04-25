@@ -19,7 +19,7 @@
             <td>${payer.cpfCnpj}</td>
             <td>${payer.postalCode}</td>
             <td>${payer.address}</td>
-            <td>${payer.province}</td>
+            <td>${payer.district}</td>
             <td>${payer.city}</td>
             <td>${payer.state}</td>
         </tr>

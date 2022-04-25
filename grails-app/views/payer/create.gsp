@@ -9,7 +9,7 @@
             <input type="text" name="email" placeholder="Ex: email@meuprovedor.com"><br>
             <input type="text" name="postalCode" id="postalCode" placeholder="CEP"><br>
             <input type="text" name="address" id="address" placeholder="Endereço"><br>
-            <input type="text" name="province" id="province" placeholder="Bairro"><br>
+            <input type="text" name="district" id="district" placeholder="Bairro"><br>
             <input type="text" name="city" id="city" placeholder="Cidade"><br>
             <input type="text" name="state" id="state" placeholder="Estado"><br>
             <button type="submit">Salvar</button>
