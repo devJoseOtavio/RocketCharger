@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   $(".js-editCustomer").on("click", function (e) {
     e.preventDefault();
-    $(this).addClass("hiddenBtn");
+    $(this).hide();
     $(".js-send-button").removeClass("hiddenBtn");
 
     inputsReference.each(function (i, input) {
@@ -11,3 +11,4 @@ $(document).ready(function () {
     });
   });
 });
+
