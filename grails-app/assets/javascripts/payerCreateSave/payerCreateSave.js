@@ -14,7 +14,7 @@ $(document).ready(function () {
       if (response.success) {
         window.location.href = "/payer/";
       } else {
-        alert("Houve um erro");
+        alert(response.message);
       }
     });
   });
