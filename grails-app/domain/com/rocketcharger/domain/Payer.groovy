@@ -9,8 +9,7 @@ class Payer {
     String address
     String district
     String city
-    String state-
-    
+    String state
     
      static constraints = {
     }

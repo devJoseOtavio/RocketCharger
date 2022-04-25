@@ -10,11 +10,10 @@ $(document).ready(function () {
     });
 
     $.post("/payer/save", customer, function (response) {
-      console.log(response);
       if (response.success) {
         window.location.href = "/payer/";
       } else {
-        alert("Houve um erro");
+        message: "deu ruim";
       }
     });
   });
