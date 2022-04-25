@@ -31,7 +31,7 @@ function showAddress(data) {
     return;
   }
 
-  setErrorFor(postalCode, "Não foi possível localizar o endereço"),
+  setErrorFor(postalCode, "Não foi possível localizar o endereço")
     (address.value = "");
   province.value = "";
   state.value = "";
