@@ -27,7 +27,7 @@ class PayerService {
             payer.cpfCnpj = params.cpfCnpj
             payer.postalCode = params.postalCode
             payer.address = params.address
-            payer.province = params.province
+            payer.district = params.district
             payer.city = params.city
             payer.state = params.state
             payer.save(flush: true, failOnError: true)
