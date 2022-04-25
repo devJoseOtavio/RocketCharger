@@ -14,7 +14,8 @@
     <g:layoutHead/>
 </head>
 <body>
+
 <g:layoutBody/>
-<asset:javascript src="application.js"/>
+
 </body>
 </html>
