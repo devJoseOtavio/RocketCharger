@@ -28,7 +28,6 @@ function showAddress(data) {
     district.value = `${data.bairro}`;
     state.value = `${data.uf}`;
     city.value = `${data.localidade}`;
-    return;
   }
 
   setErrorFor(postalCode, "Não foi possível localizar o endereço"),
