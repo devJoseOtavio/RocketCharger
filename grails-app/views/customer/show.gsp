@@ -21,6 +21,6 @@
     <asset:stylesheet src="customer/show.css" />
     <asset:javascript src="customer/customerEdit.js" />
     <asset:javascript src="customer/customerCreateSave.js" />
-    <asset:javascript src="newPostalCode-api.js" />
+    <asset:javascript src="newPostalCodeApi.js" />
     </body>
 </html>
