@@ -20,7 +20,7 @@ $(document).ready(function () {
     $.post(redirect, customer, function (response) {
       console.log(response);
       if (response.success) {
-        window.location.href = "/customer/index";
+        window.location.href = "/customer";
         return;
       }
     });
