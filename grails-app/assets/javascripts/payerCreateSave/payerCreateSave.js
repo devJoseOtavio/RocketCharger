@@ -13,7 +13,7 @@ $(document).ready(function () {
       if (response.success) {
         window.location.href = "/payer/";
       } else {
-        message: "deu ruim";
+        alert(response.message);
       }
     });
   });
