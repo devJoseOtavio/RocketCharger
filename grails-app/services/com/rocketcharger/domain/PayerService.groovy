@@ -12,7 +12,7 @@ class PayerService {
        }
 
     def index() {
-        return Payer.getAll()
+            return Payer.getAll()
     }
         
     def getPayer(Integer id){
@@ -31,6 +31,7 @@ class PayerService {
             payer.city = params.city
             payer.state = params.state
             payer.save(flush: true, failOnError: true)
+            return payer
        } else {
             throw new Exception("Erro ao realizar edição")
        }
