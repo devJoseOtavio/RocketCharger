@@ -9,15 +9,9 @@ $(document).ready(function () {
       customer[key] = value;
     });
 
-    var redirect;
+    var url = $("form").prop("action");
 
-    if ($(this).find(".js-customer-id").val()) {
-      redirect = "/customer/update";
-    } else {
-      redirect = "/customer/save";
-    }
-
-    $.post(redirect, customer, function (response) {
+    $.post(url, customer, function (response) {
       console.log(response);
       if (response.success) {
         window.location.href = "/customer";
