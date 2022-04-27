@@ -12,7 +12,7 @@ class PayerService {
        }
 
     def index() {
-            return Payer.getAll()
+        return Payer.getAll()
     }
         
     def getPayer(Integer id){

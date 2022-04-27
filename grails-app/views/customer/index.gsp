@@ -19,10 +19,5 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:table collection="${customerList}" />
-
-            <div class="pagination">
-                <g:paginate total="${customerCount ?: 0}" />
-            </div>
-        </div>
     </body>
 </html>
