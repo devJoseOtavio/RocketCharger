@@ -7,10 +7,16 @@ import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 
 class PayerController {
+
     def payerService
 
-    def index() {  
-       return [payerList: Payer.getAll()]
+    def index() {
+        return [payerList: Payer.list(max: 2, offset: getCurrentPage()), totalCount: Payer.count()]
+    }
+
+    private Integer getCurrentPage() {
+        if(!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
     }
 
     def create() { }
