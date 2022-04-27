@@ -5,7 +5,7 @@
     </head>
     <body>
    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"
-         action="${ g.createLink(controller: 'customer', action: 'save') }" > 
+         action="${ g.createLink(controller: 'customer', action: 'update') }" > 
         <input type="hidden" class="js-customer-id" name="id" value='${customer?.id}'>
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${ customer?.name}" readonly><br>
         <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${ customer?.cpfCnpj}" readonly><br>
@@ -19,6 +19,7 @@
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
     </form> 
     <asset:stylesheet src="customer/show.css" />
+    <asset:javascript src="customer/customerCreateUpdate.js" />
     <asset:javascript src="customer/customerEdit.js" />
     <asset:javascript src="customer/customerCreateSave.js" />
     </body>
