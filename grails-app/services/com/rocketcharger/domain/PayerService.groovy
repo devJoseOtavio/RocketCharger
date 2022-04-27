@@ -12,7 +12,11 @@ class PayerService {
        }
 
     def index() {
+<<<<<<< HEAD
         return Payer.getAll()
+=======
+            return Payer.getAll()
+>>>>>>> 1fce4c2aad4b0e7358d7fa8d0387741786479bfc
     }
         
     def getPayer(Integer id){
@@ -27,10 +31,18 @@ class PayerService {
             payer.cpfCnpj = params.cpfCnpj
             payer.postalCode = params.postalCode
             payer.address = params.address
+<<<<<<< HEAD
             payer.province = params.province
             payer.city = params.city
             payer.state = params.state
             payer.save(flush: true, failOnError: true)
+=======
+            payer.district = params.district
+            payer.city = params.city
+            payer.state = params.state
+            payer.save(flush: true, failOnError: true)
+            return payer
+>>>>>>> 1fce4c2aad4b0e7358d7fa8d0387741786479bfc
        } else {
             throw new Exception("Erro ao realizar edição")
        }

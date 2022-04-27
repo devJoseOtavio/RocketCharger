@@ -13,8 +13,7 @@ class PayerController {
        return [payerList: Payer.getAll()]
     }
 
-    def create() {
-    }
+    def create() { }
 
      def save() {
         try {

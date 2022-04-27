@@ -12,7 +12,7 @@ function checkAddress() {
 
 function showAddress(data) {
   let address = document.querySelector("#address");
-  let province = document.querySelector("#province");
+  let district = document.querySelector("#district");
   let state = document.querySelector("#state");
   let city = document.querySelector("#city");
   let complement = document.getElementById("complement");
@@ -20,20 +20,19 @@ function showAddress(data) {
   if (!data.erro) {
     setSucessFor(postalCode),
       setSucessFor(address),
-      setSucessFor(province),
+      setSucessFor(district),
       setSucessFor(state),
       setSucessFor(city),
       setSucessFor(complement);
     address.value = `${data.logradouro}`;
-    province.value = `${data.bairro}`;
+    district.value = `${data.bairro}`;
     state.value = `${data.uf}`;
     city.value = `${data.localidade}`;
-    return;
   }
 
   setErrorFor(postalCode, "Não foi possível localizar o endereço")
     (address.value = "");
-  province.value = "";
+  district.value = "";
   state.value = "";
   city.value = "";
 }
