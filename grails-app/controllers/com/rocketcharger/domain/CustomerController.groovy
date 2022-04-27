@@ -11,7 +11,12 @@ class CustomerController {
 
      
    def index() {  
-        return [customerList: Customer.getAll()]
+        return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
+    }
+
+    private Integer getCurrentPage() {
+        if(!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
     }
 
     def create() {
