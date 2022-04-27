@@ -14,7 +14,7 @@ $(document).ready(function () {
     $.post(url, customer, function (response) {
       console.log(response);
       if (response.success) {
-        window.location.href = "/customer";
+        window.location.href = $("form").data("redirect-url");
         return;
       }
     });
