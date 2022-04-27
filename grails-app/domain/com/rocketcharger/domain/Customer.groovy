@@ -11,6 +11,5 @@ class Customer {
     String city
     String state
     
-     static constraints = {
-    }
+     static constraints = {}
 }
