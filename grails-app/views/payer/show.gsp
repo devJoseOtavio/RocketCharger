@@ -1,12 +1,12 @@
-
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
 </head>
     <asset:javascript src="application.js"/>
 <body>
-    <form action="${ g.createLink(controller: 'payer', action: 'save') }" > 
-        <input type="hidden" class="js-payer-id" name="id" value="1">
+    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }" 
+          action="${ g.createLink(controller: 'payer', action: 'update') }" >
+        <input type="hidden" class="js-payer-id" name="id" value="${payer.id}">
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${ payer.name}" readonly><br>
         <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${ payer.cpfCnpj}" readonly><br>
         <input type="email" name="email" placeholder="Ex: email@meuprovedor.com" value="${ payer.email}" readonly><br>
@@ -18,7 +18,7 @@
         <button class="js-editPayer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
     </form> 
-    
+
     <asset:stylesheet src="payer/edit.css" />
     <asset:javascript src="payer/payerEdit.js" />
     <asset:javascript src="payer/payerCreateSave.js" /> 
