@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <meta name="layout" content="main">
@@ -14,7 +15,7 @@
         <g:render template="list" model="[payerList: payerList]"></g:render>
     </div>
     <div id="divForm"></div>
-  <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="2" />
+    <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="2" />
 
 </body>
 </html>
