@@ -1,4 +1,6 @@
 package com.rocketcharger.domain.payer
+import grails.gorm.services.Join   
+
 
 class Payer {
 
@@ -10,6 +12,7 @@ class Payer {
     String district
     String city
     String state
+    Customer customer
     
      static constraints = {}
 }

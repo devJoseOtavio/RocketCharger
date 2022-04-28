@@ -11,6 +11,7 @@
           <th>Bairro</th>
           <th>Cidade</th>
           <th>Estado</th>
+          <th>Customer</th>
         </tr>
         <g:each var="payer" in="${payerList}">
           <tr>
@@ -22,6 +23,7 @@
             <td>${payer.district}</td>
             <td>${payer.city}</td>
             <td>${payer.state}</td>
+            <td>${customer.id}</td>
             <td>
               <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>editar dados</g:link>
             </td>

@@ -4,7 +4,7 @@
         <asset:javascript src="application.js"/>
     </head>
     <body>
-   <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"
+   <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'index') }"
          action="${ g.createLink(controller: 'customer', action: 'update') }" > 
         <input type="hidden" class="js-customer-id" name="id" value='${customer?.id}'>
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${ customer?.name}" readonly><br>

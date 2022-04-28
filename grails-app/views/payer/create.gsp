@@ -4,6 +4,10 @@
     <asset:javascript src="application.js"/>
     </head>
     <body>
+    <g:select name="user.company.id"
+          from="${customer.list()}"
+          value="${form?.customer.id}"
+          optionKey="id" />
         <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"
               action="${ g.createLink(controller: 'payer', action: 'save') }"> 
             <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" required><br>
