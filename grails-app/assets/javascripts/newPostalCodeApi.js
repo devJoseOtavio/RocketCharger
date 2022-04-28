@@ -16,14 +16,5 @@ function getCep() {
 
 document.getElementById('postalCode').addEventListener('focusout', getCep);
 
-document.querySelector("#form").addEventListener("submit", function(event) {
-  event.preventDefault();
-  
-  var customer = {}
-  var form = document.querySelector("form")
-  var data = new FormData(form)
-  data.forEach(function(value, key){
-      customer[key] = value;
-  });  
-})
+
 
