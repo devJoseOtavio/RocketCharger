@@ -2,6 +2,7 @@
     <head>
         <title>Create customer</title>
         <asset:javascript src="application.js"/>
+        <asset:javascript src="applicationCustomer.js"/>
     </head>
     <body>
         <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'index') }" 
@@ -15,8 +16,7 @@
             <div><input type="text" name="city" id="city" placeholder="Cidade" required></div>
             <div><input type="text" name="state" id="state" placeholder="Estado" required></div>
             <button type="submit">Criar</button>
+            <button type="reset" class="js-cancel-button">Cancelar</button>
         </form>
-    <asset:javascript src="customer/customerCreateSave.js" />
-    <asset:javascript src="newPostalCodeApi.js" />
     </body>
 </html>

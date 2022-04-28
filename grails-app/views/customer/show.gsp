@@ -3,6 +3,7 @@
         <title>Create customer</title>
         <asset:stylesheet src="customer/show.css" />
         <asset:javascript src="application.js"/>
+        <asset:javascript src="applicationCustomer.js"/>
     </head>
     <body>
    <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'index') }"
@@ -18,9 +19,7 @@
         <div><input type="text" name="state" id="state" placeholder="Estado"value="${ customer?.state}" readonly></div>
         <button class="js-editCustomer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <button type="reset" class="js-cancel-button">Cancelar</button>
     </form> 
-    <asset:javascript src="customer/customerCreateUpdate.js" />
-    <asset:javascript src="customer/customerEdit.js" />
-    <asset:javascript src="customer/customerCreateSave.js" />
     </body>
 </html>
