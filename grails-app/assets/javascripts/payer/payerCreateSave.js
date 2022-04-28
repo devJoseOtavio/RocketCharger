@@ -14,7 +14,6 @@ $(document).ready(function () {
     $.post(url, payer, function (response) {
       if (response.success) {
         window.location.href = $("form").data("redirect-url");
-        return;
       }
     });
   });

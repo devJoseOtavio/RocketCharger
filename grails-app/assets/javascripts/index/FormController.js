@@ -40,7 +40,7 @@ cellphone.addEventListener("input", (event) => {
 
 postalCode.addEventListener("input", (event) => {
   checkPostalCode();
-  checkAddress();
+  getPostalCode();
 });
 
 houseNumber.addEventListener("input", (event) => {
