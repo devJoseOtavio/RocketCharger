@@ -168,6 +168,6 @@
       </form>
     </div>
     <asset:javascript src="index/FormController.js"/>
-    <asset:javascript src="index/postalCode-api.js"/>
+    <asset:javascript src="index/postalCodeApi.js"/>
   </body>
 </html>
