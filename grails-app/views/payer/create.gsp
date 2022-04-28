@@ -2,7 +2,6 @@
 <head>
     <meta name="layout" content="main">
         <title>Adicionar pagador</title>
-    <asset:javascript src="application.js"/>
 </head>
             <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"
                   action="${ g.createLink(controller: 'payer', action: 'save') }">  
@@ -17,6 +16,6 @@
             <button type="submit">Salvar</button>
         </form>
     <asset:javascript src="payer/payerCreateSave.js" />
-    <asset:javascript src="payer/payerPostalCode-api.js" />
+    <asset:javascript src= "utils/postalCodeApi.js" />
     </body>
 </html>

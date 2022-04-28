@@ -3,9 +3,9 @@
       src="https://kit.fontawesome.com/c8d140aaae.js"
       crossorigin="anonymous"
     ></script>
-   <meta name="layout" content="main">
   <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
   <asset:stylesheet src="index/style.css" />
+  <asset:javascript src="application.js"/>
     <title>Cadastro RocketCharger</title>
   </head>
 
@@ -168,6 +168,6 @@
       </form>
     </div>
     <asset:javascript src="index/FormController.js"/>
-    <asset:javascript src="index/postalCodeApi.js"/>
+    <asset:javascript src="utils/postalCodeApi.js"/>
   </body>
 </html>

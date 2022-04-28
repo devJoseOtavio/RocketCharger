@@ -20,3 +20,5 @@ function getPostalCode() {
       });
   }
 }
+
+document.getElementById("postalCode").addEventListener("input", getPostalCode);
