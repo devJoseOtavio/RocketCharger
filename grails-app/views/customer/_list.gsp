@@ -25,6 +25,9 @@
             <td>
              <g:link controller="customer" action="show" update="divForm" id='${customer.id}'>editar dados</g:link>
             </td>
+                        <td>
+             <g:link controller="payer" action="create" update="divForm" id='${customer.id}'>criar payer dados</g:link>
+            </td>
         </tr>
     </a>
         </g:each>

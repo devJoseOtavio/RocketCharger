@@ -23,10 +23,7 @@
             <td>${payer.city}</td>
             <td>${payer.state}</td>
             <td>
-              <a
-                href="${ g.createLink(controller: 'payer', action: 'show', id: payer.id)}"
-                >Editar pagador</a
-              >
+              <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>editar dados</g:link>
             </td>
           </tr>
         </g:each>
