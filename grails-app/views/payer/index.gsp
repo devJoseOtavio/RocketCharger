@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+<meta name="layout" content="main">
 <head>
     <title>Gerenciamento de pagamentos</title>
 </head>
