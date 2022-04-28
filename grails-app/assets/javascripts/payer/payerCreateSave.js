@@ -3,17 +3,17 @@ $(document).ready(function () {
     e.preventDefault();
 
     var data = new FormData(document.querySelector("form"));
-    var customer = {};
+    var payer = {};
 
     data.forEach(function (value, key) {
-      customer[key] = value;
+      payer[key] = value;
     });
 
-    $.post("/payer/save", customer, function (response) {
+    var url = $("form").prop("action");
+
+    $.post(url, payer, function (response) {
       if (response.success) {
-        window.location.href = "/payer/";
-      } else {
-        alert(response.message);
+        window.location.href = $("form").data("redirect-url");
       }
     });
   });

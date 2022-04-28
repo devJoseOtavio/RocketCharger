@@ -1,14 +1,3 @@
-document.getElementById("postalCode").addEventListener("input", getPostalCode);
-document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  var customer = {};
-  var form = document.querySelector("form");
-  var data = new FormData(form);
-  data.forEach(function (value, key) {
-    customer[key] = value;
-  });
-});
-
 function getPostalCode() {
   var postalCode = document.querySelector("#postalCode").value;
   var correctPostalCodeLength = 8;

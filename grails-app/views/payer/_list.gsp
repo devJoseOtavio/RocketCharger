@@ -12,7 +12,7 @@
         <th>Cidade</th>
         <th>Estado</th>
     </tr>
-    <g:each var="payer" in="${payerList}">
+        <g:each var="payer" in="${payerList}">
         <tr>
             <td>${payer.name}</td>
             <td>${payer.email}</td>
