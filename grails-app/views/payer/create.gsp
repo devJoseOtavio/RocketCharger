@@ -2,7 +2,6 @@
 <html>
     <head>
     <title>Adicionar pagador</title>
-    <asset:javascript src="application.js"/>
     <asset:javascript src="applicationPayer.js"/>
     </head>
     <body>

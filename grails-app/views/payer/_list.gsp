@@ -13,7 +13,7 @@
           <th>Cidade</th>
           <th>Estado</th>
         </tr>
-        <g:each var="payer" in="${payerList}">
+          <g:each var="payer" in="${payerList}">
           <tr>
             <td>${payer.name}</td>
             <td>${payer.cpfCnpj}</td>
@@ -24,7 +24,7 @@
             <td>${payer.city}</td>
             <td>${payer.state}</td>
             <td>
-                <g:link controller="customer" action="show" update="divForm" id='${customer.id}'>editar dados</g:link>
+             <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Editar dados</g:link>
             </td>
           </tr>
         </g:each>

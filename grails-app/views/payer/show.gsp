@@ -3,7 +3,6 @@
 <head>
     <title>Gerenciamento de pagamentos</title>
      <asset:stylesheet src="payer/edit.css" />
-     <asset:javascript src="application.js"/>
      <asset:javascript src="applicationPayer.js"/>
 </head>
 <body>
