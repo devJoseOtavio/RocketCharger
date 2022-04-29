@@ -1,12 +1,15 @@
 package com.rocketcharger.domain
 
 import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 import grails.gorm.transactions.Transactional
 
 @Transactional
 class PayerService {
 
     def save(Map params) {
+        Customer customer = Customer.get(params.int('customerId'))
+        println(customer)
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
     }
