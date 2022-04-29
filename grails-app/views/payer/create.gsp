@@ -1,7 +1,8 @@
+
 <html>
     <head>
     <title>Adicionar pagador</title>
-    <asset:javascript src="application.js"/>
+    <asset:javascript src="applicationPayer.js"/>
     </head>
     <body>
     <g:select name="user.company.id"
@@ -18,9 +19,7 @@
             <input type="text" name="district" id="district" placeholder="Bairro" required><br>
             <input type="text" name="city" id="city" placeholder="Cidade" required><br>
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
-            <button type="submit">Criar</button>
+            <button type="submit">Salvar</button>
         </form>
-    <asset:javascript src="payer/payerCreateSave.js" />
-    <asset:javascript src="newPostalCodeApi.js" />
     </body>
 </html>

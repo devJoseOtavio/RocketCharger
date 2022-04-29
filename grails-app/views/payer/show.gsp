@@ -1,8 +1,9 @@
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
+     <asset:stylesheet src="payer/edit.css" />
+     <asset:javascript src="applicationPayer.js"/>
 </head>
-    <asset:javascript src="application.js"/>
 <body>
     <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }" 
           action="${ g.createLink(controller: 'payer', action: 'update') }" >
@@ -17,11 +18,7 @@
         <input type="text" name="state" id="state" placeholder="Estado"value="${ payer.state}" readonly><br>
         <button class="js-editPayer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <button type="reset" class="js-cancel-button" onclick="history.go(-1)">Cancelar</button>
     </form> 
-
-    <asset:stylesheet src="payer/edit.css" />
-    <asset:javascript src="payer/payerEdit.js" />
-    <asset:javascript src="payer/payerCreateSave.js" /> 
-    <asset:javascript src="newPostalCodeAzzzzpi.js" />
 </body>
 </html>

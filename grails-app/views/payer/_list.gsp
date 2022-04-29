@@ -1,7 +1,8 @@
+
 <html lang="pt-br">
-  <body>
-    <g:if test="${payerList?.size() > 0}">
-      <table>
+<body>
+<g:if test="${payerList?.size() > 0}">
+    <table>
         <tr>
           <th>Nome</th>
           <th>CPF/CNPJ</th>
@@ -13,7 +14,7 @@
           <th>Estado</th>
           <th>Customer</th>
         </tr>
-        <g:each var="payer" in="${payerList}">
+          <g:each var="payer" in="${payerList}">
           <tr>
             <td>${payer.name}</td>
             <td>${payer.cpfCnpj}</td>
@@ -25,7 +26,7 @@
             <td>${payer.state}</td>
             <td>${customer.id}</td>
             <td>
-              <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>editar dados</g:link>
+             <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Editar dados</g:link>
             </td>
           </tr>
         </g:each>
