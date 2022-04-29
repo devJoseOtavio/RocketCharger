@@ -17,6 +17,6 @@
             <button type="submit">Salvar</button>
         </form>
     <asset:javascript src="payer/payerCreateSave.js" />
-    <asset:javascript src="payer/payerPostalCode-api.js" />
+    <asset:javascript src="utils/postalCodeApi.js" />
     </body>
 </html>

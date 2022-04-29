@@ -17,4 +17,21 @@ $(document).ready(function () {
       }
     });
   });
+  var postalCode = document.getElementById("postalCode");
+  if (postalCode) {
+    postalCode.addEventListener("input", function () {
+      if (validatePostalCode(this.value)) {
+        getPostalCode(this.value, fillAddress);
+      }
+    });
+  }
+
+  function fillAddress(data) {
+    if (!data.erro) {
+      document.querySelector("#address").value = data.logradouro;
+      document.querySelector("#district").value = data.bairro;
+      document.querySelector("#city").value = data.localidade;
+      document.querySelector("#state").value = data.uf;
+    }
+  }
 });
