@@ -1,6 +1,6 @@
-package com.rocketcharger.domain.payer  
-import com.rocketcharger.domain.customer.Customer
+package com.rocketcharger.domain.payer
 
+import com.rocketcharger.domain.customer.Customer
 
 class Payer {
 
@@ -12,10 +12,8 @@ class Payer {
     String district
     String city
     String state
-    Customer customer
-    
-    static constraints = {}
+    // Customer customer
+
+    static constraints = { }
 
 }
-
-

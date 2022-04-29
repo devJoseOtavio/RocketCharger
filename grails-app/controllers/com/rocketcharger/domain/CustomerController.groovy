@@ -1,9 +1,8 @@
 package com.rocketcharger.domain
 
-import com.rocketcharger.domain.customer.Customer
-
-import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+
+import com.rocketcharger.domain.customer.Customer
 import grails.converters.JSON
 
 class CustomerController {
@@ -24,8 +23,8 @@ class CustomerController {
 
     def save() {
         try {
-            customerService.save(params)
-            render([success: true] as JSON)
+            Customer customer = customerService.save(params)
+            render([success: true, id: customer.id] as JSON)
         } catch (Exception e) {
             render([success: false, message: 'Ocorreu um erro'] as JSON)
         }
@@ -44,4 +43,8 @@ class CustomerController {
         return [customer: customerService.getCustomer(params.int('id'))]
     }
 
+    def customerPage() {
+    }
+
 }
+

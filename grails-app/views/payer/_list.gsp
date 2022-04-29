@@ -24,7 +24,6 @@
             <td>${payer.district}</td>
             <td>${payer.city}</td>
             <td>${payer.state}</td>
-            <td>${customer.id}</td>
             <td>
              <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Editar dados</g:link>
             </td>
