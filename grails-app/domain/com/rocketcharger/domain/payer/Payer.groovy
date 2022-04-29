@@ -1,5 +1,5 @@
-package com.rocketcharger.domain.payer
-import grails.gorm.services.Join   
+package com.rocketcharger.domain.payer  
+import com.rocketcharger.domain.customer.Customer
 
 
 class Payer {
@@ -14,5 +14,8 @@ class Payer {
     String state
     Customer customer
     
-     static constraints = {}
+    static constraints = {}
+
 }
+
+

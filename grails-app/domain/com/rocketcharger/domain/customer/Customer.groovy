@@ -1,4 +1,5 @@
 package com.rocketcharger.domain.customer
+import com.rocketcharger.domain.payer.Payer
 
 class Customer {
 
@@ -10,6 +11,8 @@ class Customer {
     String province
     String city
     String state
-    
-     static constraints = {}
+
+    static hasMany = [payers: Payer]
+
+    static constraints = {}
 }
