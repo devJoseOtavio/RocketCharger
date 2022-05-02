@@ -14,7 +14,8 @@
             <input type="text" name="province" id="province" placeholder="Bairro" required><br>
             <input type="text" name="city" id="city" placeholder="Cidade" required><br>
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
-            <button type="submit">Criar</button>
+            <input hidden value="${customerId}" name="customer" id="customer">
+             <button type="submit">Criar</button>
         </form>
     <asset:javascript src="customer/customerCreateSave.js" />
     <asset:javascript src="newPostalCodeApi.js" />

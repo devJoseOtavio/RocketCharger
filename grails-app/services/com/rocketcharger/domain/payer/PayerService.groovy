@@ -9,7 +9,7 @@ class PayerService {
 
     def save(Map params) {
         Customer customer = Customer.get(params.int('customerId'))
-        println(customer)
+        println(params)
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
     }

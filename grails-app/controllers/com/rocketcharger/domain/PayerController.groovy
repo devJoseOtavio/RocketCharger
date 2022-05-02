@@ -4,7 +4,6 @@ import static org.springframework.http.HttpStatus.*
 
 import com.rocketcharger.domain.payer.Payer
 
-import com.rocketcharger.domain.customer.Customer
 import grails.converters.JSON
 
 class PayerController {
@@ -20,9 +19,9 @@ class PayerController {
         return Integer.valueOf(params.offset)
     }
 
-    def create() { 
-        Integer id = params.int("id")
-        return [customerId: id]
+    def create() {
+        println(params.int('id'))
+        return [customerId: params.int('id')]
     }
 
     def save() {
@@ -48,3 +47,5 @@ class PayerController {
     }
 
 }
+cus
+import com.rocketcharger.domain.cus.Payer
