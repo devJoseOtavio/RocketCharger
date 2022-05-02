@@ -4,7 +4,7 @@ import static org.springframework.http.HttpStatus.*
 
 import com.rocketcharger.domain.payer.Payer
 
-import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 import grails.converters.JSON
 
 class PayerController {
