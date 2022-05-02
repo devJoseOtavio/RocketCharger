@@ -20,7 +20,10 @@ class PayerController {
         return Integer.valueOf(params.offset)
     }
 
-    def create() { }
+    def create() { 
+        Integer id = params.int("id")
+        return [customerId: id]
+    }
 
     def save() {
         try {

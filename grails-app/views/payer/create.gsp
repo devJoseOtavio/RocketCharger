@@ -15,6 +15,7 @@
             <input type="text" name="district" id="district" placeholder="Bairro" required><br>
             <input type="text" name="city" id="city" placeholder="Cidade" required><br>
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
+            <input hidden value=" ${ customerId}" name="customer" id="customer">
             <button type="submit">Salvar</button>
         </form>
     </body>

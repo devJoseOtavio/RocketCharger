@@ -19,6 +19,7 @@ class CustomerController {
     }
 
     def create() {
+
     }
 
     def save() {

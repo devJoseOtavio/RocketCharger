@@ -17,10 +17,14 @@
         <input type="text" name="state" id="state" placeholder="Estado"value="${ customer?.state}" readonly><br>
         <button class="js-editCustomer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <%-- <a href=" ${ g.createLink(controller: 'payer', action:'create', params: [id: customer.id]]) }">teste</a> --%>
+        <a href=" ${ g.createLink(controller: 'payer', action:'index', params: [id: customer?.id]]) }">teste</a>
+        
     </form> 
     <asset:stylesheet src="customer/show.css" />
-    <asset:javascript src="customer/customerCreateUpdate.js" />
     <asset:javascript src="customer/customerEdit.js" />
     <asset:javascript src="customer/customerCreateSave.js" />
     </body>
 </html>
+
+
