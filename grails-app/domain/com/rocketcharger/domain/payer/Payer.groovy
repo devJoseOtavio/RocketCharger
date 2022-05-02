@@ -12,7 +12,7 @@ class Payer {
     String district
     String city
     String state
-    // Customer customer
+    Customer customer
 
     static constraints = { }
 
