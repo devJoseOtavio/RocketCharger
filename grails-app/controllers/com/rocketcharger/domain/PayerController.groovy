@@ -3,6 +3,7 @@ package com.rocketcharger.domain
 import static org.springframework.http.HttpStatus.*
 
 import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 
 import grails.converters.JSON
 
@@ -11,7 +12,12 @@ class PayerController {
     def payerService
 
     def index() {
-        return [payerList: Payer.list(max: 2, offset: getCurrentPage()), totalCount: Payer.count()]
+        Integer customerId = params.int("id")
+        def payerCriteria = Payer.createCriteria()
+        def payerList = payerCriteria.list(max: 10, offset: getCurrentPage()) {
+        like("customer", Customer.get(customerId))
+        }
+        [payerList: payerList, totalCount: Payer.count()]
     }
 
     private Integer getCurrentPage() {
@@ -47,5 +53,4 @@ class PayerController {
     }
 
 }
-cus
-import com.rocketcharger.domain.cus.Payer
+

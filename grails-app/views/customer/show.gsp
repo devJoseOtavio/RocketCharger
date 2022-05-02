@@ -17,9 +17,7 @@
         <input type="text" name="state" id="state" placeholder="Estado"value="${ customer?.state}" readonly><br>
         <button class="js-editCustomer">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
-        <a href=" ${ g.createLink(controller: 'payer', action:'index', params: [id: customer.id]) }">teste</a>
-        <%-- ${ g.createLink(controller: 'payer', action:'index', params: [id: customer?.id]]) } --%>
-        
+        <a href=" ${ g.createLink(controller: 'payer', action:'create', params: [id: customer.id]) }">teste</a>   
     </form> 
     <asset:stylesheet src="customer/show.css" />
     <asset:javascript src="customer/customerEdit.js" />
