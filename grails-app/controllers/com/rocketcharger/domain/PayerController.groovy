@@ -26,7 +26,7 @@ class PayerController {
     }
 
     def create() {
-        println(params.int('id'))
+       
         return [customerId: params.int('id')]
     }
 
