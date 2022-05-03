@@ -19,10 +19,10 @@
           <td>${customer.cpfCnpj}</td>
           <td>${customer.postalCode}</td>
           <td>${customer.address}</td>
-          <td>${customer.province}</td>
+          <td>${customer.district}</td>
           <td>${customer.city}</td>
           <td>${customer.state}</td>
-            <td>
+            <td> 
              <g:link controller="customer" action="show" update="divForm" id='${customer.id}'>editar dados</g:link>
             </td>
         </tr>

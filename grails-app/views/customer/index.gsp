@@ -14,7 +14,6 @@
     </div>
     <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" />
     <div id="divForm"></div>
-    <a href="/payer">Meus Clientes</a>
 
 </body>
 </html>

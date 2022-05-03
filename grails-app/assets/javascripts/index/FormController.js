@@ -8,13 +8,12 @@ const address = document.getElementById("address");
 const houseNumber = document.getElementById("houseNumber");
 const birthDate = document.getElementById("birthDate");
 const complement = document.getElementById("complement");
-const province = document.getElementById("province");
+const district = document.getElementById("district");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
 const correctCpfLength = 11;
 const correctCnpjLength = 14;
 const correctCellphoneLength = 11;
-const correctPostalCodeLength = 8;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -38,9 +37,9 @@ cellphone.addEventListener("input", (event) => {
   checkCellphone();
 });
 
-postalCode.addEventListener("input", (event) => {
+postalCode.addEventListener("submit", (event) => {
   checkPostalCode();
-  checkAddress();
+  validatePostalCode();
 });
 
 houseNumber.addEventListener("input", (event) => {
@@ -128,8 +127,6 @@ function checkPostalCode() {
   let postalCodeValue = postalCode.value;
   if (!postalCodeValue) {
     setErrorFor(postalCode, "Favor informar o CEP!");
-  } else if (postalCodeValue.length !== correctPostalCodeLength) {
-    setErrorFor(postalCode, "O CEP informado está incorreto");
   } else {
     setSucessFor(postalCode);
   }
@@ -174,6 +171,38 @@ function checkInput() {
     customerName.focus();
   }
 }
+
+document.getElementById("postalCode").addEventListener("input", function () {
+  if (validatePostalCode(this.value)) {
+    getPostalCode(this.value, fillAddress);
+  }
+});
+
+function fillAddress(data) {
+  if (!data.erro) {
+    setSucessFor(postalCode);
+    setSucessFor(address);
+    setSucessFor(district);
+    setSucessFor(state);
+    setSucessFor(city);
+    setSucessFor(complement);
+    document.querySelector("#address").value = data.logradouro;
+    document.querySelector("#district").value = data.bairro;
+    document.querySelector("#city").value = data.localidade;
+    document.querySelector("#state").value = data.uf;
+  } else {
+    setErrorFor(postalCode, "Não foi possível localizar o endereço");
+    address.value = "";
+    district.value = "";
+    state.value = "";
+    city.value = "";
+    document.querySelector("#address").value = "";
+    document.querySelector("#district").value = "";
+    document.querySelector("#city").value = "";
+    document.querySelector("#state").value = "";
+  }
+}
+
 function setSucessFor(input) {
   let formControl = input.parentElement;
 
