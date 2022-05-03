@@ -3,12 +3,14 @@
     <g:if test="${paymentList?.size() > 0}">
       <table>
         <tr>
+          <th>Valor da Cobrançã</th>
           <th>Tipo de Pagamento</th>
           <th>status</th>
           <th>Data de Vencimento</th>
         </tr>
         <g:each var="payment" in="${paymentList}">
           <tr>
+            <td>${payment.value}</td>
             <td>${payment.billingType}</td>
             <td>${payment.status}</td>
             <td>${payment.dueDate}</td>
