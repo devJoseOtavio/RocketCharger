@@ -16,6 +16,7 @@
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
             <input hidden value="${customerId}" name="customer" id="customer">
             <button type="submit">Criar</button>
+            <button type="reset" class="js-cancel-button">Cancelar</button>
         </form>
     </body>
 </html>
