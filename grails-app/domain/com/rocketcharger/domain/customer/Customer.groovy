@@ -7,7 +7,7 @@ class Customer {
     String cpfCnpj
     String postalCode
     String address
-    String province
+    String district
     String city
     String state
 

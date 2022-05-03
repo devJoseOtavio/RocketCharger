@@ -9,7 +9,7 @@ class CustomerService {
      def save(Map params) {
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
-         return customer
+
      }
 
       def index() {
@@ -28,7 +28,7 @@ class CustomerService {
             customer.cpfCnpj = params.cpfCnpj
             customer.postalCode = params.postalCode
             customer.address = params.address
-            customer.province = params.province
+            customer.district = params.district
             customer.city = params.city
             customer.state = params.state
             customer.save(flush: true, failOnError: true)
@@ -37,5 +37,8 @@ class CustomerService {
         }
     }
 
+    def customerPage() { 
+        Customer customer = Customer.get(params.int('customerId'))
+      }
 }
 
