@@ -14,19 +14,20 @@ $(document).ready(function () {
     $.post(url, payer, function (response) {
       if (!response.success) {
         alert(`Erro ao realizar requisição, contate o administrador.`)
+        return;
       }
       window.location.href = $("form").data("redirect-url");
-    });
+    }); 
   });
 
   var postalCode = document.getElementById("postalCode");
-  if (postalCode) {
-    postalCode.addEventListener("input", function () {
-      if (validatePostalCode(this.value)) {
-        getPostalCode(this.value, fillAddress);
-      }
-    });
-  }
+
+  postalCode.addEventListener("input", function () {
+    if (!postalCode) {
+      return;
+    }
+    validatePostalCode(this.value), getPostalCode(this.value, fillAddress);
+  });
 
   function fillAddress(data) {
       document.querySelector("#address").value = data.logradouro ? data.logradouro :  "";
@@ -38,3 +39,4 @@ $(document).ready(function () {
         }
   }
 });
+
