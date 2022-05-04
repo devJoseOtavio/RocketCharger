@@ -12,11 +12,10 @@ $(document).ready(function () {
     var url = $("form").prop("action");
 
     $.post(url, payer, function (response) {
-      if (response.success) {
-        window.location.href = $("form").data("redirect-url");
-        return;
+      if (!response.success) {
+        alert(`Erro ao realizar requisição, contate o administrador.`)
       }
-      alert(`Erro ao realizar requisição, contate o administrador.`)
+      window.location.href = $("form").data("redirect-url");
     });
   });
 
