@@ -10,7 +10,7 @@
             <input type="email" name="email" placeholder="Ex: email@meuprovedor.com" required><br>
             <input type="text" name="postalCode" id="postalCode" placeholder="CEP" required><br>
             <input type="text" name="address" id="address" placeholder="Endereço" required><br>
-            <input type="text" name="province" id="province" placeholder="Bairro" required><br>
+            <input type="text" name="district" id="district" placeholder="Bairro" required><br>
             <input type="text" name="city" id="city" placeholder="Cidade" required><br>
             <input type="text" name="state" id="state" placeholder="Estado" required><br>
             <button type="submit">Criar</button>
