@@ -17,6 +17,7 @@
         </form>
         
     <asset:javascript src="customer/customerCreateSave.js" />
-    <asset:javascript src="newPostalCode-api.js" />
+    <asset:javascript src="postalCodeApi.js" />
+    <asset:javascript src="customer/getPostalCode.js" />
     </body>
 </html>
