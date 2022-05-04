@@ -18,11 +18,11 @@ $(document).ready(function () {
     }
 
     $.post(redirect, customer, function (response) {
-      console.log(response);
-      if (response.success) {
+      if (!response.success) {
+          alert('Erro ao realizar requisiao, contate o adiministrador')
+      }
         window.location.href = "/customer/index";
         return;
-      }
     });
   });
 });

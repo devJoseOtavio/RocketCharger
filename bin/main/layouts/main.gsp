@@ -14,6 +14,8 @@
     <g:layoutHead/>
 </head>
 <body>
-    <g:layoutBody/>
+
+<g:layoutBody/>
+
 </body>
 </html>
