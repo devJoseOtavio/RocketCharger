@@ -1,28 +1,15 @@
-function getCep() {
-  let postalCode = document.getElementById('postalCode').value
+const validatePostalCode = function (postalCode) {
+    return /^[0-9]{8}$/.test(postalCode);
+  };
 
-  fetch(`https://viacep.com.br/ws/${postalCode}/json`).then(result => result.json()) 
-  .then(data => { 
-      if (!("erro" in data)) {
-          document.querySelector('#address').value = data.logradouro
-          document.querySelector('#province').value = data.bairro
-          document.querySelector('#city').value = data.localidade
-          document.querySelector('#state').value = data.uf
-      } else {
-          alert("CEP não encontrado");
-      }
-   })
-}
+  const postalCodeLength = 8;
 
-document.getElementById('postalCode').addEventListener('focusout', getCep);
-
-document.querySelector("#form").addEventListener("submit", function(event) {
-  event.preventDefault();
-  
-  var customer = {}
-  var form = document.querySelector("form")
-  var data = new FormData(form)
-  data.forEach(function(value, key){
-      customer[key] = value;
-  });  
-})
+  const getPostalCode = async (postalCode, callbackFunction) => {
+    if (postalCode.length !== postalCodeLength) {
+      return;
+    }
+    let url = `https://viacep.com.br/ws/${postalCode}/json`;
+    let dados = await fetch(url);
+    let data = await dados.json();
+    callbackFunction(data);
+  };
