@@ -12,26 +12,31 @@ $(document).ready(function () {
     var url = $("form").prop("action");
 
     $.post(url, payer, function (response) {
-      if (response.success) {
-        window.location.href = $("form").data("redirect-url");
+      if (!response.success) {
+        alert(`Erro ao realizar requisição, contate o administrador.`)
+        return;
       }
-    });
+      window.location.href = $("form").data("redirect-url");
+    }); 
   });
+
   var postalCode = document.getElementById("postalCode");
-  if (postalCode) {
-    postalCode.addEventListener("input", function () {
-      if (validatePostalCode(this.value)) {
-        getPostalCode(this.value, fillAddress);
-      }
-    });
-  }
+
+  postalCode.addEventListener("input", function () {
+    if (!postalCode) {
+      return;
+    }
+    validatePostalCode(this.value), getPostalCode(this.value, fillAddress);
+  });
 
   function fillAddress(data) {
-    if (!data.erro) {
-      document.querySelector("#address").value = data.logradouro;
-      document.querySelector("#district").value = data.bairro;
-      document.querySelector("#city").value = data.localidade;
-      document.querySelector("#state").value = data.uf;
-    }
+      document.querySelector("#address").value = data.logradouro ? data.logradouro :  "";
+      document.querySelector("#district").value = data.bairro ? data.bairro : "";
+      document.querySelector("#city").value = data.localidade ? data.localidade : "";
+      document.querySelector("#state").value = data.uf ? data.uf : "";
+        if (data.erro) {
+          alert(`O cep ${postalCode.value} não foi localizado.`);
+        }
   }
 });
+
