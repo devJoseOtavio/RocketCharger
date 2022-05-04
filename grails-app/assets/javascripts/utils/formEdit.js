@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let inputsReference = $("input");
 
-  $(".js-editPayer").on("click", function (e) {
+  $(".js-edit").on("click", function (e) {
     e.preventDefault();
     $(this).addClass("hiddenBtn");
     $(".js-send-button").removeClass("hiddenBtn");
