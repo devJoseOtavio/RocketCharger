@@ -20,9 +20,11 @@ class CustomerService {
         return Customer.get(id)
     }
 
-    def update(Map params) {
-        if (params.id) {
-            Customer customer = Customer.get(params.int('id'))
+    def update(Map params){
+        if (!params.id) {
+            return;
+       } 
+            Customer customer = Customer.get(params.int("id"))
             customer.name = params.name
             customer.email = params.email
             customer.cpfCnpj = params.cpfCnpj
@@ -32,13 +34,5 @@ class CustomerService {
             customer.city = params.city
             customer.state = params.state
             customer.save(flush: true, failOnError: true)
-       } else {
-            throw new Exception('Erro ao realizar edição')
-        }
-    }
-
-    def customerPage() { 
-        Customer customer = Customer.get(params.int('customerId'))
-      }
+    } 
 }
-

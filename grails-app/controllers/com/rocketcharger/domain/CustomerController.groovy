@@ -13,11 +13,6 @@ class CustomerController {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
-    private Integer getCurrentPage() {
-        if (!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
-    }
-
     def create() {
 
     }
@@ -47,6 +42,9 @@ class CustomerController {
     def customerPage() {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
     }
-
-}
-
+    
+    private Integer getCurrentPage() {
+        if(!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
+    }
+ }
