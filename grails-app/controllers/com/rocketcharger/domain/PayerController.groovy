@@ -1,6 +1,9 @@
 package com.rocketcharger.domain
 
+import static org.springframework.http.HttpStatus.*
+
 import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 
 import grails.validation.ValidationException
 
@@ -13,7 +16,10 @@ class PayerController {
        return [payerList: Payer.getAll()]
     }
 
-    def create() { }
+    def create() {
+       
+        return [customerId: params.int('id')]
+    }
 
     def save () {
         try {
@@ -24,3 +30,4 @@ class PayerController {
         } 
     }
 }
+

@@ -4,7 +4,7 @@
         <asset:javascript src="application.js"/>
     </head>
     <body>
-        <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'index') }" 
+        <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }" 
               action="${ g.createLink(controller: 'customer', action: 'save') }"> 
             <div><input type="text" name="name" id="name" placeholder="Ex: João Da Silva" required></div>
             <div><input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" required></div>

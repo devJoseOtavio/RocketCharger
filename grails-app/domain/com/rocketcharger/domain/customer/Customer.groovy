@@ -17,10 +17,7 @@ class Customer {
     String city
     
     String state
-    
-     static constraints = {
-        name size: 3..100, nulllable: true
-        email size: 5..100, nulllable: true
 
-    }
+    static constraints = { }
+
 }
