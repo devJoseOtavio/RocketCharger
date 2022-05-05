@@ -2,6 +2,7 @@
 <head>
     <title>Gerenciamento de pagamentos</title>
      <asset:javascript src="application.js"/>
+     <asset:stylesheet src="payer/edit.css"/>
 </head>
 <body>
     <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }" 
@@ -17,7 +18,7 @@
         <input type="text" name="state" id="state" placeholder="Estado"value="${payer.state}" readonly><br>
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
-        <button type="reset" class="js-cancel-button" onclick="history.go(-1)">Cancelar</button>
+        <button type="reset">Cancelar</button>
     </form> 
 </body>
 </html>
