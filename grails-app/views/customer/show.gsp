@@ -14,7 +14,7 @@
         <div><input type="email" name="email" placeholder="Ex: email@meuprovedor.com" value="${ customer?.email}" readonly></div>
         <div><input type="text" name="postalCode" id="postalCode" placeholder="CEP"value="${ customer?.postalCode}" readonly></div>
         <div><input type="text" name="address" id="address" placeholder="Endereço"value="${ customer?.address}" readonly></div>
-        <div><input type="text" name="province" id="province" placeholder="Bairro"value="${ customer?.province}" readonly></div>
+        <div><input type="text" name="district" id="district" placeholder="Bairro"value="${ customer?.district}" readonly></div>
         <div><input type="text" name="city" id="city" placeholder="Cidade"value="${ customer?.city}" readonly></div>
         <div><input type="text" name="state" id="state" placeholder="Estado"value="${ customer?.state}" readonly></div>
         <button class="js-editCustomer">Editar</button>
