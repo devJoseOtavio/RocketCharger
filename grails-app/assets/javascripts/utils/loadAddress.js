@@ -13,13 +13,9 @@ $(document).ready(function () {
       alert(`O cep ${postalCode.value} não foi localizado.`);
       return;
     }
-    document.querySelector("#address").value = data.logradouro
-      ? data.logradouro
-      : "";
+    document.querySelector("#address").value = data.logradouro ? data.logradouro : "";
     document.querySelector("#district").value = data.bairro ? data.bairro : "";
-    document.querySelector("#city").value = data.localidade
-      ? data.localidade
-      : "";
+    document.querySelector("#city").value = data.localidade ? data.localidade : "";
     document.querySelector("#state").value = data.uf ? data.uf : "";
   }
 });
