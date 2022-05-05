@@ -1,4 +1,4 @@
-function CreateSaveController() {
+function FormUtilsController() {
   this.init = function () {
     $(document).ready(function () {
       $("form").on("submit", function (e) {
@@ -24,9 +24,9 @@ function CreateSaveController() {
     });
   };
 }
-var createSaveController;
+var formUtilsController;
 
 $(document).ready(function () {
-  createSaveController = new CreateSaveController();
-  createSaveController.init();
+  formUtilsController = new FormUtilsController();
+  formUtilsController.init();
 });
