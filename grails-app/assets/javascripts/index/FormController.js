@@ -8,7 +8,7 @@ const address = document.getElementById("address");
 const houseNumber = document.getElementById("houseNumber");
 const birthDate = document.getElementById("birthDate");
 const complement = document.getElementById("complement");
-const province = document.getElementById("province");
+const district = document.getElementById("district");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
 const correctCpfLength = 11;
@@ -40,7 +40,7 @@ cellphone.addEventListener("input", (event) => {
 
 postalCode.addEventListener("input", (event) => {
   checkPostalCode();
-  checkAddress();
+  getPostalCode();
 });
 
 houseNumber.addEventListener("input", (event) => {

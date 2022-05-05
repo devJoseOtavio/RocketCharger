@@ -119,11 +119,11 @@
         </div>
 
         <div class="form-control">
-          <label for="province">Bairro *</label>
+          <label for="district">Bairro *</label>
           <input
             type="text"
-            id="province"
-            name="province"
+            id="district"
+            name="district"
             placeholder="Informe o seu bairro"
             disabled
           />
@@ -168,6 +168,6 @@
       </form>
     </div>
     <asset:javascript src="index/FormController.js"/>
-    <asset:javascript src="index/postalCodeApi.js"/>
+    <asset:javascript src="utils/postalCodeApi.js"/>
   </body>
 </html>
