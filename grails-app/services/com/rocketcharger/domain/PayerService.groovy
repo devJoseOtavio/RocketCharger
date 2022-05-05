@@ -20,7 +20,10 @@ class PayerService {
     }
 
     def update(Map params){
-        if (params.id) {
+        if (!params.id) {
+            throw new Exception("Erro ao realizar edição")
+            return; 
+       }
             Payer payer = Payer.get(params.int("id"))
             payer.name = params.name
             payer.email = params.email
@@ -31,9 +34,5 @@ class PayerService {
             payer.city = params.city
             payer.state = params.state
             payer.save(flush: true, failOnError: true)
-            return payer
-       } else {
-            throw new Exception("Erro ao realizar edição")
-       }
     }
 }
