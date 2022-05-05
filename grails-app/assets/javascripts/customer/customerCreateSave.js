@@ -1,4 +1,4 @@
-function CustomerCreateController() {
+function CustomerCreateSave() {
   this.init = function () {
     $(document).ready(function () {
       $("form").on("submit", function (e) {
@@ -24,9 +24,9 @@ function CustomerCreateController() {
     });
   };
 }
-var customerCreateController;
+var customerCreateSave;
 
 $(document).ready(function () {
-  customerCreateController = new CustomerCreateController();
-  customerCreateController.init();
+  customerCreateSave = new CustomerCreateSave();
+  customerCreateSave.init();
 });
