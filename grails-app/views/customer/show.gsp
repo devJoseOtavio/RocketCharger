@@ -16,7 +16,7 @@
         <div><input type="text" name="district" id="district" placeholder="Bairro"value="${customer?.district}" readonly></div>
         <div><input type="text" name="city" id="city" placeholder="Cidade"value="${customer?.city}" readonly></div>
         <div><input type="text" name="state" id="state" placeholder="Estado"value="${customer?.state}" readonly></div>
-        <button class="js-editCustomer">Editar</button>
+        <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
         <button type="reset" class="js-cancel-button">Cancelar</button>
     </form> 
