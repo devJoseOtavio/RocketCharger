@@ -22,4 +22,4 @@ $(document).ready(function () {
       : "";
     document.querySelector("#state").value = data.uf ? data.uf : "";
   }
-})
+});
