@@ -167,7 +167,7 @@
         </button>
       </form>
     </div>
-    <asset:javascript src="index/FormController.js"/>
+    <asset:javascript src="index/formValidations.js"/>
     <asset:javascript src="utils/postalCodeApi.js"/>
   </body>
 </html>

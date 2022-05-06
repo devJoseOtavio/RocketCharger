@@ -5,7 +5,7 @@
         <asset:javascript src="application.js"/>
     </head>
     <body>
-   <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }"
+   <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'index') }"
          action="${ g.createLink(controller: 'customer', action: 'update') }" > 
         <div><input type="hidden" class="js-customer-id" name="id" value='${customer?.id}'></div>
         <div><input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${customer?.name}" readonly></div>
@@ -16,13 +16,9 @@
         <div><input type="text" name="district" id="district" placeholder="Bairro"value="${customer?.district}" readonly></div>
         <div><input type="text" name="city" id="city" placeholder="Cidade"value="${customer?.city}" readonly></div>
         <div><input type="text" name="state" id="state" placeholder="Estado"value="${customer?.state}" readonly></div>
-        <button class="js-editCustomer">Editar</button>
-        <button type="submit" class="js-send-button hiddenBtn">Salvar</button>   
+        <button class="js-edit">Editar</button>
+        <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <button type="reset" class="js-cancel-button">Cancelar</button>
     </form> 
-    <div>
-        <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
-    </div>
     </body>
 </html>
-
-
