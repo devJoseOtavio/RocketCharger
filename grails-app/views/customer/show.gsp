@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Create customer</title>
-        <asset:javascript src="application.js"/>
+        <asset:javascript src="formImports.js"/>
     </head>
     <body>
    <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }"
