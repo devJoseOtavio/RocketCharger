@@ -179,7 +179,18 @@ document.getElementById("postalCode").addEventListener("input", function () {
 });
 
 function fillAddress(data) {
-  if (!data.erro) {
+  if (data.erro) {
+    setErrorFor(postalCode, "Não foi possível localizar o endereço");
+    address.value = "";
+    district.value = "";
+    state.value = "";
+    city.value = "";
+    document.querySelector("#address").value = "";
+    document.querySelector("#district").value = "";
+    document.querySelector("#city").value = "";
+    document.querySelector("#state").value = "";
+    return;
+  } 
     setSucessFor(postalCode);
     setSucessFor(address);
     setSucessFor(district);
@@ -190,17 +201,6 @@ function fillAddress(data) {
     document.querySelector("#district").value = data.bairro;
     document.querySelector("#city").value = data.localidade;
     document.querySelector("#state").value = data.uf;
-  } else {
-    setErrorFor(postalCode, "Não foi possível localizar o endereço");
-    address.value = "";
-    district.value = "";
-    state.value = "";
-    city.value = "";
-    document.querySelector("#address").value = "";
-    document.querySelector("#district").value = "";
-    document.querySelector("#city").value = "";
-    document.querySelector("#state").value = "";
-  }
 }
 
 function setSucessFor(input) {
