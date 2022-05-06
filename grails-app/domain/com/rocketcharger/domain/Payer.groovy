@@ -1,5 +1,7 @@
 package com.rocketcharger.domain.payer
 
+import com.rocketcharger.domain.customer.Customer
+
 class Payer {
 
     String name
@@ -15,9 +17,11 @@ class Payer {
     String district
 
     String city
-    
+
     String state
     
-     static constraints = {
-    }
+    Customer customer
+
+    static constraints = { }
+
 }
