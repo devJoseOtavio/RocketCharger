@@ -2,10 +2,10 @@
 <head>
     <title>Gerenciamento de pagamentos</title>
      <asset:stylesheet src="payer/edit.css" />
-     <asset:javascript src="applicationPayer.js"/>
+     <asset:javascript src="application.js"/>
 </head>
 <body>
-    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }" 
+    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index' params: [id: customerId]) }" 
           action="${ g.createLink(controller: 'payer', action: 'update') }" >
         <input type="hidden" class="js-payer-id" name="id" value="${payer.id}">
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${ payer.name}" readonly><br>
@@ -16,7 +16,7 @@
         <input type="text" name="district" id="district" placeholder="Bairro"value="${ payer.district}" readonly><br>
         <input type="text" name="city" id="city" placeholder="Cidade"value="${ payer.city}" readonly><br>
         <input type="text" name="state" id="state" placeholder="Estado"value="${ payer.state}" readonly><br>
-        <button class="js-editPayer">Editar</button>
+        <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
         <button type="reset" class="js-cancel-button" onclick="history.go(-1)">Cancelar</button>
     </form> 

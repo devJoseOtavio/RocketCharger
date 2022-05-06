@@ -8,7 +8,7 @@
 <body>
     
     <div>
-        <g:link controller="customer" action="customerPage" update="divForm">Pagina inicial</g:link>
+        <g:link controller="customer" action="customerPage" update="divForm" params='${customer.id}'>Pagina inicial</g:link>
     </div>
 
     <div id="divLista">
