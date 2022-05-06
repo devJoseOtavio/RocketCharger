@@ -1,4 +1,3 @@
-
 <html lang="pt-br">
 <body>
 <g:if test="${payerList?.size() > 0}">
