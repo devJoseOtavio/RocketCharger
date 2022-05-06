@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
-     <asset:javascript src="formImports.js"/>
+    <asset:javascript src="applications/applicationsForm.js"/>
 </head>
 <body>
     <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }" 
