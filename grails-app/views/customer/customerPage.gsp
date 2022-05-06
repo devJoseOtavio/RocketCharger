@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <title>Conta</title>
-    <asset:javascript src="applicationCustomer.js"/>
 </head>
 <body>
     <div id="divLista">
