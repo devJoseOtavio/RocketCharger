@@ -31,9 +31,6 @@ class PayerService {
             payer.state = params.state
             payer.save(flush: true, failOnError: true)
             return payer
-       } else {
-            throw new Exception('Erro ao realizar edição')
-        }
+       } 
     }
-
 }

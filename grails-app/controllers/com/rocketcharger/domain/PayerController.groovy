@@ -46,7 +46,7 @@ class PayerController {
     def show() {
         return [payer: payerService.getPayer(params.int('id'))]
     }
-    
+
     private Integer getCurrentPage() {
         if (!params.offset) params.offset = 0
         return Integer.valueOf(params.offset)
