@@ -16,17 +16,12 @@ class PayerController {
         def payerCriteria = Payer.createCriteria()
         def payerList = payerCriteria.list(max: 10, offset: getCurrentPage()) {
         like("customer", Customer.get(customerId))
-        }
+}
         [payerList: payerList, totalCount: Payer.count()]
     }
 
-    private Integer getCurrentPage() {
-        if (!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
-    }
 
     def create() {
-       
         return [customerId: params.int('id')]
     }
 
@@ -51,6 +46,10 @@ class PayerController {
     def show() {
         return [payer: payerService.getPayer(params.int('id'))]
     }
-
+    
+    private Integer getCurrentPage() {
+        if (!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
+    }
 }
 
