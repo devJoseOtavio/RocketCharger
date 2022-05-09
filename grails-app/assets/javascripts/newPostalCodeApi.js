@@ -15,6 +15,3 @@ function getCep() {
 }
 
 document.getElementById('postalCode').addEventListener('focusout', getCep);
-
-
-
