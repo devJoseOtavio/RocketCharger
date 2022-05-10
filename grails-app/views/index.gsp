@@ -5,7 +5,7 @@
     ></script>
   <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
   <asset:stylesheet src="index/style.css" />
-  <asset:javascript src="formImports.js"/>
+  <asset:javascript src="applications/applicationForm.js"/>
     <title>Cadastro RocketCharger</title>
   </head>
 
