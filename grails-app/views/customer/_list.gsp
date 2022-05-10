@@ -22,8 +22,10 @@
           <td>${customer.district}</td>
           <td>${customer.city}</td>
           <td>${customer.state}</td>
+            <td>
+             <g:link controller="customer" action="show" update="divForm" id='${customer.id}'>editar dados</g:link>
+            </td>
         </tr>
-    </a>
         </g:each>
     </table>
     </g:if>

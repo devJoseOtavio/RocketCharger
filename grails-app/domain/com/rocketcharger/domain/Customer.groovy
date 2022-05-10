@@ -12,7 +12,7 @@ class Customer {
 
     String address
 
-    String province
+    String district
 
     String city
     
