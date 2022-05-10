@@ -12,12 +12,15 @@ class PayerService {
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
     }
+
     def index() {
         return Payer.getAll()
     }
+
     def getPayer(Integer id) {
         return Payer.get(id)
     }
+    
     def update(Map params) {
         if (params.id) {
             Payer payer = Payer.get(params.int('id'))
