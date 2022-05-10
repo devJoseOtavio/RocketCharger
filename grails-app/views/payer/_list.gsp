@@ -11,6 +11,7 @@
           <th>Bairro</th>
           <th>Cidade</th>
           <th>Estado</th>
+          <th>Customer</th>
         </tr>
           <g:each var="payer" in="${payerList}">
           <tr>

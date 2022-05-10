@@ -1,31 +1,29 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <title>Create customer</title>
+        <asset:stylesheet src="customer/show.css" />
+        <asset:javascript src="applications/applicationForm.js"/>
     </head>
     <body>
-        <a href="#show-customer" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="show-customer" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <f:display bean="customer" />
-            <g:form resource="${this.customer}" method="DELETE">
-                <fieldset class="buttons">
-                    <g:link class="edit" action="edit" resource="${this.customer}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                </fieldset>
-            </g:form>
-        </div>
+   <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }"
+         action="${ g.createLink(controller: 'customer', action: 'update') }" > 
+        <input type="hidden" class="js-customer-id" name="id" value='${customer?.id}'>
+        <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${customer?.name}" readonly><br>
+        <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${customer?.cpfCnpj}" readonly><br>
+        <input type="email" name="email" placeholder="Ex: email@meuprovedor.com" value="${customer?.email}" readonly><br>
+        <input type="text" name="postalCode" id="postalCode" placeholder="CEP"value="${customer?.postalCode}" readonly><br>
+        <input type="text" name="address" id="address" placeholder="Endereço"value="${customer?.address}" readonly><br>
+        <input type="text" name="district" id="district" placeholder="Bairro"value="${ customer?.district}" readonly><br>
+        <input type="text" name="city" id="city" placeholder="Cidade"value="${customer?.city}" readonly><br>
+        <input type="text" name="state" id="state" placeholder="Estado"value="${customer?.state}" readonly><br>
+        <button class="js-edit">Editar</button>
+        <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <button type="reset">Cancelar</button>
+    </form> 
+    <div>
+        <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
+    </div>
     </body>
 </html>
+
+
