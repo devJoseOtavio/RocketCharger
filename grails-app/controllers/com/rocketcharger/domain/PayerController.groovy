@@ -13,8 +13,7 @@ class PayerController {
 
     def index() {
         Integer customerId = params.int("id")
-        def payerCriteria = Payer.createCriteria()
-        def payerList = payerCriteria.list(max: 10, offset: getCurrentPage()) {
+        List <Payer> payerList = Payer.createCriteria().list(max: 10, offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
         [payerList: payerList, totalCount: Payer.count()]
