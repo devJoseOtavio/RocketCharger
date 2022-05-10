@@ -1,7 +1,7 @@
 <html>
     <head>
     <title>Adicionar pagador</title>
-    <asset:javascript src="applications/applicationsForm.js"/>
+    <asset:javascript src="applications/applicationForm.js"/>
     </head>
     <body>
         <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"

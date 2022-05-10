@@ -22,7 +22,11 @@ function FormUtilsController() {
         });
       });
     });
-    $(document).ready(function () {
+    
+    let editBtn = $(".js-edit")
+    editBtn.addEventListener("click", hiddenBtnAndSave())
+
+    function hiddenBtnAndSave() {
       let inputsReference = $("input");
 
       $(".js-edit").on("click", function (e) {
@@ -34,9 +38,10 @@ function FormUtilsController() {
           $(input).removeAttr("readonly");
         });
       });
-    });
+    };
   };
 }
+
 var formUtilsController;
 
 $(document).ready(function () {
