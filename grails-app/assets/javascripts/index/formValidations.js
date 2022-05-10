@@ -191,16 +191,16 @@ function fillAddress(data) {
     document.querySelector("#state").value = "";
     return;
   } 
-    setSucessFor(postalCode);
-    setSucessFor(address);
-    setSucessFor(district);
-    setSucessFor(state);
-    setSucessFor(city);
-    setSucessFor(complement);
-    document.querySelector("#address").value = data.logradouro;
-    document.querySelector("#district").value = data.bairro;
-    document.querySelector("#city").value = data.localidade;
-    document.querySelector("#state").value = data.uf;
+  setSucessFor(postalCode);
+  setSucessFor(address);
+  setSucessFor(district);
+  setSucessFor(state);
+  setSucessFor(city);
+  setSucessFor(complement);
+  document.querySelector("#address").value = data.logradouro;
+  document.querySelector("#district").value = data.bairro;
+  document.querySelector("#city").value = data.localidade;
+  document.querySelector("#state").value = data.uf;
 }
 
 function setSucessFor(input) {
