@@ -22,11 +22,11 @@ function FormUtilsController() {
         });
       });
     });
-    
-    let editBtn = $(".js-edit")
-    editBtn.addEventListener("click", hiddenBtnAndSave())
 
-    function hiddenBtnAndSave() {
+    let editButton = document.querySelector(".js-edit");
+    editButton.addEventListener("click", hiddenBtn());
+
+    function hiddenBtn() {
       let inputsReference = $("input");
 
       $(".js-edit").on("click", function (e) {
@@ -38,7 +38,7 @@ function FormUtilsController() {
           $(input).removeAttr("readonly");
         });
       });
-    };
+    }
   };
 }
 
