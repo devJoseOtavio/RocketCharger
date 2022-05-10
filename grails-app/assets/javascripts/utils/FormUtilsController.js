@@ -1,45 +1,44 @@
 function FormUtilsController() {
   this.init = function () {
-    $(document).ready(function () {
-      $("form").on("submit", function (e) {
-        e.preventDefault();
+    useSubmit();
+    hiddenBtn();
+  };
+  function useSubmit() {
+    $("form").on("submit", function (e) {
+      e.preventDefault();
 
-        var data = new FormData(document.querySelector("form"));
-        var object = {};
+      var data = new FormData(document.querySelector("form"));
+      var object = {};
 
-        data.forEach(function (value, key) {
-          object[key] = value;
-        });
+      data.forEach(function (value, key) {
+        object[key] = value;
+      });
 
-        var url = $("form").prop("action");
+      var url = $("form").prop("action");
 
-        $.post(url, object, function (response) {
-          if (!response.success) {
-            alert(`Erro ao realizar requisição, contate o administrador.`);
-            return;
-          }
-          window.location.href = $("form").data("redirect-url");
-        });
+      $.post(url, object, function (response) {
+        if (!response.success) {
+          alert(`Erro ao realizar requisição, contate o administrador.`);
+          return;
+        }
+        window.location.href = $("form").data("redirect-url");
       });
     });
+  }
 
-    let editButton = document.querySelector(".js-edit");
-    editButton.addEventListener("click", hiddenBtn());
+  function hiddenBtn() {
+    let inputsReference = $("input");
 
-    function hiddenBtn() {
-      let inputsReference = $("input");
+    $(".js-edit").on("click", function (e) {
+      e.preventDefault();
+      $(this).hide();
+      $(".js-send-button").removeClass("hiddenBtn");
 
-      $(".js-edit").on("click", function (e) {
-        e.preventDefault();
-        $(this).hide();
-        $(".js-send-button").removeClass("hiddenBtn");
-
-        inputsReference.each(function (i, input) {
-          $(input).removeAttr("readonly");
-        });
+      inputsReference.each(function (i, input) {
+        $(input).removeAttr("readonly");
       });
-    }
-  };
+    });
+  }
 }
 
 var formUtilsController;
