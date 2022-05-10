@@ -21,7 +21,7 @@ class CustomerService {
 
     def update(Map params){
         if (!params.id) {
-            return;
+        return;
     }   
         Customer customer = Customer.get(params.int("id"))
         customer.name = params.name
@@ -33,6 +33,5 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(flush: true, failOnError: true)
-     
     } 
 }
