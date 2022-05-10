@@ -16,7 +16,5 @@
             <div><input type="text" name="state" id="state" placeholder="Estado"></div>
             <button type="submit">Salvar</button>
         </form>
-    <asset:javascript src="payer/payerCreateSave.js" />
-    <asset:javascript src="utils/postalCodeApi.js" />
     </body>
 </html>
