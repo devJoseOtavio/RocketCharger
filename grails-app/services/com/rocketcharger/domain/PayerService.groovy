@@ -7,25 +7,34 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PayerService {
 
-    def save(Map params) {
+    public Payer save(Map params) {
+        validate(params)
         Customer customer = Customer.get(params.int('customerId'))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
+        return payer;
     }
-
-    def index() {
+    public List <Payer> index() {
         return Payer.getAll()
     }
 
-    def getPayer(Integer id) {
+    public Payer getPayer(Integer id) {
         return Payer.get(id)
     }
 
-    def update(Map params) {
-        if (!params.id) {
-            throw new Exception('Erro ao realizar edição')
-            return;
-       } Payer payer = Payer.get(params.int('id'))
+    private void validate(Map params){
+        if(!params.cpfCnpj){
+            throw new Exception('Campo vazio')
+        }
+        if(CpfCnpjUtils.validaCpfCnpj(params.cpfCnpj)){
+            throw new Exception("Formato inválido.")
+        }
+    }
+
+    public Payer update(Map params) {
+        if (!params.id) throw new Exception('Erro ao realizar edição')
+        validate(params)
+        Payer payer = Payer.get(params.int('id'))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
@@ -35,5 +44,6 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
+        return payer;
     }
 }

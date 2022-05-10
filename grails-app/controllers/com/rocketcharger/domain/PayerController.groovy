@@ -5,25 +5,31 @@ import static org.springframework.http.HttpStatus.*
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
 
+
 import grails.converters.JSON
 
 class PayerController {
 
     def payerService
 
-    def index() {
+    public Map index() {
         Integer customerId = params.int("id")
         List <Payer> payerList = Payer.createCriteria().list(max: 10, offset: getCurrentPage()) {
-            like("customer", Customer.get(customerId)) 
+            like("customer", Customer.get(customerId))
         }
         [payerList: payerList, totalCount: Payer.count()]
     }
 
-    def create() {
+    private Integer getCurrentPage() {
+        if (!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
+    }
+
+    public Map create() {
         return [customerId: params.int('id')]
     }
 
-    def save() {
+    public Payer save() {
         try {
             payerService.save(params)
             render([success: true] as JSON)
@@ -32,7 +38,7 @@ class PayerController {
         }
     }
 
-    def update() {
+    public Payer update() {
         try {
             payerService.update(params)
             render([success: true] as JSON)
@@ -41,7 +47,7 @@ class PayerController {
         }
     }
 
-    def show() {
+    public Payer show() {
         return [payer: payerService.getPayer(params.int('id'))]
     }
 
