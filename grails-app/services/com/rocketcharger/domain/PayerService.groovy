@@ -14,21 +14,13 @@ class PayerService {
         payer.save(failOnError: true)
         return payer;
     }
+    
     public List <Payer> index() {
         return Payer.getAll()
     }
 
     public Payer getPayer(Integer id) {
         return Payer.get(id)
-    }
-
-    private void validate(Map params){
-        if(!params.cpfCnpj){
-            throw new Exception('Campo vazio')
-        }
-        if(CpfCnpjUtils.validaCpfCnpj(params.cpfCnpj)){
-            throw new Exception("Formato inválido.")
-        }
     }
 
     public Payer update(Map params) {
@@ -45,5 +37,11 @@ class PayerService {
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
         return payer;
+    }
+
+    private void validate(Map params){
+        if(params.cpfCnpj == !null){
+            throw new Exception('já existe o cpf ai mermao')
+        }
     }
 }

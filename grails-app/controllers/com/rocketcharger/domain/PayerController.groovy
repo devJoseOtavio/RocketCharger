@@ -12,7 +12,7 @@ class PayerController {
 
     def payerService
 
-    public Map index() {
+    def index() {
         Integer customerId = params.int("id")
         List <Payer> payerList = Payer.createCriteria().list(max: 10, offset: getCurrentPage()) {
             like("customer", Customer.get(customerId))
@@ -20,16 +20,11 @@ class PayerController {
         [payerList: payerList, totalCount: Payer.count()]
     }
 
-    private Integer getCurrentPage() {
-        if (!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
-    }
-
-    public Map create() {
+    def create() {
         return [customerId: params.int('id')]
     }
 
-    public Payer save() {
+    def save() {
         try {
             payerService.save(params)
             render([success: true] as JSON)
@@ -38,7 +33,7 @@ class PayerController {
         }
     }
 
-    public Payer update() {
+    def update() {
         try {
             payerService.update(params)
             render([success: true] as JSON)
@@ -47,7 +42,7 @@ class PayerController {
         }
     }
 
-    public Payer show() {
+    def show() {
         return [payer: payerService.getPayer(params.int('id'))]
     }
 
