@@ -2,25 +2,24 @@ function FormUtilsController() {
   this.init = function () {
     bindFormSubmit();
     bindHideButtonAndEditForm();
-    bindPostFormSubmit();
   };
 
   function bindFormSubmit() {
     $("form").on("submit", function (e) {
       e.preventDefault();
-
-      var data = new FormData(document.querySelector("form"));
-      var object = {};
-
-      data.forEach(function (value, key) {
-        object[key] = value;
-      });
+      bindPostFormSubmit();
     });
   }
 
   function bindPostFormSubmit() {
     var url = $("form").prop("action");
+    var data = new FormData(document.querySelector("form"));
+    var object = {};
 
+    data.forEach(function (value, key) {
+      object[key] = value;
+    });
+    
     $.post(url, object, function (response) {
       if (!response.success) {
         alert(`Erro ao realizar requisição, contate o administrador..`);
