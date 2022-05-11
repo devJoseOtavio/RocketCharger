@@ -1,9 +1,11 @@
 function FormUtilsController() {
   this.init = function () {
-    useSubmit();
-    hiddenBtn();
+    bindFormSubmit();
+    bindHideButtonAndEditForm();
+    bindPostFormSubmit();
   };
-  function useSubmit() {
+
+  function bindFormSubmit() {
     $("form").on("submit", function (e) {
       e.preventDefault();
 
@@ -13,20 +15,22 @@ function FormUtilsController() {
       data.forEach(function (value, key) {
         object[key] = value;
       });
-
-      var url = $("form").prop("action");
-
-      $.post(url, object, function (response) {
-        if (!response.success) {
-          alert(`Erro ao realizar requisição, contate o administrador.`);
-          return;
-        }
-        window.location.href = $("form").data("redirect-url");
-      });
     });
   }
 
-  function hiddenBtn() {
+  function bindPostFormSubmit() {
+    var url = $("form").prop("action");
+
+    $.post(url, object, function (response) {
+      if (!response.success) {
+        alert(`Erro ao realizar requisição, contate o administrador.`);
+        return;
+      }
+      window.location.href = $("form").data("redirect-url");
+    });
+  }
+
+  function bindHideButtonAndEditForm() {
     let inputsReference = $("input");
 
     $(".js-edit").on("click", function (e) {

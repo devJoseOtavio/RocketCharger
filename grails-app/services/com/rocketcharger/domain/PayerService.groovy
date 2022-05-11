@@ -25,7 +25,8 @@ class PayerService {
         if (!params.id) {
             throw new Exception('Erro ao realizar edição')
             return;
-       } Payer payer = Payer.get(params.int('id'))
+       }
+        Payer payer = Payer.get(params.int('id'))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
