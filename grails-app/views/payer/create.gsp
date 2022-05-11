@@ -1,10 +1,9 @@
 <html lang="pt-br">
 <head>
-    <meta name="layout" content="main">
         <title>Adicionar pagador</title>
     <asset:javascript src="applications/applicationForm.js"/>
 </head>
-            <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index') }"
+            <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId]) }"
                   action="${ g.createLink(controller: 'payer', action: 'save') }">  
             <div><input type="text" name="name" placeholder="Ex: João Da Silva"></div>
             <div><input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ"></div>
@@ -14,6 +13,7 @@
             <div><input type="text" name="district" id="district" placeholder="Bairro"></div>
             <div><input type="text" name="city" id="city" placeholder="Cidade"></div>
             <div><input type="text" name="state" id="state" placeholder="Estado"></div>
+            <input hidden value="${customerId}" name="customer" id="customer">
             <button type="submit">Salvar</button>
         </form>
     </body>
