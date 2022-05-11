@@ -29,10 +29,11 @@ class Payer {
             if(!valor.size() == 11 || 14)
             alert("erro ao validar CPF/CNPJ")
             return;
+            }
         postalCode nulllable: false, blank: false
         address nulllable: false, blank: false
         district nulllable: false, blank: false
         city nulllable: false, blank: false
         state nulllable: false, blank: false
-     }
+    }
 }

@@ -6,7 +6,6 @@ const postalCode = document.getElementById("postalCode");
 const email = document.getElementById("email");
 const address = document.getElementById("address");
 const houseNumber = document.getElementById("houseNumber");
-const birthDate = document.getElementById("birthDate");
 const complement = document.getElementById("complement");
 const district = document.getElementById("district");
 const city = document.getElementById("city");
@@ -20,33 +19,34 @@ form.addEventListener("submit", (event) => {
   checkInput();
 });
 
-customerName.addEventListener("input", (event) => {
+customerName.addEventListener("focusout", (event) => {
   checkName();
 });
 
-cpfCnpj.addEventListener("input", (event) => {
+cpfCnpj.addEventListener("focusout", (event) => {
   let cpfCnpjValue = cpfCnpj.value;
-  if (cpfCnpjValue.length == correctCpfLength) {
+  let sizeCpfCnpjValue = cpfCnpjValue.length;
+  if (sizeCpfCnpjValue == correctCpfLength) {
     checkCpf();
   } else {
     checkCnpj();
   }
 });
 
-cellphone.addEventListener("input", (event) => {
+cellphone.addEventListener("focusout", (event) => {
   checkCellphone();
 });
 
-postalCode.addEventListener("submit", (event) => {
+postalCode.addEventListener("focusout", (event) => {
   checkPostalCode();
   validatePostalCode();
 });
 
-houseNumber.addEventListener("input", (event) => {
+houseNumber.addEventListener("focusout", (event) => {
   checkHouseNumber();
 });
 
-email.addEventListener("input", (event) => {
+email.addEventListener("focusout", (event) => {
   checkEmail();
 });
 
@@ -61,24 +61,27 @@ function checkName() {
 
 function checkCpf() {
   let cpfCnpjValue = cpfCnpj.value;
-  if (!cpfCnpjValue) {
-    setErrorFor(cpfCnpj, "Preencha seu CPF");
-  } else if (
-    cpfCnpjValue.length !== correctCpfLength ||
-    cpfCnpjValue == "00000000000" ||
-    cpfCnpjValue == "11111111111" ||
-    cpfCnpjValue == "22222222222" ||
-    cpfCnpjValue == "33333333333" ||
-    cpfCnpjValue == "44444444444" ||
-    cpfCnpjValue == "55555555555" ||
-    cpfCnpjValue == "66666666666" ||
-    cpfCnpjValue == "77777777777" ||
-    cpfCnpjValue == "88888888888" ||
-    cpfCnpjValue == "99999999999"
-  ) {
-    setErrorFor(cpfCnpj, "O cpf informado é inválido");
-  } else {
-    setSucessFor(cpfCnpj);
+  let sizeCpfCnpjValue = cpfCnpjValue.length;
+  if (sizeCpfCnpjValue == correctCpfLength) {
+    if (!cpfCnpjValue) {
+      setErrorFor(cpfCnpj, "Preencha seu CPF");
+    } else if (
+      cpfCnpjValue.length !== correctCpfLength ||
+      cpfCnpjValue == "00000000000" ||
+      cpfCnpjValue == "11111111111" ||
+      cpfCnpjValue == "22222222222" ||
+      cpfCnpjValue == "33333333333" ||
+      cpfCnpjValue == "44444444444" ||
+      cpfCnpjValue == "55555555555" ||
+      cpfCnpjValue == "66666666666" ||
+      cpfCnpjValue == "77777777777" ||
+      cpfCnpjValue == "88888888888" ||
+      cpfCnpjValue == "99999999999"
+    ) {
+      setErrorFor(cpfCnpj, "O cpf informado é inválido");
+    } else {
+      setSucessFor(cpfCnpj);
+    }
   }
 }
 
@@ -190,7 +193,7 @@ function fillAddress(data) {
     document.querySelector("#city").value = "";
     document.querySelector("#state").value = "";
     return;
-  } 
+  }
   setSucessFor(postalCode);
   setSucessFor(address);
   setSucessFor(district);
