@@ -23,7 +23,7 @@ function FormUtilsController() {
 
     $.post(url, object, function (response) {
       if (!response.success) {
-        alert(`Erro ao realizar requisição, contate o administrador.`);
+        alert(`Erro ao realizar requisição, contate o administrador..`);
         return;
       }
       window.location.href = $("form").data("redirect-url");
