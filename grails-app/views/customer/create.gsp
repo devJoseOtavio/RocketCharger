@@ -1,17 +1,21 @@
 <html>
-    <head>
-            <script
+  <head>
+    <script
       src="https://kit.fontawesome.com/c8d140aaae.js"
       crossorigin="anonymous"
     ></script>
-        <title>Create customer</title>
-        <asset:stylesheet src="index/style.css" />
-        <asset:javascript src="applications/applicationForm.js"/>
-    </head>
-    <body>
-        <form autocomplete="off" class="form" data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }" 
-              action="${ g.createLink(controller: 'customer', action: 'save') }"> 
-
+    <title>Create customer</title>
+    <asset:stylesheet src="index/style.css" />
+    <asset:javascript src="applications/applicationForm.js" />
+  </head>
+  <body>
+    <div class="container">
+      <form
+        autocomplete="off"
+        class="form"
+        data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }"
+        action="${ g.createLink(controller: 'customer', action: 'save') }"
+      >
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
           <input
@@ -35,27 +39,20 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
-        </div>
-
-        <div class="form-control">
-          <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text" id="cellphone" name="cellphone" placeholder="Ex: 11 98765-1111" />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email"
-          placeholder="Ex: meuemail@provedor.com"/>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ex: meuemail@provedor.com"
+          />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
@@ -69,8 +66,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
@@ -83,8 +79,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
@@ -122,8 +117,7 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
@@ -136,14 +130,13 @@
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
+          <small class="js-msg"></small>
         </div>
 
-            <input hidden value="${customerId}" name="customer" id="customer">
-            <button type="submit">Criar</button>
-            <button type="reset" class="js-cancel-button">Cancelar</button>
-        </form>
-
-    </body>
+        <input hidden value="${customerId}" name="customer" id="customer" />
+        <button type="submit">Criar</button>
+        <button type="reset" class="js-cancel-button">Cancelar</button>
+      </form>
+    </div>
+  </body>
 </html>

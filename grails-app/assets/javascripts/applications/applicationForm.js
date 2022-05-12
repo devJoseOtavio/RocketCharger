@@ -3,5 +3,4 @@
 //= require utils/FormUtilsController
 //= require utils/FillAddressController
 //= require utils/postalCodeApi
-//= require utils/FormEditController
-//= require index/formValidations
+//= require utils/FormValidationsController

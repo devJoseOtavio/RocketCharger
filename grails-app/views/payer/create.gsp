@@ -8,16 +8,16 @@
     <asset:stylesheet src="index/style.css" />
     <asset:javascript src="applications/applicationForm.js"/>
 </head>
-
-        <form autocomplete="off" class="form" data-redirect-url="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId]) }"
+        <div class="container">
+        <form autocomplete="off" class="form" data-redirect-url="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId])}"
               action="${ g.createLink(controller: 'payer', action: 'save') }">  
 
         <div class="form-control">
-          <label for="customerName">Nome Completo: *</label>
+          <label for="name">Nome Completo: *</label>
           <input
             type="text"
-            id="customerName"
-            name="customerName"
+            id="name"
+            name="name"
             placeholder="Ex: João da Silva"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -33,15 +33,6 @@
             name="cpfCnpj"
             placeholder="Preencha seu CPF/CNPJ"
           />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
-        </div>
-
-        <div class="form-control">
-          <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text" id="cellphone" name="cellphone" placeholder="Ex: 11 98765-1111" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg
@@ -139,8 +130,9 @@
           <small class="js-msg
           "></small>
         </div>
-            <input hidden value="${payerId}" name="payer" id="payer">
+            <input hidden value="${customerId}" name="customer" id="customer">
             <button type="submit">Salvar</button>
         </form>
+        </div>
     </body>
 </html>

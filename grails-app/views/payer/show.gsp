@@ -1,24 +1,19 @@
 <html>
 <head>
-        <script
-      src="https://kit.fontawesome.com/c8d140aaae.js"
-      crossorigin="anonymous"
-    ></script>
     <title>Gerenciamento de pagamentos</title>
-     <asset:javascript src="formImports.js" />
-     <asset:stylesheet src="index/style.css" />
+     <asset:javascript src="applications/applicationForm.js" />
 </head>
 <body>
-    <form form autocomplete="off" class="form" data-redirect-url="${ g.createLink(controller: 'payer', action: 'index' params: [id: customerId]) }" 
-          action="${ g.createLink(controller: 'payer', action: 'update') }" >
+    <form autocomplete="off" class="form" data-redirect-url="${g.createLink(controller: 'payer', action: 'index', params: [id: payer.customer.id])}" 
+          action="${g.createLink(controller: 'payer', action: 'update')}" >
         <input type="hidden" class="js-payer-id" name="id" value="${payer?.id}">
         
         <div class="form-control">
-          <label for="customerName">Nome Completo: *</label>
+          <label for="name">Nome Completo: *</label>
           <input
             type="text"
-            id="customerName"
-            name="customerName"
+            id="name"
+            name="name"
             placeholder="Ex: João da Silva"
             value="${payer?.name}" 
             readonly
@@ -37,21 +32,6 @@
             placeholder="Preencha seu CPF/CNPJ"
             value="${payer?.cpfCnpj}" 
             readonly
-          />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
-        </div>
-
-        <div class="form-control">
-          <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text"
-          id="cellphone"
-          name="cellphone"
-          placeholder="Ex: 11 98765-1111"
-          value="${payer?.email}"
-          readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -105,20 +85,6 @@
           <i class="fas fa-check-circle"></i>
           <small class="js-msg
           "></small>
-        </div>
-
-        <div class="form-control">
-          <label for="houseNumber">Número *</label>
-          <input
-            type="text"
-            id="houseNumber"
-            name="houseNumber"
-            placeholder="Informe o número de sua residência"
-
-          />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg"></small>
         </div>
 
         <div class="form-control">
@@ -183,6 +149,5 @@
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
         <button type="reset">Cancelar</button>
-    </> 
 </body>
 </html>

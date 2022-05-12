@@ -9,7 +9,7 @@ function FormUtilsController() {
       bindPostFormSubmit();
     });
   }
-  
+
   function bindPostFormSubmit() {
     var data = new FormData(document.querySelector("form"));
 

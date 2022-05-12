@@ -1,9 +1,8 @@
 function FormValidationsController() {
   this.init = function () {
     var form = document.querySelector("form");
-    var customerName = document.getElementById("name");
+    var name = document.getElementById("name");
     var cpfCnpj = document.getElementById("cpfCnpj");
-    var cellphone = document.getElementById("cellphone");
     var postalCode = document.getElementById("postalCode");
     var email = document.getElementById("email");
     var address = document.getElementById("address");
@@ -13,13 +12,12 @@ function FormValidationsController() {
     var state = document.getElementById("state");
     var correctCpfLength = 11;
     var correctCnpjLength = 14;
-    var correctCellphoneLength = 11;
 
     form.addEventListener("submit", (event) => {
       checkInput();
     });
 
-    customerName.addEventListener("focusout", (event) => {
+    name.addEventListener("focusout", (event) => {
       checkName();
     });
 
@@ -33,10 +31,6 @@ function FormValidationsController() {
       }
     });
 
-    cellphone.addEventListener("focusout", (event) => {
-      checkCellphone();
-    });
-
     postalCode.addEventListener("focusout", (event) => {
       checkPostalCode();
       validatePostalCode();
@@ -47,11 +41,11 @@ function FormValidationsController() {
     });
 
     function checkName() {
-      let customerNameValue = customerName.value;
-      if (!customerNameValue) {
-        setErrorFor(customerName, "O seu nome é obrigatório!");
+      let nameValue = name.value;
+      if (!nameValue) {
+        setErrorFor(name, "O seu nome é obrigatório!");
       } else {
-        setSucessFor(customerName);
+        setSucessFor(name);
       }
     }
 
@@ -111,17 +105,6 @@ function FormValidationsController() {
       }
     }
 
-    function checkCellphone() {
-      let cellphoneValue = cellphone.value;
-      if (!cellphoneValue) {
-        setErrorFor(cellphone, "Digite seu número de telefone");
-      } else if (cellphoneValue.length !== correctCellphoneLength) {
-        setErrorFor(cellphone, "Número inválido");
-      } else {
-        setSucessFor(cellphone);
-      }
-    }
-
     function checkPostalCode() {
       let postalCodeValue = postalCode.value;
       if (!postalCodeValue) {
@@ -139,7 +122,6 @@ function FormValidationsController() {
       } else {
         checkCnpj();
       }
-      checkCellphone();
       checkPostalCode();
       checkEmail();
 
@@ -154,7 +136,7 @@ function FormValidationsController() {
         data.forEach(function (value, key) {
           infosCustomer[key] = value;
         });
-        customerName.focus();
+        name.focus();
       }
     }
 

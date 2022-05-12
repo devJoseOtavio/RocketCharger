@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <title>Gerenciamento da conta</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div>
-        <g:link controller="customer" action="create" update="divForm">Criando conta</g:link>
+      <g:link controller="customer" action="create" update="divForm"
+        >Criando conta</g:link
+      >
     </div>
 
     <div id="divLista">
-        <g:render template="list" model="[customerList: customerList]"></g:render>
-    </div>
-    
-    <div id="divForm">
-    <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" />
+      <g:render template="list" model="[customerList: customerList]"></g:render>
     </div>
 
-</body>
+    <div id="divForm">
+      <g:paginate
+        total="${totalCount}"
+        controller="customer"
+        action="index"
+        params="${params}"
+        next="Próximo"
+        prev="Anterior"
+        max="10"
+      />
+    </div>
+  </body>
 </html>

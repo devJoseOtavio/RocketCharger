@@ -45,15 +45,6 @@
         </div>
 
         <div class="form-control">
-          <label for="cellphone">Seu Telefone com DDD *</label>
-          <input type="text" id="cellphone" name="cellphone" placeholder="Ex: 11 98765-1111" />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg
-          "></small>
-        </div>
-
-        <div class="form-control">
           <label for="email">Email *</label>
           <input type="email" id="email" name="email"
           placeholder="Ex: meuemail@provedor.com"/>
@@ -163,7 +154,5 @@
         </button>
       </form>
     </div>
-    <asset:javascript src="index/formValidations.js"/>
-    <asset:javascript src="utils/postalCodeApi.js"/>
   </body>
 </html>
