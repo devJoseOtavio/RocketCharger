@@ -40,8 +40,29 @@ class PayerService {
     }
 
     private void validate(Map params){
-        if(params.cpfCnpj == !null){
-            throw new Exception('já existe o cpf ai mermao')
+        if(!params.name){
+            throw new Exception('Erro no registro do nome informad-o.')
+        }
+        if(!params.email){
+            throw new Exception('Erro no registro do email informado.')
+        }
+        if(!params.cpfCnpj){
+            throw new Exception('Erro na registro de CPF/CNPJ')
+        }
+        if(!params.postalCode){
+            throw new Exception('Erro no registro do CEP informado.')
+        }
+        if(!params.address){
+            throw new Exception('Erro no registro do endereço informado.')
+        }
+        if(!params.district){
+            throw new Exception('Erro no registro do bairro informado.')
+        }
+        if(!params.city){
+            throw new Exception('Erro no registro da cidade informada.')
+        }
+        if(!params.state){
+            throw new Exception('Erro no registro do Estado informada.')
         }
     }
 }

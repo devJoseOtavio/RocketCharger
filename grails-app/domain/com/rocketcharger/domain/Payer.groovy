@@ -23,17 +23,13 @@ class Payer {
     Customer customer
 
     static constraints = {
-        name nulllable: false, blank: false
-        email email: true, unique:true
-        cpfCnpj validator: { valor, customer ->
-            if(!valor.size() == 11 || 14)
-            alert("erro ao validar CPF/CNPJ")
-            return;
-            }
-        postalCode nulllable: false, blank: false
-        address nulllable: false, blank: false
-        district nulllable: false, blank: false
-        city nulllable: false, blank: false
-        state nulllable: false, blank: false
+        name size: 3..100, nulllable: false, blank: false
+        email email:true, unique:true
+        cpfCnpj nulllable: false, blank: false
+        postalCode size: 8..9, nulllable: false, blank: false
+        address size: 2..100, nulllable: false, blank: false
+        district size: 2..100, nulllable: false, blank: false
+        city size: 2..50, nulllable: false, blank: false
+        state size: 1..50, nulllable: false, blank: false
     }
 }

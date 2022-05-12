@@ -3,13 +3,13 @@
       src="https://kit.fontawesome.com/c8d140aaae.js"
       crossorigin="anonymous"
     ></script>
-  <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
-  <asset:stylesheet src="index/style.css" />
-  <asset:javascript src="applications/applicationForm.js"/>
+    <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
+    <asset:stylesheet src="index/style.css" />
+    <asset:javascript src="applications/applicationForm.js"/>
     <title>Cadastro RocketCharger</title>
   </head>
-
   <body>
+
     <div class="container">
       <div class="header">
         <h2>Crie sua conta, é grátis!</h2>
@@ -18,11 +18,11 @@
 
       <form autocomplete="off" class="form" >
         <div class="form-control">
-          <label for="customerName">Nome Completo: *</label>
+          <label for="name">Nome Completo: *</label>
           <input
             type="text"
-            id="customerName"
-            name="customerName"
+            id="name"
+            name="name"
             placeholder="Ex: João da Silva"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -85,7 +85,6 @@
             id="address"
             name="address"
             placeholder="Digite o seu endereço residêncial"
-            disabled
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -125,7 +124,6 @@
             id="district"
             name="district"
             placeholder="Informe o seu bairro"
-            disabled
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -139,7 +137,6 @@
             id="city"
             name="city"
             placeholder="Informe a sua cidade"
-            disabled
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -153,8 +150,7 @@
             type="text"
             id="state"
             name="state"
-            placeholder="Informe o seu estado"
-            disabled
+            placeholder="Informe o seu estado"        
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
