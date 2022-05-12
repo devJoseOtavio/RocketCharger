@@ -7,7 +7,6 @@ function FormValidationsController() {
     var postalCode = document.getElementById("postalCode");
     var email = document.getElementById("email");
     var address = document.getElementById("address");
-    var houseNumber = document.getElementById("houseNumber");
     var complement = document.getElementById("complement");
     var district = document.getElementById("district");
     var city = document.getElementById("city");
@@ -41,10 +40,6 @@ function FormValidationsController() {
     postalCode.addEventListener("focusout", (event) => {
       checkPostalCode();
       validatePostalCode();
-    });
-
-    houseNumber.addEventListener("focusout", (event) => {
-      checkHouseNumber();
     });
 
     email.addEventListener("focusout", (event) => {
@@ -135,14 +130,6 @@ function FormValidationsController() {
         setSucessFor(postalCode);
       }
     }
-    function checkHouseNumber() {
-      let houseNumberValue = houseNumber.value;
-      if (!houseNumberValue) {
-        setErrorFor(houseNumber, "Favor informar número da residência");
-      } else {
-        setSucessFor(houseNumber);
-      }
-    }
 
     function checkInput() {
       let cpfCnpjValue = cpfCnpj.value;
@@ -154,7 +141,6 @@ function FormValidationsController() {
       }
       checkCellphone();
       checkPostalCode();
-      checkHouseNumber();
       checkEmail();
 
       let formControls = form.querySelectorAll(".form-control");
