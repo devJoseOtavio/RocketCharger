@@ -23,12 +23,11 @@ function FormValidationsController() {
 
     cpfCnpj.addEventListener("focusout", (event) => {
       let cpfCnpjValue = cpfCnpj.value;
-      let sizeCpfCnpjValue = cpfCnpjValue.length;
-      if (sizeCpfCnpjValue == correctCpfLength) {
+      if (cpfCnpjValue.length == correctCpfLength) {
         checkCpf();
-      } else {
-        checkCnpj();
+        return;
       }
+      checkCnpj();
     });
 
     postalCode.addEventListener("focusout", (event) => {
@@ -44,15 +43,14 @@ function FormValidationsController() {
       let nameValue = name.value;
       if (!nameValue) {
         setErrorFor(name, "O seu nome é obrigatório!");
-      } else {
-        setSucessFor(name);
+        return;
       }
+      setSucessFor(name);
     }
 
     function checkCpf() {
       let cpfCnpjValue = cpfCnpj.value;
-      let sizeCpfCnpjValue = cpfCnpjValue.length;
-      if (sizeCpfCnpjValue == correctCpfLength) {
+      if (cpfCnpjValue.length == correctCpfLength) {
         if (!cpfCnpjValue) {
           setErrorFor(cpfCnpj, "Preencha seu CPF");
         } else if (
@@ -91,27 +89,27 @@ function FormValidationsController() {
         cpfCnpjValue == "99999999999999"
       ) {
         setErrorFor(cpfCnpj, "O CNPJ informado é inválido");
-      } else {
-        setSucessFor(cpfCnpj);
+        return;
       }
+      setSucessFor(cpfCnpj);
     }
 
     function checkEmail() {
       let emailValue = email.value;
       if (!emailValue) {
         setErrorFor(email, "O email é obrigatório");
-      } else {
-        setSucessFor(email);
+        return;
       }
+      setSucessFor(email);
     }
 
     function checkPostalCode() {
       let postalCodeValue = postalCode.value;
       if (!postalCodeValue) {
         setErrorFor(postalCode, "Favor informar o CEP!");
-      } else {
-        setSucessFor(postalCode);
+        return;
       }
+      setSucessFor(postalCode);
     }
 
     function checkInput() {
