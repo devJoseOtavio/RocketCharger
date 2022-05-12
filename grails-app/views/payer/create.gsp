@@ -88,19 +88,6 @@
         </div>
 
         <div class="form-control">
-          <label for="houseNumber">Número *</label>
-          <input
-            type="text"
-            id="houseNumber"
-            name="houseNumber"
-            placeholder="Informe o número de sua residência"
-          />
-          <i class="fas fa-exclamation-circle"></i>
-          <i class="fas fa-check-circle"></i>
-          <small class="js-msg"></small>
-        </div>
-
-        <div class="form-control">
           <label for="complement">Complemento</label>
           <input
             type="text"
