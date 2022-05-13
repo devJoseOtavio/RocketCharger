@@ -6,23 +6,24 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CustomerService {
 
-    def save(Map params) {
+    public Customer save(Map params) {
+         validate(params)
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
+         return customer;
      }
 
-    def index() {
+    public List <Customer> index() {
         return Customer.getAll()
     }
 
-    def getCustomer(Integer id){
+    public Customer getCustomer(Integer id){
         return Customer.get(id)
     }
 
-    def update(Map params){
-        if (!params.id) {
-        return;
-    }   
+    public Customer update(Map params){
+        if (!params.id) throw new Exception('Erro ao realizar edição')
+        validate(params)
         Customer customer = Customer.get(params.int("id"))
         customer.name = params.name
         customer.email = params.email
@@ -33,5 +34,33 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(flush: true, failOnError: true)
+        return customer;
+    }
+
+    private void validate(Map params){
+        if(!params.name){
+            throw new Exception('Erro no registro do nome informad-o.')
+        }
+        if(!params.email){
+            throw new Exception('Erro no registro do email informado.')
+        }
+        if(!params.cpfCnpj){
+            throw new Exception('Erro na registro de CPF/CNPJ.')
+        }
+        if(!params.postalCode){
+            throw new Exception('Erro no registro do CEP informado.')
+        }
+        if(!params.address){
+            throw new Exception('Erro no registro do endereço informado.')
+        }
+        if(!params.district){
+            throw new Exception('Erro no registro do bairro informado.')
+        }
+        if(!params.city){
+            throw new Exception('Erro no registro da cidade informada.')
+        }
+        if(!params.state){
+            throw new Exception('Erro no registro do Estado informada.')
+        }
     } 
 }
