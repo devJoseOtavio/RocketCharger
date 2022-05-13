@@ -1,7 +1,7 @@
 package com.rocketcharger.domain.payment
 
-// import com.rocketcharger.domain.customer.Customer
-// import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.domain.payer.Payer
 
 class Payment {
 
@@ -13,9 +13,9 @@ class Payment {
 
     String dueDate
 
-    // Customer customer
+    Customer customer
     
-    // Payer payer
+    Payer payer
 
     static constraints = {}
 

@@ -12,6 +12,8 @@
         <input type="text" name="billingType" placeholder="Método de pagamento" value="${payment?.billingType}" readonly><br>
         <input type="text" name="status" placeholder="Status" value="${payment?.status}" readonly><br>
         <input type="text" name="dueDate" placeholder="Data de vencimento" value="${payment?.dueDate}" readonly><br>
+        <input type="text" name="customer" placeholder="Cliente á receber" value="${payment?.customer}"><br>
+        <input type="text" name="payer" placeholder="Pagador" value="${payment?.payer}"><br>
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
         <button type="reset">Cancelar</button>

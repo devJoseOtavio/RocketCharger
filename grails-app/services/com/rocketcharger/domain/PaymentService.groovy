@@ -7,8 +7,10 @@ import grails.gorm.transactions.Transactional
 class PaymentService {
 
     def save(Map params) {
-         Payment payment = new Payment(params)
-         payment.save(failOnError: true)
+        // Customer customer = Customer.get(params.int('customerId'))
+        // Payer payer = Payer.get(params.int('payerId'))
+        Payment payment = new Payment(params)
+        payment.save(failOnError: true)
      }
 
     def index() {
@@ -24,14 +26,12 @@ class PaymentService {
         return;
     }   
         Payment payment = Payment.get(params.int("id"))
-        payment.name = params.name
-        payment.email = params.email
-        payment.cpfCnpj = params.cpfCnpj
-        payment.postalCode = params.postalCode
-        payment.address = params.address
-        payment.district = params.district
-        payment.city = params.city
-        payment.state = params.state
+        payment.value = params.value
+        payment.billingType = params.billingType
+        payment.status = params.status
+        payment.dueDate = params.dueDate
+        payment.customer = params.customer
+        payment.payer = params.payer
         payment.save(flush: true, failOnError: true)
     } 
 }
