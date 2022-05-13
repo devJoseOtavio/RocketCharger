@@ -1,10 +1,10 @@
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
-     <asset:javascript src="formImports.js"/>
+     <asset:javascript src="applications/applicationForm.js"/>
 </head>
 <body>
-    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index' params: [id: customerId]) }" 
+    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index', params: [id: payer.customer.id]) }" 
           action="${ g.createLink(controller: 'payer', action: 'update') }" >
         <input type="hidden" class="js-payer-id" name="id" value="${payer?.id}">
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${payer?.name}" readonly><br>

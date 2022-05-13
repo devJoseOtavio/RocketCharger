@@ -27,20 +27,7 @@ function FormUtilsController() {
       window.location.href = $("form").data("redirect-url");
     });
   }
-
-  function bindHideButtonAndEditForm() {
-    let inputsReference = $("input");
-    $(".js-edit").on("click", function (e) {
-      e.preventDefault();
-      $(this).hide();
-      $(".js-send-button").removeClass("hiddenBtn");
-      inputsReference.each(function (i, input) {
-        $(input).removeAttr("readonly");
-      });
-    });
-  }
 }
-
 var formUtilsController;
 
 $(document).ready(function () {
