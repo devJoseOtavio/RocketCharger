@@ -6,6 +6,7 @@
     <body>
         <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'index') }"
               action="${ g.createLink(controller: 'payment', action: 'save') }">
+            <div><input type="text" name="value" placeholder="valor do pagamento"></div>
             <div><input type="text" name="billingType" placeholder="Método de pagamento"></div>
             <div><input type="text" name="status" placeholder="Status"></div>
             <div><input type="text" name="dueDate" placeholder="Data de vencimento"></div>

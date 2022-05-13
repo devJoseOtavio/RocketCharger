@@ -7,27 +7,28 @@ import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 
 class PaymentController {
+     def paymentService
 
-    def paymentService
-
-    def index() {
-        return [paymentList: Payment.list(max: 2, offset: getCurrentPage()), totalCount: Payment.count()]
+     
+   def index() {  
+        return [paymentList: Payment.list(max: 10, offset: getCurrentPage()), totalCount: Payment.count()]
     }
 
 
-    def create() { }
+    def create() {
+    }
 
-     def save() {
+    def save() {
         try {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Erro ao tentar salvar"] as JSON)
+            render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
 
     def update() {
-        try {
+       try {
             paymentService.update(params)
             render([success: true] as JSON)
         } catch(Exception e) {
@@ -36,11 +37,15 @@ class PaymentController {
     }
 
     def show() {
-         return [payment: paymentService.getPayment(params.int("id"))]
+        return [payment: paymentService.getPayment(params.int("id"))]
+    }
+
+    def paymentPage() {
+        return [paymentList: Payment.list(max: 10, offset: getCurrentPage()), totalCount: Payment.count()]
     }
     
     private Integer getCurrentPage() {
         if(!params.offset) params.offset = 0
         return Integer.valueOf(params.offset)
     }
-}
+ }

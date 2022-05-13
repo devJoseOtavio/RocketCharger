@@ -8,6 +8,8 @@ class Payment {
     String value
 
     String billingType
+    
+    String status
 
     String dueDate
 
