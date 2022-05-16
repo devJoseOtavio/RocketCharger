@@ -13,7 +13,7 @@ class CustomerService {
          return customer;
      }
 
-    public List <Customer> index() {
+    public List<Customer> index() {
         return Customer.getAll()
     }
 
@@ -37,29 +37,29 @@ class CustomerService {
         return customer;
     }
 
-    private void validate(Map params){
-        if(!params.name){
+    private void validate(Map params) {
+        if (!params.name) {
             throw new Exception('Erro no registro do nome informado.')
         }
-        if(!params.email){
+        if (!params.email) {
             throw new Exception('Erro no registro do email informado.')
         }
-        if(!params.cpfCnpj){
+        if (!params.cpfCnpj) {
             throw new Exception('Erro na registro de CPF/CNPJ.')
         }
-        if(!params.postalCode){
+        if (!params.postalCode) {
             throw new Exception('Erro no registro do CEP informado.')
         }
-        if(!params.address){
+        if (!params.address) {
             throw new Exception('Erro no registro do endereço informado.')
         }
-        if(!params.district){
+        if (!params.district) {
             throw new Exception('Erro no registro do bairro informado.')
         }
-        if(!params.city){
+        if (!params.city) {
             throw new Exception('Erro no registro da cidade informada.')
         }
-        if(!params.state){
+        if (!params.state) {
             throw new Exception('Erro no registro do Estado informada.')
         }
     } 

@@ -5,8 +5,8 @@
      <asset:stylesheet src="customer/show.css" />
 </head>
 <body>
-    <form autocomplete="off" class="form" data-redirect-url="${g.createLink(controller: 'payer', action: 'index', params: [id: payer.customer.id])}" 
-          action="${g.createLink(controller: 'payer', action: 'update')}" >
+    <form autocomplete="off" class="form" data-redirect="${g.createLink(controller: 'payer', action: 'index', params: [id: payer.customer.id])}" 
+          data-url="${g.createLink(controller: 'payer', action: 'update')}" >
         <input type="hidden" class="js-payer-id" name="id" value="${payer?.id}">
         
         <div class="form-control">
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-control">
-          <label for="cpfCnpj">CPF/CNPJ *</label>
+          <label for="cpfCnpj">CPF/CNPJ: *</label>
           <input
             type="number"
             id="cpfCnpj"
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-control">
-          <label for="email">Email *</label>
+          <label for="email">Email: *</label>
           <input type="email" 
           id="email" 
           name="email"
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-control">
-          <label for="postalCode">CEP *</label>
+          <label for="postalCode">CEP: *</label>
           <input
             type="text"
             id="postalCode"
@@ -73,7 +73,7 @@
         </div>
 
         <div class="form-control">
-          <label for="address">Endereço</label>
+          <label for="address">Endereço: </label>
           <input
             type="text"
             id="address"
@@ -89,7 +89,7 @@
         </div>
 
         <div class="form-control">
-          <label for="complement">Complemento</label>
+          <label for="complement">Complemento: </label>
           <input
             type="text"
             id="complement"
@@ -102,7 +102,7 @@
         </div>
 
         <div class="form-control">
-          <label for="district">Bairro *</label>
+          <label for="district">Bairro: *</label>
           <input
             type="text"
             id="district"
@@ -117,7 +117,7 @@
         </div>
 
         <div class="form-control">
-          <label for="city">Cidade *</label>
+          <label for="city">Cidade: *</label>
           <input
             type="text"
             id="city"
@@ -133,7 +133,7 @@
         </div>
 
         <div class="form-control">
-          <label for="state">Estado *</label>
+          <label for="state">Estado: *</label>
           <input
             type="text"
             id="state"
@@ -148,7 +148,7 @@
           "></small>
         </div>
         <button class="js-edit">Editar</button>
-        <button type="submit" class="js-send-button hiddenBtn">Salvar</button>
+        <button type="submit" class="js-send-button hide">Salvar</button>
         <button type="reset">Cancelar</button>
 </body>
 </html>

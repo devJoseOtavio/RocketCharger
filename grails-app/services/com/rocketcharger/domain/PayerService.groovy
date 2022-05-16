@@ -41,7 +41,7 @@ class PayerService {
 
     private void validate(Map params){
         if(!params.name){
-            throw new Exception('Erro no registro do nome informad-o.')
+            throw new Exception('Erro no registro do nome informado.')
         }
         if(!params.email){
             throw new Exception('Erro no registro do email informado.')

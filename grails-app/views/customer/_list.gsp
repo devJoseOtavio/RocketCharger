@@ -1,6 +1,6 @@
 <html lang="pt-br">
   <body>
-    <g:if test="${customerList?.size() > 0}">
+    <g:if test="${customerList}">
       <table>
         <tr>
           <th>Nome</th>

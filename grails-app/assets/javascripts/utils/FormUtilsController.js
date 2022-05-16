@@ -11,20 +11,16 @@ function FormUtilsController() {
   }
 
   function bindPostFormSubmit() {
-    var data = new FormData(document.querySelector("form"));
+    var formReference = $("form");
+    var url = formReference.data("url");
+    var params = formReference.serialize();
 
-    var object = {};
-    data.forEach(function (value, key) {
-      object[key] = value;
-    });
-
-    var url = $("form").prop("action");
-    $.post(url, object, function (response) {
+    $.post(url, params, function (response) {
       if (!response.success) {
         alert(`Erro ao realizar requisição, contate o administrador..`);
         return;
       }
-      window.location.href = $("form").data("redirect-url");
+      window.location.href = formReference.data("redirect");
     });
   }
 
@@ -33,8 +29,8 @@ function FormUtilsController() {
     $(".js-edit").on("click", function (e) {
       e.preventDefault();
       $(this).hide();
-      $(".js-send-button").removeClass("hiddenBtn");
-      inputsReference.each(function (i, input) {
+      $(".js-send-button").removeClass("hide");
+      inputsReference.each(function (index, input) {
         $(input).removeAttr("readonly");
       });
     });

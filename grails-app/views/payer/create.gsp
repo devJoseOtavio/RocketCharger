@@ -9,8 +9,8 @@
     <asset:javascript src="applications/applicationForm.js"/>
 </head>
         <div class="container">
-        <form autocomplete="off" class="form" data-redirect-url="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId])}"
-              action="${ g.createLink(controller: 'payer', action: 'save') }">  
+        <form autocomplete="off" class="form" data-redirect="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId])}"
+              data-url="${ g.createLink(controller: 'payer', action: 'save') }">  
 
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-control">
-          <label for="cpfCnpj">CPF/CNPJ *</label>
+          <label for="cpfCnpj">CPF/CNPJ: *</label>
           <input
             type="number"
             id="cpfCnpj"
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-control">
-          <label for="email">Email *</label>
+          <label for="email">Email: *</label>
           <input type="email" id="email" name="email"
           placeholder="Ex: meuemail@provedor.com"/>
           <i class="fas fa-exclamation-circle"></i>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-control">
-          <label for="postalCode">CEP *</label>
+          <label for="postalCode">CEP: *</label>
           <input
             type="text"
             id="postalCode"
@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-control">
-          <label for="address">Endereço</label>
+          <label for="address">Endereço: *</label>
           <input
             type="text"
             id="address"
@@ -79,7 +79,7 @@
         </div>
 
         <div class="form-control">
-          <label for="complement">Complemento</label>
+          <label for="complement">Complemento: </label>
           <input
             type="text"
             id="complement"
@@ -91,7 +91,7 @@
         </div>
 
         <div class="form-control">
-          <label for="district">Bairro *</label>
+          <label for="district">Bairro: *</label>
           <input
             type="text"
             id="district"
@@ -104,7 +104,7 @@
         </div>
 
         <div class="form-control">
-          <label for="city">Cidade *</label>
+          <label for="city">Cidade: *</label>
           <input
             type="text"
             id="city"
@@ -118,7 +118,7 @@
         </div>
 
         <div class="form-control">
-          <label for="state">Estado *</label>
+          <label for="state">Estado: *</label>
           <input
             type="text"
             id="state"

@@ -23,13 +23,13 @@ class Payer {
     Customer customer
 
     static constraints = {
-        name nulllable: false, blank: false 
+        name blank: false 
         email unique: true, blank: false, nullable: false
-        cpfCnpj nulllable: false, blank: false
-        postalCode nulllable: false, blank: false
-        address nulllable: false, blank: false
-        district nulllable: false, blank: false
-        city nulllable: false, blank: false
-        state nulllable: false, blank: false
+        cpfCnpj blank: false
+        postalCode blank: false
+        address blank: false
+        district blank: false
+        city blank: false
+        state blank: false
     }
 }
