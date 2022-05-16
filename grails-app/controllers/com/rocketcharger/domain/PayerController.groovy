@@ -45,8 +45,19 @@ class PayerController {
         return [payer: payerService.getPayer(params.int('id'))]
     }
 
+    def deleted() {
+        Payer payer = Payer.get(params.id)
+        payer.delete(flush:true)
+
+        def index = Payer.payerList()
+        render(template:"list", model:[payerList: payerList])
+    }
+
     private Integer getCurrentPage() {
         if (!params.offset) params.offset = 0
         return Integer.valueOf(params.offset)
+
+        def index = Payer.payerList()
+        render(template:"list", model:[payerList: payerList])
     }
 }
