@@ -1,7 +1,8 @@
 package com.rocketcharger.domain
 
 import com.rocketcharger.domain.payment.Payment
-
+import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
@@ -11,11 +12,21 @@ class PaymentController {
 
      
    def index() {  
-        return [paymentList: Payment.list(max: 10, offset: getCurrentPage()), totalCount: Payment.count()]
+        Long customerId = params.long("id")
+        List<Payment> paymentList = Payment.createCriteria().list(max: 10, offset: getCurrentPage()) {
+            like("customer", Customer.get(customerId)) 
+        }
+        [paymentList: paymentList, totalCount: Payment.count()]
     }
 
 
     def create() {
+        Long customerId = params.long("id")
+        List<Payer> payerList = Payer.createCriteria().list() {
+            like("customer", Customer.get(customerId)) 
+        }
+        [payerList: payerList, totalCount: Payer.count()]
+        return [customerId: customerId, payerList: payerList]
     }
 
     def save() {

@@ -22,6 +22,7 @@
     </form> 
     <div>
         <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
+        <g:link controller="payment" action="create" id='${customer.id}'><button>Criar pagamento</button></g:link>
     </div>
     </body>
 </html>

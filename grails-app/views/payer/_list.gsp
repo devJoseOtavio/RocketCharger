@@ -28,7 +28,7 @@
              <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Editar dados</g:link>
             </td>
             <td>
-              <g:link controller="payer" action="deleted" update="divForm" id='${payer.id}'>Excluir</g:link>
+              <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Excluir</g:link>
             </td>
             </td>
           </tr>

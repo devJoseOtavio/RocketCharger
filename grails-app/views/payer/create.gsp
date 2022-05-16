@@ -14,7 +14,6 @@
             <div><input type="text" name="city" id="city" placeholder="Cidade"></div>
             <div><input type="text" name="state" id="state" placeholder="Estado"></div>
             <input hidden value="${customerId}" name="customer" id="customer">
-            <input hidden value="${payerId}" name="payer" id="payer">
             <button type="submit">Salvar</button>
         </form>
     </body>
