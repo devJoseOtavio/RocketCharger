@@ -15,7 +15,7 @@ class PayerService {
         return payer;
     }
     
-    public List <Payer> index() {
+    public List<Payer> index() {
         return Payer.getAll()
     }
 
@@ -39,7 +39,7 @@ class PayerService {
         return payer;
     }
 
-    private void validate(Map params){
+    private void validate(Map params) {
         if (!params.name) {
             throw new Exception('Erro no registro do nome informado.')
         }
