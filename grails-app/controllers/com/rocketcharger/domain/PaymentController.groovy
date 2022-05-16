@@ -19,7 +19,6 @@ class PaymentController {
         [paymentList: paymentList, totalCount: Payment.count()]
     }
 
-
     def create() {
         Long customerId = params.long("id")
         List<Payer> payerList = Payer.createCriteria().list() {
