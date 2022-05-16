@@ -5,8 +5,8 @@
         <asset:javascript src="applications/applicationForm.js"/>
     </head>
     <body>
-   <form data-redirect-url="${ g.createLink(controller: 'customer', action: 'customerPage') }"
-         action="${ g.createLink(controller: 'customer', action: 'update') }" > 
+   <form data-redirect="${ g.createLink(controller: 'customer', action: 'customerPage') }"
+         data-url="${ g.createLink(controller: 'customer', action: 'update') }" > 
         <input type="hidden" class="js-customer-id" name="id" value='${customer?.id}'>
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${customer?.name}" readonly><br>
         <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${customer?.cpfCnpj}" readonly><br>

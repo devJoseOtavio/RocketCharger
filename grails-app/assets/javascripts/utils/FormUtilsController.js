@@ -3,7 +3,6 @@ function FormUtilsController() {
     bindFormSubmit();
     bindHideButtonAndEditForm();
   };
-
   function bindFormSubmit() {
     $("form").on("submit", function (e) {
       e.preventDefault();

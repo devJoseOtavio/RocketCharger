@@ -1,6 +1,6 @@
 <html lang="pt-br">
 <body>
-<g:if test="${payerList?.size() > 0}">
+<g:if test="${payerList}">
     <table>
         <tr>
           <th>Nome</th>
