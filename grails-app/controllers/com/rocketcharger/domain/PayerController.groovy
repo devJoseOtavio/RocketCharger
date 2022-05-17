@@ -29,7 +29,7 @@ class PayerController {
             payerService.save(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar salvar '] + e as JSON)
+            render([success: false, message: 'Ocorrreu um erro: ' + e.message]  as JSON)
         }
     }
 
@@ -38,7 +38,7 @@ class PayerController {
             payerService.update(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar atualizar '] + e as JSON)
+            render([success: false, message: 'Ocorrreu um erro: ' + e.message ]  as JSON)
         }
     }
 
