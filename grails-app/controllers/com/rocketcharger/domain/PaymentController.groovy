@@ -6,6 +6,7 @@ import com.rocketcharger.domain.customer.Customer
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
+import com.rocketcharger.enums.PaymentMethod
 
 class PaymentController {
      def paymentService

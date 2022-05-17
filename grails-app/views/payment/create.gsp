@@ -1,5 +1,6 @@
 <html>
     <head>
+    <%@ page import="com.rocketcharger.enums.PaymentMethod" %>
     <title>Adicionar pagamento</title>
     <asset:javascript src="applications/applicationPayment.js"/>
     </head>
@@ -7,9 +8,15 @@
         <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'index', params: [id: customerId]) }"
               action="${ g.createLink(controller: 'payment', action: 'save') }">
             <div><input type="text" name="value" placeholder="valor do pagamento"></div>
-            <div><input type="text" name="billingType" placeholder="Método de pagamento"></div>
             <div><input type="text" name="status" placeholder="Status"></div>
             <div><input type="text" name="dueDate" placeholder="Data de vencimento"></div>
+            <div>
+            <g:select id="method"
+                name="billingType"
+                from="${PaymentMethod?.values()}" 
+                value="${method}"
+                noSelection="['':'Tipo de pagamento']"/>
+            <div>
             <select id="payerId" name="payerId" required>
                 <option>Selecione um pagador</option>
                     <g:each var="payer" in="${payerList}">
