@@ -16,15 +16,15 @@ class PaymentService {
         return payment
      }
 
-    def index() {
+    public List<Payment> index() {
         return Payment.getAll()
     }
 
-    def getPayment(Integer id){
+    public Payment getPayment(Integer id){
         return Payment.get(id)
     }
 
-    def update(Map params){
+    public Payment update(Map params){
         if (params.id) {
         Payment payment = Payment.get(params.int("id"))
         payment.value = params.value
