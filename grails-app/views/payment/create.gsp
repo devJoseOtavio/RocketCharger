@@ -1,7 +1,7 @@
 <html>
     <head>
     <title>Adicionar pagamento</title>
-    <asset:javascript src="applications/applicationForm.js"/>
+    <asset:javascript src="applications/applicationPayment.js"/>
     </head>
     <body>
         <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'index', params: [id: customerId]) }"
