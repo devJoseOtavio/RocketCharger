@@ -1,7 +1,7 @@
 <html>
     <head>
     <title>Adicionar pagamento</title>
-    <asset:javascript src="applications/applicationPayment.js"/>
+    <asset:javascript src="applications/applicationForm.js"/>
     </head>
     <body>
         <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'index', params: [id: customerId]) }"
@@ -13,10 +13,10 @@
             <select id="payerId" name="payerId" required>
                 <option>Selecione um pagador</option>
                     <g:each var="payer" in="${payerList}">
-                        <option value="$ {payer.id}">${payer.name}</option>
+                        <option value="${payer.id}">${payer.name}</option>
                     </g:each>
             </select>
-            <input hidden value="${customerId}" name="customer" id="customer">    
+            <input hidden value="${customerId}" name="customerId" id="customerId">    
             <div><button type="submit">Salvar</button></div>       
         </form>
     </body>

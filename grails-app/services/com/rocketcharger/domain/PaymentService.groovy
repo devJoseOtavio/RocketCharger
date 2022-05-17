@@ -1,15 +1,19 @@
 package com.rocketcharger.domain
 
 import com.rocketcharger.domain.payment.Payment
+import com.rocketcharger.domain.payer.Payer
+import com.rocketcharger.domain.customer.Customer
 import grails.gorm.transactions.Transactional 
 
 @Transactional
 class PaymentService {
 
-    def save(Map params) {
-        Payment.customer = Customer.get(params.long("customerId"))
+    public Payment save(Map params) {
         Payment payment = new Payment(params)
+        payment.customer = Customer.get(params.long("customerId"))
+        payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
+        return payment
      }
 
     def index() {

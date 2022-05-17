@@ -33,6 +33,7 @@ class PaymentController {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
+            println e
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
@@ -48,10 +49,6 @@ class PaymentController {
 
     def show() {
         return [payment: paymentService.getPayment(params.int("id"))]
-    }
-
-    def paymentPage() {
-        return [paymentList: Payment.list(max: 10, offset: getCurrentPage()), totalCount: Payment.count()]
     }
     
     private Integer getCurrentPage() {

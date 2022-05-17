@@ -15,9 +15,9 @@
             <td>${payment.billingType}</td>
             <td>${payment.status}</td>
             <td>${payment.dueDate}</td>
-            <td>${payment.payer}</td>
+            <td>${payment.payer.name}</td>
             <td>
-              <g:link controller="payment" action="show" update="divForm" id='${payment.id}'>editar cobrança</g:link>
+              <g:link controller="payment" action="show" update="divForm" id='${payment.id}'>Ver cobrança</g:link>
             </td>
             </td>
           </tr>
