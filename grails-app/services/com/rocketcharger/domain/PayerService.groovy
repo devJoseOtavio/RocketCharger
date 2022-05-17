@@ -22,7 +22,9 @@ class PayerService {
     }
 
     public Payer update(Map params) {
-        if (params.id) {
+        if (!params.id) {
+        return;
+       }         
         Payer payer = Payer.get(params.int('id'))
         payer.name = params.name
         payer.email = params.email
@@ -34,6 +36,5 @@ class PayerService {
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
         return payer;
-       }         
     }
 }

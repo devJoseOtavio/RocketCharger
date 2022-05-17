@@ -25,7 +25,9 @@ class PaymentService {
     }
 
     public Payment update(Map params){
-        if (params.id) {
+        if (!params.id) {
+        return;
+       }   
         Payment payment = Payment.get(params.int("id"))
         payment.value = params.value
         payment.billingType = params.billingType
@@ -35,6 +37,5 @@ class PaymentService {
         payment.payer = params.payer
         payment.save(flush: true, failOnError: true)
         return payment;
-    }   
-}
+    }
 }
