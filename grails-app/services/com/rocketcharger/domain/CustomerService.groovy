@@ -6,20 +6,20 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CustomerService {
 
-    def save(Map params) {
+    public Customer save(Map params) {
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
      }
 
-    def index() {
+    public List<Customer> index() {
         return Customer.getAll()
     }
 
-    def getCustomer(Integer id){
+    public Customer getCustomer(Integer id){
         return Customer.get(id)
     }
 
-    def update(Map params){
+    public Customer update(Map params){
         if (!params.id) {
         return;
     }   
