@@ -17,7 +17,7 @@ class CustomerService {
 
     def update(Long id, Map params) {
         if (!id) return;
-        Customer customer = Customer.get(params.long("id"))
+        Customer customer = Customer.get("id")
         customer.name = params.name
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
