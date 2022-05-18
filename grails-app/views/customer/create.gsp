@@ -14,7 +14,7 @@
             <div><input type="text" name="district" id="district" placeholder="Bairro" required></div>
             <div><input type="text" name="city" id="city" placeholder="Cidade" required></div>
             <div><input type="text" name="state" id="state" placeholder="Estado" required></div>
-            <div><input hidden value="${customerId}" name="customer" id="customer">
+            <div><input type="hidden" value="${customerId}" name="customer" id="customer">
             <div><button type="submit">Salvar</button>
         </form>
     </body>

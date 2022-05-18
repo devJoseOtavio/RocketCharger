@@ -13,7 +13,7 @@
             <div><input type="text" name="district" id="district" placeholder="Bairro"></div>
             <div><input type="text" name="city" id="city" placeholder="Cidade"></div>
             <div><input type="text" name="state" id="state" placeholder="Estado"></div>
-            <input hidden value="${customerId}" name="customer" id="customer">
+            <input type="hidden" value="${customerId}" name="customer" id="customer">
             <button type="submit">Salvar</button>
         </form>
     </body>
