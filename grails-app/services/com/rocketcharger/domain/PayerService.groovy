@@ -17,13 +17,13 @@ class PayerService {
         return Payer.getAll()
     }
 
-    public Payer getPayer(Integer id) {
+    public Payer getPayer(Long id) {
         return Payer.get(id)
     }
 
     public Payer update(Map params) {
         if (params.id) {
-        Payer payer = Payer.get(params.int('id'))
+        Payer payer = Payer.get(params.long('id'))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj

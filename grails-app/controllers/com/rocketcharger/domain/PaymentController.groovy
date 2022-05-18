@@ -8,32 +8,28 @@ import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 
 class PaymentController {
-     def paymentService
+     
+    def paymentService
+    def payerService
 
      
    def index() {  
-        Long customerId = params.long("id")
-        List<Payment> paymentList = Payment.createCriteria().list(max: 10, offset: getCurrentPage()) {
-            like("customer", Customer.get(customerId)) 
-        }
-        [paymentList: paymentList, totalCount: Payment.count()]
+        Long customerId = params.long("customerId")
+        List<Payment> paymentList = paymentService.returnPayersByCustomer(customerId, returnSizeLimitPage(), getCurrentPage())
+        return [customerId: customerId, paymentList: paymentList, totalCount: Payment.count()]
     }
 
     def create() {
-        Long customerId = params.long("id")
-        List<Payer> payerList = Payer.createCriteria().list() {
-            like("customer", Customer.get(customerId)) 
-        }
-        [payerList: payerList, totalCount: Payer.count()]
+        Long customerId = params.long("customerId")
+        List<Payer> payerList = payerService.returnPayersByCustomer(customerId)
         return [customerId: customerId, payerList: payerList]
     }
 
     def save() {
         try {
-            paymentService.save(params)
-            render([success: true] as JSON)
+            Payment payment = paymentService.save(params)
+            if (payment) render([success: true] as JSON)
         } catch(Exception e) {
-            println e
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
@@ -48,11 +44,6 @@ class PaymentController {
     }
 
     def show() {
-        return [payment: paymentService.getPayment(params.int("id"))]
-    }
-    
-    private Integer getCurrentPage() {
-        if(!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
+        return [payment: Payment.get(params.long("paymentId"))]
     }
  }

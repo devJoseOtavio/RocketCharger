@@ -1,7 +1,9 @@
 package com.rocketcharger.enums
 
+import com.rocketcharger.domain.payment.Payment
+
 enum PaymentMethod {
-    PAYMENT_PIX, 
-    CREDITCARD,
-    TRANSFER;
+    PIX,
+    CARTAO,
+    BOLETO;
 }

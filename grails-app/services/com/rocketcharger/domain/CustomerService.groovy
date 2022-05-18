@@ -15,15 +15,15 @@ class CustomerService {
         return Customer.getAll()
     }
 
-    public Customer getCustomer(Integer id){
-        return Customer.get(id)
+    public Customer getCustomer(Long customerId){
+        return Customer.get(params.long(customerId))
     }
 
     public Customer update(Map params){
         if (!params.id) {
         return;
     }   
-        Customer customer = Customer.get(params.int("id"))
+        Customer customer = Customer.get(params.long("customerId"))
         customer.name = params.name
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
@@ -33,5 +33,6 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(flush: true, failOnError: true)
+        return customer;
     } 
 }
