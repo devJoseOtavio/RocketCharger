@@ -22,7 +22,7 @@
                         <option value="${payer.id}">${payer.name}</option>
                     </g:each>
             </select>
-            <input hidden value="${customerId}" name="customerId" id="customerId">    
+            <input type="hidden" value="${customerId}" name="customerId" id="customerId">    
             <div><button type="submit">Salvar</button></div>       
         </form>
     </body>
