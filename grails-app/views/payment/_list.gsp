@@ -19,7 +19,7 @@
               <td>${payment.id}</td>
               <td>${payment.value}</td>
               <td>${payment.billingType}</td>
-              <td>${payment.status}</td>
+              <td><g:message code="PaymentStatus.${payment.status}"></td>
               <td>${FormatDateUtils.formatDate(payment.dueDate)}</td>
               <td>${payment.payer.name}</td>
               <td>

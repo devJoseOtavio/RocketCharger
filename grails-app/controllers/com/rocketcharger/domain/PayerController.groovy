@@ -13,15 +13,13 @@ class PayerController extends BaseController{
 
     def index() {
         Long customerId = params.long("customerId")
-        List<Payer> payerList = Payer.createCriteria().list(max: returnSizeLimitPage(), offset: getCurrentPage()) {
-            like("customer", Customer.get(customerId)) 
-        }
-        [payerList: payerList, totalCount: Payer.count()]
-        render(template:"list", model:[payerList: payerList])
+        List<Payer> payerList = payerService.returnPayersByCustomer(customerId, returnSizeLimitPage(), getCurrentPage())
+        return [customerId: customerId, payerList: payerList, totalCount: Payer.count()] 
+        render(template:"list", model:[customerId: customerId, payerList: payerList])
     }
 
     def create() {
-        return [customerId: params.long('id')]
+        return [customerId: params.long("id")]
     }
 
     def save() {
@@ -29,7 +27,8 @@ class PayerController extends BaseController{
             payerService.save(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar salvar'] as JSON)
+            print e
+            render([success: false, message: 'Ocorrreu um erro: ' + e.message]  as JSON)
         }
     }
 
@@ -38,11 +37,11 @@ class PayerController extends BaseController{
             payerService.update(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar atualizar'] as JSON)
+            render([success: false, message: 'Ocorrreu um erro: ' + e.message ]  as JSON)
         }
     }
 
     def show() {
-        return [payer: payerService.getPayer(params.long('id'))]
+        return [payer: payerService.get(params.long("payerId"))]
     }
 }

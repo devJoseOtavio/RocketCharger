@@ -14,7 +14,8 @@
                 name="billingType"
                 from="${PaymentMethod?.values()}" 
                 value="${method}"
-                noSelection="['':'Tipo de pagamento']"/>
+                noSelection="['':'Tipo de pagamento']"
+                valueMessagePrefix="PaymentMethod"/>
             <div>
             <select id="payerId" name="payerId" required>
                 <option>Selecione um pagador</option>

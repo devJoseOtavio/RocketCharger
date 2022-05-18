@@ -9,6 +9,7 @@ class CustomerService {
     public Customer save(Map params) {
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
+         return customer;
      }
 
     public List<Customer> index() {

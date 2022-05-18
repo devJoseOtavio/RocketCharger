@@ -9,7 +9,9 @@ import grails.converters.JSON
 class CustomerController extends BaseController{
     def customerService
 
-    def index() {}
+    def index() {
+        return [customerList: Customer.list(max: returnSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
+    }
 
     def create() {}
 
@@ -32,7 +34,7 @@ class CustomerController extends BaseController{
     }
 
     def show() {
-        return [customer: Customer.get(params.long("customerId"))]
+        return [customer: Customer.get(params.long("id"))]
     }
 
     def list() {
