@@ -23,7 +23,7 @@ class PayerService {
             throw new Exception('Erro ao realizar edição')
             return
        }
-        Payer payer = Payer.get(params.long("id"))
+        Payer payer = Payer.get("id"))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
