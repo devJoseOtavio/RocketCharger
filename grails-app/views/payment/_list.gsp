@@ -18,7 +18,7 @@
             <tr data-url="${ g.createLink([controller:'payment', action:'show', params:[paymentId: payment.id]])}">
               <td>${payment.id}</td>
               <td>${payment.value}</td>
-              <td>${payment.billingType}</td>
+              <td><g:message code="PaymentMethod.${payment.billingType}"></td>
               <td><g:message code="PaymentStatus.${payment.status}"></td>
               <td>${FormatDateUtils.formatDate(payment.dueDate)}</td>
               <td>${payment.payer.name}</td>
