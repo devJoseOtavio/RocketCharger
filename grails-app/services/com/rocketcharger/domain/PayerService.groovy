@@ -11,7 +11,7 @@ class PayerService {
         Customer customer = Customer.get(params.long("id"))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
-        return payer;
+        return payer
     }
 
     def index() {
@@ -21,7 +21,7 @@ class PayerService {
     def update(Long id, Map params) {
         if (!id) {
             throw new Exception('Erro ao realizar edição')
-            return;
+            return
        }
         Payer payer = Payer.get(params.long("id"))
         payer.name = params.name
