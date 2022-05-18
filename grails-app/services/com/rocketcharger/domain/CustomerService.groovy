@@ -16,7 +16,7 @@ class CustomerService {
     }
 
     def update(Long id, Map params) {
-        if (!id) return;
+        if (!id) return
         Customer customer = Customer.get("id")
         customer.name = params.name
         customer.email = params.email
@@ -27,6 +27,6 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(failOnError: true)
-        return customer;
+        return customer
     } 
 }
