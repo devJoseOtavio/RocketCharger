@@ -13,7 +13,6 @@ class PayerService {
         payer.customer = customer
         payer.save(failOnError: true)
         return payer;
-
     }
 
     public List<Payer> index() {
@@ -39,6 +38,7 @@ class PayerService {
         return payer;
        }         
     }
+
     public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
         def payerCriteria = Payer.createCriteria()
         if (max == null || offset == null) {
