@@ -9,7 +9,7 @@ class CustomerService {
     public Customer save(Map params) {
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
-         return customer;
+         return customer
      }
 
     public List<Customer> index() {
@@ -21,9 +21,7 @@ class CustomerService {
     }
 
     public Customer update(Map params){
-        if (!params.id) {
-        return;
-    }   
+        if (!id) return
         Customer customer = Customer.get(params.long("customerId"))
         customer.name = params.name
         customer.email = params.email
@@ -34,6 +32,6 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(flush: true, failOnError: true)
-        return customer;
+        return customer
     } 
 }

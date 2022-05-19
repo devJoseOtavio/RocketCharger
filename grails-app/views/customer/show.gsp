@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Create customer</title>
+        <title>Criar cliente</title>
         <asset:stylesheet src="customer/show.css" />
         <asset:javascript src="applications/applicationForm.js"/>
     </head>
@@ -22,7 +22,7 @@
     </form> 
     <div>
         <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
-        <g:link controller="payment" action="create" id='${customer.id}'><button>Criar pagamento</button></g:link>
+        <g:link controller="payment" action="create" id='${customer.id}'><button>Nova Cobrança</button></g:link>
     </div>
     </body>
 </html>
