@@ -8,7 +8,7 @@ import grails.gorm.transactions.Transactional
 class PayerService {
 
     def save(Map params) {
-        Customer customer = Customer.get(params.long("id"))
+        Customer customer = Customer.get(params.long("customerId"))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
         return payer
@@ -23,7 +23,7 @@ class PayerService {
             throw new Exception('Erro ao realizar edição')
             return
        }
-        Payer payer = Payer.get("id"))
+        Payer payer = Payer.get("payerId")
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
