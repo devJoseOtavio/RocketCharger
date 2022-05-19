@@ -13,7 +13,7 @@
                     ${flash.message}
                 </div>
             </g:if>
-            <h2>Email Sender Form</h2>
+            <h2>Nova mensagem</h2>
             <g:form controller="emailSender" action="send">
                 <div class="fieldcontain">
                   <g:textField name="sendEmail" id="sendEmail" placeholder="rocketchargerjl@gmail.com" required="" />
@@ -25,7 +25,7 @@
                   <g:textArea name="sendMessage" id="sendMessage" rows="5" cols="80" placeholder="Digite sua mensagem aqui..." required="" />
                 </div>
                 <fieldset>
-                  <g:submitButton name="sendMail" value="Enviar" />
+                  <g:submitButton name="send" value="Enviar" />
                 </fieldset>
             </g:form>
         </section>
