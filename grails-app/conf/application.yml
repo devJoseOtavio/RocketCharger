@@ -140,8 +140,8 @@ environments:
         mail:
             host: "smtp.gmail.com"
             port: 465
-            username: "youremail@gmail.com"
-            password: "yourpassword"
+            username: "rocketchargejl@gmail.com"
+            password: "12345678abc@"
             props:
                 mail.smtp.auth: "true"
                 mail.smtp.socketFactory.port: "465"
