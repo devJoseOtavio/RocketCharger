@@ -10,15 +10,13 @@ import com.rocketcharger.base.BaseController
 import com.rocketcharger.enums.PaymentMethod
 
 class PaymentController extends BaseController {
-     
     def paymentService
     def payerService
 
-     
    def index() {  
         Long customerId = params.long("id")
-        List<Payment> paymentList = paymentService.list()
-        return [customerId: customerId, paymentList: paymentList, totalCount: Payment.count()]
+        List<Payment> paymentList = paymentService.returnPaymentsByCustomer(customerId, returnSizeLimitPage(), getCurrentPage())
+        return [customerId: customerId, paymentList: paymentList, totalCount: paymentList.size()]
     }
 
     def create() {
