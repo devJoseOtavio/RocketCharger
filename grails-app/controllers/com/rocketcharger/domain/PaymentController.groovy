@@ -13,7 +13,7 @@ class PaymentController {
 
      
    def index() {  
-        Long customerId = params.long("id")
+        Long customerId = params.long("customerId")
         List<Payment> paymentList = Payment.createCriteria().list(max: 10, offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
@@ -21,7 +21,7 @@ class PaymentController {
     }
 
     def create() {
-        Long customerId = params.long("id")
+        Long customerId = params.long("customerId")
         List<Payer> payerList = Payer.createCriteria().list() {
             like("customer", Customer.get(customerId)) 
         }

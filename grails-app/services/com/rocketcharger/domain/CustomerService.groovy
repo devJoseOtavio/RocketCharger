@@ -17,7 +17,7 @@ class CustomerService {
 
     public Customer update(Map params){
         if (!params.id) {
-        return
+        return;
     }   
         Customer customer = Customer.get(params.int("id"))
         customer.name = params.name

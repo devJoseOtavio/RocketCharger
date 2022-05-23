@@ -14,6 +14,7 @@ class CustomerController {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
+
     def create() {
     }
 
@@ -36,7 +37,7 @@ class CustomerController {
     }
 
     def show() {
-        return [customer: Customer.get("customerId")]
+        return [customer: Customer.get(params.int("id"))]
     }
 
     def customerPage() {
