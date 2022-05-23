@@ -9,8 +9,8 @@
       <form
         autocomplete="off"
         class="form"
-        data-redirect="${ g.createLink(controller: 'customer', action: 'customerPage') }"
-        data-url="${ g.createLink(controller: 'customer', action: 'update') }"
+        data-redirect="${ g.createLink(controller: "customer", action: "customerPage") }"
+        data-url="${ g.createLink(controller: "customer", action: "update") }"
       >
         <input
           type="hidden"

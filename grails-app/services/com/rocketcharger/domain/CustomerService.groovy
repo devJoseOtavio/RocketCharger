@@ -22,7 +22,7 @@ class CustomerService {
     }
 
     public Customer update(Map params){
-        if (!params.id) throw new Exception('Erro ao realizar edição')
+        if (!params.id) throw new Exception("Erro ao realizar edição")
         validate(params)
         Customer customer = Customer.get(params.int("id"))
         customer.name = params.name
@@ -39,28 +39,28 @@ class CustomerService {
 
     private void validate(Map params) {
         if (!params.name) {
-            throw new Exception('Erro no registro do nome informado.')
+            throw new Exception("Erro no registro do nome informado.")
         }
         if (!params.email) {
-            throw new Exception('Erro no registro do email informado.')
+            throw new Exception("Erro no registro do email informado.")
         }
         if (!params.cpfCnpj) {
-            throw new Exception('Erro na registro de CPF/CNPJ.')
+            throw new Exception("Erro na registro de CPF/CNPJ.")
         }
         if (!params.postalCode) {
-            throw new Exception('Erro no registro do CEP informado.')
+            throw new Exception("Erro no registro do CEP informado.")
         }
         if (!params.address) {
-            throw new Exception('Erro no registro do endereço informado.')
+            throw new Exception("Erro no registro do endereço informado.")
         }
         if (!params.district) {
-            throw new Exception('Erro no registro do bairro informado.')
+            throw new Exception("Erro no registro do bairro informado.")
         }
         if (!params.city) {
-            throw new Exception('Erro no registro da cidade informada.')
+            throw new Exception("Erro no registro da cidade informada.")
         }
         if (!params.state) {
-            throw new Exception('Erro no registro do Estado informada.')
+            throw new Exception("Erro no registro do Estado informada.")
         }
     } 
 }

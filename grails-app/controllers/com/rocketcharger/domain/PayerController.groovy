@@ -20,7 +20,7 @@ class PayerController {
     }
 
     def create() {
-        return [customerId: params.int('id')]
+        return [customerId: params.int("id")]
     }
 
     def save() {
@@ -28,7 +28,7 @@ class PayerController {
             payerService.save(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorreu um erro: ' + e.message]  as JSON)
+            render([success: false, message: "Ocorreu um erro: " + e.message]  as JSON)
         }
     }
 
@@ -37,12 +37,12 @@ class PayerController {
             payerService.update(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorrreu um erro: ' + e.message ]  as JSON)
+            render([success: false, message: "Ocorrreu um erro: " + e.message ]  as JSON)
         }
     }
 
     def show() {
-        return [payer: payerService.getPayer(params.int('id'))]
+        return [payer: payerService.getPayer(params.int("id"))]
     }
 
     private Integer getCurrentPage() {

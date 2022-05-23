@@ -28,8 +28,7 @@
                 action="show"
                 update="divForm"
                 id="${customer.id}"
-                >editar dados</g:link
-              >
+                >editar dados</g:link>
             </td>
           </tr>
         </g:each>

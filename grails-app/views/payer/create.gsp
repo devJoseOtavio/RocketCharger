@@ -9,8 +9,8 @@
     <asset:javascript src="applications/applicationForm.js"/>
 </head>
         <div class="container">
-        <form autocomplete="off" class="form" data-redirect="${ g.createLink(controller: 'payer', action: 'index', params: [id: customerId])}"
-              data-url="${ g.createLink(controller: 'payer', action: 'save') }">  
+        <form autocomplete="off" class="form" data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
+              data-url="${ g.createLink(controller: "payer", action: "save") }">  
 
         <div class="form-control">
           <label for="name">Nome Completo: *</label>

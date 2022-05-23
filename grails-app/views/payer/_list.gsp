@@ -29,8 +29,7 @@
                 action="show"
                 update="divForm"
                 id="${payer.id}"
-                >Editar dados</g:link
-              >
+                >Editar dados</g:link>
             </td>
           </tr>
         </g:each>
