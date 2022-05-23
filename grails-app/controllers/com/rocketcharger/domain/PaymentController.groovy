@@ -3,6 +3,7 @@ package com.rocketcharger.domain
 import com.rocketcharger.domain.payment.Payment
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
+
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
@@ -24,8 +25,7 @@ class PaymentController {
         List<Payer> payerList = Payer.createCriteria().list() {
             like("customer", Customer.get(customerId)) 
         }
-        [payerList: payerList, totalCount: Payer.count()]
-        return [customerId: customerId, payerList: payerList]
+        return [payerList: payerList, totalCount: Payer.count(), customerId: customerId, payerList: payerList]
     }
 
     def save() {
