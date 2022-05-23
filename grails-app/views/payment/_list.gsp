@@ -3,7 +3,7 @@
     <g:if test="${paymentList?.size() > 0}">
       <table>
         <tr>
-         <th>Valor do pagamento</th>
+          <th>Valor do pagamento</th>
           <th>Tipo de Pagamento</th>
           <th>Status</th>
           <th>Data de Vencimento</th>
@@ -17,8 +17,12 @@
             <td>${payment.dueDate}</td>
             <td>${payment.payer.name}</td>
             <td>
-              <g:link controller="payment" action="show" update="divForm" id='${payment.id}'>Ver cobrança</g:link>
-            </td>
+              <g:link
+                controller="payment"
+                action="show"
+                update="divForm"
+                id="${payment.id}"
+                >Ver cobrança</g:link>
             </td>
           </tr>
         </g:each>
