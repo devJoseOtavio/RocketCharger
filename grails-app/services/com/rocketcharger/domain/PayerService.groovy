@@ -13,7 +13,7 @@ class PayerService {
         payer.save(failOnError: true)
     }
 
-    public List<Payer> index() {
+    public List<Payer> list() {
         return Payer.getAll()
     }
 
@@ -22,9 +22,7 @@ class PayerService {
     }
 
     public Payer update(Map params) {
-        if (!params.id) {
-        return;
-       }         
+        if (!params.id) return
         Payer payer = Payer.get(params.int('id'))
         payer.name = params.name
         payer.email = params.email
@@ -35,6 +33,6 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
-        return payer;
+        return payer
     }
 }
