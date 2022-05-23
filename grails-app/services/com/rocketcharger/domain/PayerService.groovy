@@ -12,7 +12,7 @@ class PayerService {
         Customer customer = Customer.get(params.int('customerId'))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
-        return payer;
+        return payer
     }
     
     public List<Payer> index() {
@@ -36,7 +36,7 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
-        return payer;
+        return payer
     }
 
     private void validate(Map params) {
