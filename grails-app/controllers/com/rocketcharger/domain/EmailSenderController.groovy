@@ -5,7 +5,6 @@ class EmailSenderController {
     def index() {}
     
     def send() {
-    print params
         sendMail {
             to params.sendEmail
             subject params.sendSubject
