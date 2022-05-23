@@ -29,7 +29,7 @@ class CustomerController {
 
     def update() {
        try {
-            Long id = params.long('id')
+            Long id = params.long("id")
             customerService.update(id, params)
             render([success: true] as JSON)
         } catch(Exception e) {
@@ -38,7 +38,7 @@ class CustomerController {
     }
 
     def show() {
-        return [customer: Customer.get(params.long('id'))]
+        return [customer: Customer.get(params.long("id"))]
     }
 
     def customerPage() {

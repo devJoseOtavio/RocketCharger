@@ -20,7 +20,7 @@ class PayerService {
 
     def update(Long id, Map params) {
         if (!id) {
-            throw new Exception('Erro ao realizar edição')
+            throw new Exception("Erro ao realizar edição")
             return
        }
         Payer payer = Payer.get("payerId")
