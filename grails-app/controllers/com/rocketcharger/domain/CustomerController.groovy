@@ -37,7 +37,7 @@ class CustomerController {
     }
 
     def show() {
-        return [customer: customerService.getCustomer(params.int("id"))]
+        return [customer: Customer.get(id)]
     }
 
     def customerPage() {

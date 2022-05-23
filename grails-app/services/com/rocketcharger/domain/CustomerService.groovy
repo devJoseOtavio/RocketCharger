@@ -15,10 +15,6 @@ class CustomerService {
         return Customer.getAll()
     }
 
-    public Customer getCustomer(Integer id){
-        return Customer.get(id)
-    }
-
     public Customer update(Map params){
         if (!params.id) {
         return;
