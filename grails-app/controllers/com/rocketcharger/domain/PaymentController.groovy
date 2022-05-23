@@ -3,6 +3,7 @@ package com.rocketcharger.domain
 import com.rocketcharger.domain.payment.Payment
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
+
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
