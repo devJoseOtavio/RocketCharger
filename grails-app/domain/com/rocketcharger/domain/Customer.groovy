@@ -19,8 +19,7 @@ class Customer {
     String state
     
      static constraints = {
-        name size: 3..100, nullable: false
-        email size: 5..100, nullable: false
-
+        name size: 3..100
+        email size: 5..100
     }
 }
