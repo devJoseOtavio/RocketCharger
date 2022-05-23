@@ -1,12 +1,11 @@
 package com.rocketcharger.domain
 
-import java.sql.Timestamp
-
 class EmailSenderController {
 
     def index() {}
     
     def send() {
+    print params
         sendMail {
             to params.sendEmail
             subject params.sendSubject
