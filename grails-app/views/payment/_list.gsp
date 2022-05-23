@@ -26,7 +26,6 @@
                 <g:link controller="payment" action="show" update="divForm" id="${payment.id}">Ver cobrança</g:link>
                 <g:link controller="payment" action="confirm" update="divForm" id="${payment.id}">Confirmar recebimento</g:link>
               </td>
-              </td>
             </tr>
           </g:each>
         </table>
