@@ -12,7 +12,7 @@ class PayerService {
         Payer payer = new Payer(params)
         payer.customer = customer
         payer.save(failOnError: true)
-        return payer;
+        return payer
     }
 
     public List<Payer> index() {
@@ -24,7 +24,9 @@ class PayerService {
     }
 
     public Payer update(Map params) {
-        if (params.id) {
+        if (!params.id) {
+        return
+        }
         Payer payer = Payer.get(params.long('id'))
         payer.name = params.name
         payer.email = params.email
@@ -35,9 +37,8 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
-        return payer;
-       }         
-    }
+        return payer
+        }
 
     public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
         def payerCriteria = Payer.createCriteria()

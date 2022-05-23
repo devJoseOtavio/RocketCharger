@@ -8,11 +8,10 @@ import com.rocketcharger.domain.customer.Customer
 import grails.converters.JSON
 
 class PayerController extends BaseController{
-
     def payerService
 
     def index() {
-        Long customerId = params.long("customerId")
+        Long customerId = params.long("id")
         List<Payer> payerList = payerService.returnPayersByCustomer(customerId, returnSizeLimitPage(), getCurrentPage())
         return [customerId: customerId, payerList: payerList, totalCount: Payer.count()] 
         render(template:"list", model:[customerId: customerId, payerList: payerList])
@@ -42,6 +41,6 @@ class PayerController extends BaseController{
     }
 
     def show() {
-        return [payer: payerService.get(params.long("payerId"))]
+        return [payer: payerService.getPayer(params.long("id"))]
     }
 }

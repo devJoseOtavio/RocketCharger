@@ -5,6 +5,7 @@ import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.enums.PaymentMethod
 import com.rocketcharger.enums.PaymentStatus
+import com.rocketcharger.utils.FormatDateUtils
 
 import grails.gorm.transactions.Transactional 
 
@@ -12,19 +13,25 @@ import grails.gorm.transactions.Transactional
 class PaymentService {
 
     public Payment save(Map params) {
-        println params
         Payment payment = new Payment()
-        payment.value = params.value
-        payment.dueDate = FormatDateUtils.toDate(params.dueDate, "dd-MM-yyyy")
-        payment.billingType = PaymentMethod.valueOf(params.method)
+        payment.value = new BigDecimal(params.value)
+        payment.dueDate = FormatDateUtils.toDate(params.dueDate, "yyyy-MM-dd")
+        payment.billingType = PaymentMethod.valueOf(params.billingType)
+        payment.payer = Payer.get(params.long("payerId"))
+        payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
-        payment.customer = Customer.get(params.long("id"))
-        payment.payer = Payer.get(params.long("id"))
         payment.save(failOnError: true)
         return payment
      }
 
-    public List<Payment> index() {
+        public Payment recognizePayment(paymentId) {
+        Payment payment = Payment.get(paymentId)
+        payment.status = PaymentStatus.PAID
+        payment.save(failOnError: true)
+        return payment
+     }
+
+    public List<Payment> list() {
         return Payment.getAll()
     }
 

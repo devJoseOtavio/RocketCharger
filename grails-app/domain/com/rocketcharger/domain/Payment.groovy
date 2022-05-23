@@ -7,7 +7,7 @@ import com.rocketcharger.enums.PaymentStatus
 
 class Payment {
 
-    String value
+    BigDecimal value
 
     PaymentMethod billingType
     

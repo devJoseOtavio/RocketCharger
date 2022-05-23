@@ -17,7 +17,7 @@ class CustomerController extends BaseController{
 
     def save() {
         try {
-            Customer customer = customerService.save(params)
+            customerService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Ocorreu um erro"] as JSON)
@@ -26,7 +26,7 @@ class CustomerController extends BaseController{
 
     def update() {
        try {
-            Customer customer = customerService.update(params)
+            customerService.update(params)
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Erro ao tentar atualizar"] as JSON)
