@@ -1,27 +1,27 @@
 function FormValidationsController() {
   this.init = function () {
-    var form = document.querySelector("form");
-    var name = document.getElementById("name");
-    var cpfCnpj = document.getElementById("cpfCnpj");
-    var postalCode = document.getElementById("postalCode");
-    var email = document.getElementById("email");
-    var address = document.getElementById("address");
-    var complement = document.getElementById("complement");
-    var district = document.getElementById("district");
-    var city = document.getElementById("city");
-    var state = document.getElementById("state");
+    var formReference = document.querySelector("form");
+    var nameReference = document.getElementById("name");
+    var cpfCnpjReference = document.getElementById("cpfCnpj");
+    var postalCodeReference = document.getElementById("postalCode");
+    var emailReference = document.getElementById("email");
+    var addressReference = document.getElementById("address");
+    var complementReference = document.getElementById("complement");
+    var districtReference = document.getElementById("district");
+    var cityReference = document.getElementById("city");
+    var stateReference = document.getElementById("state");
     var correctCpfLength = 11;
     var correctCnpjLength = 14;
 
-    form.addEventListener("submit", (event) => {
+    formReference.addEventListener("submit", (event) => {
       checkInput();
     });
 
-    name.addEventListener("focusout", (event) => {
+    nameReference.addEventListener("focusout", (event) => {
       checkName();
     });
 
-    cpfCnpj.addEventListener("focusout", (event) => {
+    cpfCnpjReference.addEventListener("focusout", (event) => {
       let cpfCnpjValue = cpfCnpj.value;
       if (cpfCnpjValue.length == correctCpfLength) {
         checkCpf();
@@ -30,29 +30,29 @@ function FormValidationsController() {
       checkCnpj();
     });
 
-    postalCode.addEventListener("focusout", (event) => {
+    postalCodeReference.addEventListener("focusout", (event) => {
       checkPostalCode();
       validatePostalCode();
     });
 
-    email.addEventListener("focusout", (event) => {
+    emailReference.addEventListener("focusout", (event) => {
       checkEmail();
     });
 
     function checkName() {
-      let nameValue = name.value;
+      let nameValue = nameReference.value;
       if (!nameValue) {
-        setErrorFor(name, "O seu nome é obrigatório!");
+        setErrorFor(nameReference, "O seu nome é obrigatório!");
         return;
       }
-      setSucessFor(name);
+      setSucessFor(nameReference);
     }
 
     function checkCpf() {
       let cpfCnpjValue = cpfCnpj.value;
       if (cpfCnpjValue.length == correctCpfLength) {
         if (!cpfCnpjValue) {
-          setErrorFor(cpfCnpj, "Preencha seu CPF");
+          setErrorFor(cpfCnpjReference, "Preencha seu CPF");
         } else if (
           cpfCnpjValue.length !== correctCpfLength ||
           cpfCnpjValue == "00000000000" ||
@@ -66,9 +66,9 @@ function FormValidationsController() {
           cpfCnpjValue == "88888888888" ||
           cpfCnpjValue == "99999999999"
         ) {
-          setErrorFor(cpfCnpj, "O cpf informado é inválido");
+          setErrorFor(cpfCnpjReference, "O cpf informado é inválido");
         } else {
-          setSucessFor(cpfCnpj);
+          setSucessFor(cpfCnpjReference);
         }
       }
     }
@@ -88,28 +88,28 @@ function FormValidationsController() {
         cpfCnpjValue == "88888888888888" ||
         cpfCnpjValue == "99999999999999"
       ) {
-        setErrorFor(cpfCnpj, "O CNPJ informado é inválido");
+        setErrorFor(cpfCnpjReference, "O CNPJ informado é inválido");
         return;
       }
-      setSucessFor(cpfCnpj);
+      setSucessFor(cpfCnpjReference);
     }
 
     function checkEmail() {
-      let emailValue = email.value;
+      let emailValue = emailReference.value;
       if (!emailValue) {
-        setErrorFor(email, "O email é obrigatório");
+        setErrorFor(emailReference, "O email é obrigatório");
         return;
       }
-      setSucessFor(email);
+      setSucessFor(emailReference);
     }
 
     function checkPostalCode() {
-      let postalCodeValue = postalCode.value;
+      let postalCodeValue = postalCodeReference.value;
       if (!postalCodeValue) {
-        setErrorFor(postalCode, "Favor informar o CEP!");
+        setErrorFor(postalCodeReference, "Favor informar o CEP!");
         return;
       }
-      setSucessFor(postalCode);
+      setSucessFor(postalCodeReference);
     }
 
     function checkInput() {
@@ -134,7 +134,7 @@ function FormValidationsController() {
         data.forEach(function (value, key) {
           infosCustomer[key] = value;
         });
-        name.focus();
+        nameReference.focus();
       }
     }
 
@@ -148,23 +148,26 @@ function FormValidationsController() {
 
     function fillAddress(data) {
       if (data.erro) {
-        setErrorFor(postalCode, "Não foi possível localizar o endereço");
-        address.value = "";
-        district.value = "";
-        state.value = "";
-        city.value = "";
+        setErrorFor(
+          postalCodeReference,
+          "Não foi possível localizar o endereço"
+        );
+        addressReference.value = "";
+        districtReference.value = "";
+        stateReference.value = "";
+        cityReference.value = "";
         document.querySelector("#address").value = "";
         document.querySelector("#district").value = "";
         document.querySelector("#city").value = "";
         document.querySelector("#state").value = "";
         return;
       }
-      setSucessFor(postalCode);
-      setSucessFor(address);
-      setSucessFor(district);
-      setSucessFor(state);
-      setSucessFor(city);
-      setSucessFor(complement);
+      setSucessFor(postalCodeReference);
+      setSucessFor(addressReference);
+      setSucessFor(districtReference);
+      setSucessFor(stateReference);
+      setSucessFor(cityReference);
+      setSucessFor(complementReference);
       document.querySelector("#address").value = data.logradouro;
       document.querySelector("#district").value = data.bairro;
       document.querySelector("#city").value = data.localidade;
