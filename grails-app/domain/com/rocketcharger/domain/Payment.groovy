@@ -16,8 +16,4 @@ class Payment {
     Customer customer
     
     Payer payer
-
-    static constraints = {
-
-    }
 }

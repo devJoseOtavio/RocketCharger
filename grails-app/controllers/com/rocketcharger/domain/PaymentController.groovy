@@ -33,7 +33,6 @@ class PaymentController {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            println e
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
