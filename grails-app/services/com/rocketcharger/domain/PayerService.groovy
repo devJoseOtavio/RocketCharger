@@ -11,6 +11,7 @@ class PayerService {
         Customer customer = Customer.get(params.int("customerId"))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
+        return payer
     }
 
     public List<Payer> list() {
