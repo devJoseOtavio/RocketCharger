@@ -14,7 +14,6 @@ class CustomerController {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
-
     def create() {
     }
 
