@@ -47,7 +47,7 @@ class PaymentController {
     }
 
     def show() {
-        return [payment: paymentService.getPayment(params.int("id"))]
+        return [payment: Payment.get(id)]
     }
     
     private Integer getCurrentPage() {

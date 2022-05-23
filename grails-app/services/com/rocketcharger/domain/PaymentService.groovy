@@ -20,10 +20,6 @@ class PaymentService {
         return Payment.getAll()
     }
 
-    public Payment getPayment(Integer id){
-        return Payment.get(id)
-    }
-
     public Payment update(Map params){
         if (!params.id) {
         return;
