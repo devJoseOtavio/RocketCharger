@@ -36,6 +36,6 @@ class PaymentService {
         payment.customer = params.customer
         payment.payer = params.payer
         payment.save(flush: true, failOnError: true)
-        return payment;
+        return payment
     }
 }
