@@ -25,8 +25,7 @@ class PaymentController {
         List<Payer> payerList = Payer.createCriteria().list() {
             like("customer", Customer.get(customerId)) 
         }
-        [payerList: payerList, totalCount: Payer.count()]
-        return [customerId: customerId, payerList: payerList]
+        return [payerList: payerList, totalCount: Payer.count(), customerId: customerId, payerList: payerList]
     }
 
     def save() {
