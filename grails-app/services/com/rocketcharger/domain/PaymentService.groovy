@@ -7,11 +7,15 @@ import com.rocketcharger.enums.PaymentMethod
 import com.rocketcharger.enums.PaymentStatus
 import com.rocketcharger.utils.FormatDateUtils
 
+import grails.plugin.asyncmail.AsynchronousMailService
 import grails.gorm.transactions.Transactional 
+import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
-
+    PageRenderer groovyPageRenderer
+    def asynchronousMailService
+    
     public Payment save(Map params) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
@@ -21,13 +25,23 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
+        asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Nova cobrança"
+            html groovyPageRenderer.render(template:"/email/emailSendPayment", model: [payment: payment])
+        }
         return payment
-     }
+    }
 
         public Payment recognizePayment(paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
+        asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Confirmação cobrança"
+            html groovyPageRenderer.render(template:"/email/emailConfirmPayment", model: [payment: payment])
+        }
         return payment
      }
 

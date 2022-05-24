@@ -9,6 +9,7 @@ import grails.converters.JSON
 import com.rocketcharger.base.BaseController
 import com.rocketcharger.enums.PaymentMethod
 
+
 class PaymentController extends BaseController {
     def paymentService
     def payerService
@@ -30,6 +31,7 @@ class PaymentController extends BaseController {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
+            print e
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }
