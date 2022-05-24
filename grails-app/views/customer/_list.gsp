@@ -1,6 +1,6 @@
 <html lang="pt-br">
 <body>
-<g:if test="${customerList?.size() > 0}">
+<g:if test="${customerList}">
     <table>
     <tr>  
         <th>Nome</th>
@@ -23,7 +23,7 @@
           <td>${customer.city}</td>
           <td>${customer.state}</td>
             <td> 
-             <g:link controller="customer" action="show" update="divForm" id='${customer.id}'>editar dados</g:link>
+             <g:link controller="customer" action="show" update="divForm" id="${customer.id}">editar dados</g:link>
             </td>
         </tr>
         </g:each>

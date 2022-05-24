@@ -1,7 +1,6 @@
-function FormUtilsController() {
+function FormPaymentController() {
   this.init = function () {
     bindFormSubmit();
-    bindHideButtonAndEditForm();
   };
   function bindFormSubmit() {
     $("form").on("submit", function (e) {
@@ -27,23 +26,11 @@ function FormUtilsController() {
       window.location.href = $("form").data("redirect-url");
     });
   }
-
-  function bindHideButtonAndEditForm() {
-    let inputsReference = $("input");
-    $(".js-edit").on("click", function (e) {
-      e.preventDefault();
-      $(this).hide();
-      $(".js-send-button").removeClass("hiddenBtn");
-      inputsReference.each(function (i, input) {
-        $(input).removeAttr("readonly");
-      });
-    });
-  }
 }
 
-var formUtilsController;
+var formPaymentController;
 
 $(document).ready(function () {
-  formUtilsController = new FormUtilsController();
-  formUtilsController.init();
+  formPaymentController = new FormPaymentController();
+  formPaymentController.init();
 });

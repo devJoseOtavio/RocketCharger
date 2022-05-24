@@ -11,8 +11,8 @@
 
     <div id="divLista">
         <g:render template="list" model="[customerList: customerList]"></g:render>
-        
     </div>
+    
     <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" />
     <div id="divForm"></div>
 

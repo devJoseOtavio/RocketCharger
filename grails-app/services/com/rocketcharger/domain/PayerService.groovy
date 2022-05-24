@@ -7,26 +7,27 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PayerService {
 
-    def save(Map params) {
-        Customer customer = Customer.get(params.int('customerId'))
+    public Payer save(Map params) {
+        Customer customer = Customer.get(params.long("customerId"))
         Payer payer = new Payer(params)
+        payer.customer = customer
         payer.save(failOnError: true)
+        return payer
     }
 
-    def index() {
+    public List<Payer> index() {
         return Payer.getAll()
     }
 
-    def getPayer(Integer id) {
+    public Payer getPayer(Long id) {
         return Payer.get(id)
     }
 
-    def update(Map params) {
+    public Payer update(Map params) {
         if (!params.id) {
-            throw new Exception('Erro ao realizar edição')
-            return;
-       } 
-        Payer payer = Payer.get(params.int('id'))
+        return
+        }
+        Payer payer = Payer.get(params.long('id'))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
@@ -36,5 +37,20 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
+        return payer
+        }
+
+    public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
+        def payerCriteria = Payer.createCriteria()
+        if (max == null || offset == null) {
+            List<Payer> payerList = payerCriteria.list() {
+                eq("customer", Customer.get(customerId))
+            }
+            return payerList
+        }
+        List<Payer> payerList = payerCriteria.list(max: max, offset: offset) {
+            eq("customer", Customer.get(customerId))
+        }
+        return payerList
     }
 }

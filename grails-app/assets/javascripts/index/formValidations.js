@@ -1,7 +1,6 @@
 const form = document.querySelector("form");
 const customerName = document.getElementById("customerName");
 const cpfCnpj = document.getElementById("cpfCnpj");
-const cellphone = document.getElementById("cellphone");
 const postalCode = document.getElementById("postalCode");
 const email = document.getElementById("email");
 const address = document.getElementById("address");
@@ -13,7 +12,6 @@ const city = document.getElementById("city");
 const state = document.getElementById("state");
 const correctCpfLength = 11;
 const correctCnpjLength = 14;
-const correctCellphoneLength = 11;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -31,10 +29,6 @@ cpfCnpj.addEventListener("input", (event) => {
   } else {
     checkCnpj();
   }
-});
-
-cellphone.addEventListener("input", (event) => {
-  checkCellphone();
 });
 
 postalCode.addEventListener("submit", (event) => {
@@ -112,17 +106,6 @@ function checkEmail() {
   }
 }
 
-function checkCellphone() {
-  let cellphoneValue = cellphone.value;
-  if (!cellphoneValue) {
-    setErrorFor(cellphone, "Digite seu número de telefone");
-  } else if (cellphoneValue.length !== correctCellphoneLength) {
-    setErrorFor(cellphone, "Número inválido");
-  } else {
-    setSucessFor(cellphone);
-  }
-}
-
 function checkPostalCode() {
   let postalCodeValue = postalCode.value;
   if (!postalCodeValue) {
@@ -148,7 +131,7 @@ function checkInput() {
   } else {
     checkCnpj();
   }
-  checkCellphone();
+
   checkPostalCode();
   checkHouseNumber();
   checkEmail();

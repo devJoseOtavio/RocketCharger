@@ -1,11 +1,12 @@
 <html>
 <head>
     <title>Gerenciamento de pagamentos</title>
-     <asset:javascript src="formImports.js"/>
+     <asset:javascript src="applications/applicationForm.js"/>
+     <asset:stylesheet src="customer/show.css" />
 </head>
 <body>
-    <form data-redirect-url="${ g.createLink(controller: 'payer', action: 'index' params: [id: customerId]) }" 
-          action="${ g.createLink(controller: 'payer', action: 'update') }" >
+    <form data-redirect-url="${ g.createLink(controller: "payer", action: "index", params: [id: payer.customer.id]) }" 
+          action="${ g.createLink(controller: "payer", action: "update") }" >
         <input type="hidden" class="js-payer-id" name="id" value="${payer?.id}">
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${payer?.name}" readonly><br>
         <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${payer?.cpfCnpj}" readonly><br>
