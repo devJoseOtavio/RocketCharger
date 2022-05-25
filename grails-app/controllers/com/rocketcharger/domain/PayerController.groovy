@@ -26,7 +26,6 @@ class PayerController extends BaseController{
             payerService.save(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            print e
             render([success: false, message: 'Ocorrreu um erro: ' + e.message]  as JSON)
         }
     }

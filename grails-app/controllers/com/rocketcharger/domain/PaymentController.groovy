@@ -31,7 +31,6 @@ class PaymentController extends BaseController {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            print e
             render([success: false, message: "Ocorreu um erro"] as JSON)
         } 
     }

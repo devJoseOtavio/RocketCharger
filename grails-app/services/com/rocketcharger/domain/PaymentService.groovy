@@ -28,7 +28,12 @@ class PaymentService {
         asynchronousMailService.sendMail {
             to payment.payer.email
             subject "Nova cobrança"
-            html groovyPageRenderer.render(template:"/email/emailSendPayment", model: [payment: payment])
+            html groovyPageRenderer.render(template:"/email/emailSendPayerPayment", model: [payment: payment])
+        }
+        asynchronousMailService.sendMail {
+            to payment.customer.email
+            subject "Nova cobrança"
+            html groovyPageRenderer.render(template:"/email/emailSendCustomerPayment", model: [payment: payment])
         }
         return payment
     }
@@ -40,10 +45,15 @@ class PaymentService {
         asynchronousMailService.sendMail {
             to payment.payer.email
             subject "Confirmação cobrança"
-            html groovyPageRenderer.render(template:"/email/emailConfirmPayment", model: [payment: payment])
+            html groovyPageRenderer.render(template:"/email/emailConfirmPayerPayment", model: [payment: payment])
+        }
+        asynchronousMailService.sendMail {
+            to payment.customer.email
+            subject "Confirmação cobrança"
+            html groovyPageRenderer.render(template:"/email/emailConfirmCustomerPayment", model: [payment: payment])
         }
         return payment
-     }
+    }
 
     public List<Payment> list() {
         return Payment.getAll()
