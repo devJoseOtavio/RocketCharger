@@ -9,11 +9,13 @@ import grails.gorm.transactions.Transactional
 
 @Transactional
 class OverDueJob {
-      def paymentService
+    def paymentService
 
     static triggers = {
       cron name: "dueDate", cronExpression: "0/50 * * ? * * *"
     }
+
+    static concurrent = false
 
     def execute() {
         Date yesterdayDate = FormatDateUtils.getYesterdayDate()

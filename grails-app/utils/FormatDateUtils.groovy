@@ -18,7 +18,7 @@ class FormatDateUtils{
     }
 
     public static Date getYesterdayDate() {
-        Calendar yesterdayDate = Calendar.getInstance();
+        Calendar yesterdayDate = Calendar.getInstance()
         yesterdayDate.add(Calendar.DAY_OF_MONTH, -1)
         yesterdayDate = getDateWithoutTime(yesterdayDate)
         return yesterdayDate.getTime()

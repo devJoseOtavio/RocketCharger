@@ -5,14 +5,12 @@
   <body>
     <form
       data-redirect-url="${ g.createLink(controller: "payment", action: "index") }"
-      action="${ g.createLink(controller: "payment", action: "update") }"
-    >
+      action="${ g.createLink(controller: "payment", action: "update") }">
       <input
         type="hidden"
         class="js-payment-id"
         name="id"
-        value="${payment.id}"
-      />
+        value="${payment.id}"/>
       <div>
         <h4>Valor: ${payment.value}</h4>
       </div>
@@ -26,6 +24,12 @@
         <h4>
           Status da Cobrança:
           <g:message code="PaymentStatus.${payment.status}" />
+        </h4>
+      </div>
+      <div>
+        <h4>
+          Data de Pagamento:
+          <g:formatDate format="dd/MM/yyyy" type="dateTime" style="SHORT" date="${payment.paymentDate}" />
         </h4>
       </div>
       <div>
