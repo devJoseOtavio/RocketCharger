@@ -21,7 +21,6 @@ class PaymentService {
         payment.value = new BigDecimal(params.value)
         payment.dueDate = FormatDateUtils.toDate(params.dueDate, "yyyy-MM-dd")
         payment.billingType = PaymentMethod.valueOf(params.billingType)
-        payment.paymentDate = new Date()
         payment.payer = Payer.get(params.long("payerId"))
         payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
@@ -42,6 +41,7 @@ class PaymentService {
     public Payment recognizePayment(paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
+        payment.paymentDate = new Date()
         payment.save(failOnError: true)
         asynchronousMailService.sendMail {
             to payment.payer.email

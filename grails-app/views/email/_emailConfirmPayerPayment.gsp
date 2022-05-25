@@ -5,7 +5,9 @@
     <title>Email de cobrança</title>
 </head>
 <body>
-    <p><b>Comprovante de pagamento</b></p>
+    <h1><b>Comprovante de pagamento</b></h1>
+    <h2>Gerado em <g:formatDate format="dd/MM/yyyy" type="dateTime" style="SHORT" date="${payment.paymentDate}"/></h2>
+    <hr>
     <div>
         <div>
             <label>Forma de pagamento:</label>
@@ -13,7 +15,7 @@
         </div>
         <div>
             <label>Valor pago:</label>
-            ${payment.value}
+            R$${payment.value}
         </div>
         <div>
             <label>Data do vencimento:</label>
@@ -21,7 +23,7 @@
         </div>
         <div>
             <label>Data do pagamento:</label>
-            (ainda falta)
+            <g:formatDate format="dd/MM/yyyy" type="dateTime" style="SHORT" date="${payment.paymentDate}"/>
         </div>
         <hr>
         <div>
