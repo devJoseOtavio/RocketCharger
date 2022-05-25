@@ -15,11 +15,13 @@ class Payment {
 
     Date dueDate
 
+    Date paymentDate
+
     Customer customer
     
     Payer payer
 
     static constraints = {
-
+        paymentDate nullable: true
     }
 }
