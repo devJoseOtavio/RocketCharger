@@ -2,15 +2,15 @@ package com.rocketcharger.domain
 
 import com.rocketcharger.domain.customer.Customer
 import grails.gorm.transactions.Transactional 
+import com.rocketcharger.utils.DomainUtils
 
 @Transactional
 class CustomerService {
 
     public Customer save(Map params) {
-         validate(params)
          Customer customer = new Customer(params)
          customer.save(failOnError: true)
-         return customer;
+         return customer
      }
 
     public List<Customer> index() {
@@ -22,8 +22,6 @@ class CustomerService {
     }
 
     public Customer update(Map params){
-        if (!params.id) throw new Exception("Erro ao realizar edição")
-        validate(params)
         Customer customer = Customer.get(params.int("id"))
         customer.name = params.name
         customer.email = params.email
@@ -34,33 +32,35 @@ class CustomerService {
         customer.city = params.city
         customer.state = params.state
         customer.save(flush: true, failOnError: true)
-        return customer;
+        return customer
     }
 
-    private void validate(Map params) {
+    public Customer validate(Map params) {
+        Customer customer = new Customer()
         if (!params.name) {
-            throw new Exception("Erro no registro do nome informado.")
+            DomainUtils.addError(customer, "Erro no registro do nome informado.")
         }
         if (!params.email) {
-            throw new Exception("Erro no registro do email informado.")
+            DomainUtils.addError(customer, "Erro no registro do email informado.")
         }
         if (!params.cpfCnpj) {
-            throw new Exception("Erro na registro de CPF/CNPJ.")
+            DomainUtils.addError(customer, "Erro no registro do CPF/CNPJ informado.")
         }
         if (!params.postalCode) {
-            throw new Exception("Erro no registro do CEP informado.")
+            DomainUtils.addError(customer, "Erro no registro do CEP informado.")
         }
         if (!params.address) {
-            throw new Exception("Erro no registro do endereço informado.")
+            DomainUtils.addError(customer, "Erro no registro do endereço informado.")
         }
         if (!params.district) {
-            throw new Exception("Erro no registro do bairro informado.")
+            DomainUtils.addError(customer, "Erro no registro do bairro informado.")
         }
         if (!params.city) {
-            throw new Exception("Erro no registro da cidade informada.")
+            DomainUtils.addError(customer, "Erro no registro da cidade informada.")
         }
         if (!params.state) {
-            throw new Exception("Erro no registro do Estado informada.")
+           DomainUtils.addError(customer, "Erro no registro do estado informado.")
         }
+        return customer
     } 
 }

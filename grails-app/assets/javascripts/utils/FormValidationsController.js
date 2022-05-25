@@ -123,7 +123,7 @@ function FormValidationsController() {
       checkPostalCode();
       checkEmail();
 
-      let formControls = form.querySelectorAll(".form-control");
+      let formControls = formReference.querySelectorAll(".form-control");
       let formIsValid = [...formControls].every((formControl) => {
         return formControl.className === "form-control success";
       });
