@@ -24,7 +24,7 @@ class PaymentService {
         return payment
      }
 
-        public Payment recognizePayment(paymentId) {
+    public Payment recognizePayment(paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
@@ -45,4 +45,15 @@ class PaymentService {
         }
         return paymentList
     }
+
+    public List<Payment> returnPaymentStatusDate(PaymentStatus paymentStatus, Date yesterdayDate) {
+        List<Payment> paymentList = Payment.createCriteria().list() {
+            eq("status", paymentStatus) and {
+                eq("dueDate", yesterdayDate)
+            }
+        }
+        return paymentList
+    }
+
+    
 }

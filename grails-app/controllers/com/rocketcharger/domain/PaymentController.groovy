@@ -8,6 +8,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 import com.rocketcharger.base.BaseController
 import com.rocketcharger.enums.PaymentMethod
+import com.rocketcharger.enums.PaymentStatus
 
 class PaymentController extends BaseController {
     def paymentService
