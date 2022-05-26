@@ -45,12 +45,12 @@ class PaymentService {
         payment.save(flush: true, failOnError: true)
         asynchronousMailService.sendMail {
             to payment.payer.email
-            subject "Confirmação cobrança"
+            subject "Comprovante de pagamento"
             html groovyPageRenderer.render(template:"/email/emailConfirmPayerPayment", model: [payment: payment])
         }
         asynchronousMailService.sendMail {
             to payment.customer.email
-            subject "Confirmação cobrança"
+            subject "Pagamento confirmado"
             html groovyPageRenderer.render(template:"/email/emailConfirmCustomerPayment", model: [payment: payment])
         }
         return payment
