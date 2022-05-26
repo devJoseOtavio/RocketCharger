@@ -42,7 +42,7 @@ class PaymentService {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
-        payment.save(failOnError: true)
+        payment.save(flush: true, failOnError: true)
         asynchronousMailService.sendMail {
             to payment.payer.email
             subject "Confirmação cobrança"
