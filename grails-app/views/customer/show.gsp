@@ -158,8 +158,12 @@
       </form>
     </div>
     <div>
+<<<<<<< HEAD
       <g:link controller="payer" action="create" id="${customer.id}"
         ><button>Criar pagador</button></g:link>
+=======
+        <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
+>>>>>>> origin/main
     </div>
   </body>
 </html>

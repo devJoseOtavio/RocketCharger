@@ -20,7 +20,7 @@ class CustomerController {
             Customer customer = customerService.validate(params)
 
             if (customer.hasErrors()) {
-                render([success: false, message: customer.errors.allErrors.defaultMessage.join("\n")] as JSON)
+                render([success: false, message: customer.errors.allErrors.defaultMessage] as JSON)
                 return
             }
             customer = customerService.save(params)
@@ -48,7 +48,7 @@ class CustomerController {
     }
 
     def show() {
-        return [customer: customerService.getCustomer(params.int("id"))]
+        return [customer: Customer.get(params.long("id"))]
     }
 
     def customerPage() {

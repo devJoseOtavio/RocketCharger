@@ -5,13 +5,7 @@
   </head>
   <body>
     <div>
-      <g:link
-        controller="customer"
-        action="customerPage"
-        update="divForm"
-        params="${customerId}"
-        >Pagina inicial</g:link
-      >
+        <g:link controller="customer" action="customerPage" update="divForm" params="${customerId}">Pagina inicial</g:link>
     </div>
 
     <div id="divLista">

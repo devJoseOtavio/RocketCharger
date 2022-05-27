@@ -25,12 +25,12 @@ function FormUtilsController() {
   }
 
   function bindHideButtonAndEditForm() {
-    let inputsReference = $("input");
+    let inputsReferenceList = $("input");
     $(".js-edit").on("click", function (e) {
       e.preventDefault();
       $(this).hide();
       $(".js-send-button").removeClass("hide");
-      inputsReference.each(function (index, input) {
+      inputsReferenceList.each(function (index, input) {
         $(input).removeAttr("readonly");
       });
     });
