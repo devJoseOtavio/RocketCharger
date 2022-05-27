@@ -25,7 +25,7 @@ class PayerController {
             Payer payer = payerService.validate(params)
             
             if (payer.hasErrors()) {
-                render([success: false, message: payer.errors.allErrors.defaultMessage] as JSON)
+                render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
             payer = payerService.save(params)
@@ -41,7 +41,7 @@ class PayerController {
             Payer payer = payerService.validate(params)
             
             if (payer.hasErrors()) {
-                render([success: false, message: payer.errors.allErrors.defaultMessage] as JSON)
+                render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
             payer = payerService.update(params)

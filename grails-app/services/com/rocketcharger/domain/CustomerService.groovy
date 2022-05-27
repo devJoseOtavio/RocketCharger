@@ -38,28 +38,28 @@ class CustomerService {
     public Customer validate(Map params) {
         Customer customer = new Customer()
         if (!params.name) {
-            DomainUtils.addError(customer, "Erro no registro do nome informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.email) {
-            DomainUtils.addError(customer, "Erro no registro do email informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.cpfCnpj) {
-            DomainUtils.addError(customer, "Erro no registro do CPF/CNPJ informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.postalCode) {
-            DomainUtils.addError(customer, "Erro no registro do CEP informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.address) {
-            DomainUtils.addError(customer, "Erro no registro do endereço informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.district) {
-            DomainUtils.addError(customer, "Erro no registro do bairro informado.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.city) {
-            DomainUtils.addError(customer, "Erro no registro da cidade informada.")
+            DomainUtils.addError(customer, "")
         }
         if (!params.state) {
-           DomainUtils.addError(customer, "Erro no registro do estado informado.")
+           DomainUtils.addError(customer, "")
         }
         return customer
     } 

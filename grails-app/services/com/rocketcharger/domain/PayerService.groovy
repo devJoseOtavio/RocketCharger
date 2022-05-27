@@ -41,28 +41,28 @@ class PayerService {
     public Payer validate(Map params) {
         Payer payer = new Payer()
         if (!params.name) {
-            DomainUtils.addError(payer, "Erro no registro do nome informado.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.email) {
-            DomainUtils.addError(payer, "Erro no registro do email informado.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.cpfCnpj) {
-            DomainUtils.addError(payer, "Erro na registro de CPF/CNPJ")
+            DomainUtils.addError(payer, "")
         }
         if (!params.postalCode) {
-            DomainUtils.addError(payer, "Erro no registro do CEP informado.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.address) {
-            DomainUtils.addError(payer, "Erro no registro do endereço informado.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.district) {
-            DomainUtils.addError(payer, "Erro no registro do bairro informado.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.city) {
-            DomainUtils.addError(payer, "Erro no registro da cidade informada.")
+            DomainUtils.addError(payer, "")
         }
         if (!params.state) {
-            DomainUtils.addError(payer, "Erro no registro do Estado informada.")
+            DomainUtils.addError(payer, "")
         }
         return payer
     }

@@ -20,7 +20,7 @@ class CustomerController {
             Customer customer = customerService.validate(params)
 
             if (customer.hasErrors()) {
-                render([success: false, message: customer.errors.allErrors.defaultMessage] as JSON)
+                render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
             customer = customerService.save(params)
@@ -37,7 +37,7 @@ class CustomerController {
             Customer customer = customerService.validate(params)
 
             if (customer.hasErrors()) {
-                render([success: false, message: customer.errors.allErrors.defaultMessage] as JSON)
+                render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
             customer = customerService.update(params)
