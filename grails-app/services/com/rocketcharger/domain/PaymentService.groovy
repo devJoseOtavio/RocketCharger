@@ -6,15 +6,14 @@ import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.enums.PaymentMethod
 import com.rocketcharger.enums.PaymentStatus
 import com.rocketcharger.utils.FormatDateUtils
+import com.rocketcharger.domain.EmailService
 
-import grails.plugin.asyncmail.AsynchronousMailService
 import grails.gorm.transactions.Transactional 
-import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
-    PageRenderer groovyPageRenderer
-    def asynchronousMailService
+    grails.gsp.PageRenderer groovyPageRenderer
+    def emailService
     
     public Payment save(Map params) {
         Payment payment = new Payment()
@@ -25,15 +24,12 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
-        asynchronousMailService.sendMail {
-            to payment.payer.email
-            subject "Nova cobrança"
-            html groovyPageRenderer.render(template:"/email/emailSendPayerPayment", model: [payment: payment])
-        }
-        asynchronousMailService.sendMail {
-            to payment.customer.email
-            subject "Nova cobrança"
-            html groovyPageRenderer.render(template:"/email/emailSendCustomerPayment", model: [payment: payment])
+        String subject = "Notificação de nova cobrança"
+        try {
+            emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
+            emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
+        } catch (Exception e) {
+            e.printStackTrace()
         }
         return payment
     }
@@ -43,16 +39,9 @@ class PaymentService {
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
-        asynchronousMailService.sendMail {
-            to payment.payer.email
-            subject "Comprovante de pagamento"
-            html groovyPageRenderer.render(template:"/email/emailConfirmPayerPayment", model: [payment: payment])
-        }
-        asynchronousMailService.sendMail {
-            to payment.customer.email
-            subject "Pagamento confirmado"
-            html groovyPageRenderer.render(template:"/email/emailConfirmCustomerPayment", model: [payment: payment])
-        }
+        String subject = "Notificação cobrança confirmada"
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmPayerPayment", model: [payment: payment]))
         return payment
     }
 
