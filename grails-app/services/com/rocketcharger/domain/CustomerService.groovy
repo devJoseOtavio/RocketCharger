@@ -17,18 +17,12 @@ class CustomerService {
         return Customer.getAll()
     }
 
-<<<<<<< HEAD
     public Customer getCustomer(Integer id){
         return Customer.get(id)
     }
 
     public Customer update(Map params){
         Customer customer = Customer.get(params.int("id"))
-=======
-    def update(Long id, Map params) {
-        if (!id) return
-        Customer customer = Customer.get("id")
->>>>>>> origin/main
         customer.name = params.name
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
