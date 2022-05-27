@@ -8,24 +8,19 @@ import grails.gorm.transactions.Transactional
 class PayerService {
 
     def save(Map params) {
-        Customer customer = Customer.get(params.int('customerId'))
+        Customer customer = Customer.get(params.long("customerId"))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
+        return payer
     }
 
     def index() {
         return Payer.getAll()
     }
 
-    def getPayer(Integer id) {
-        return Payer.get(id)
-    }
-
-    def update(Map params) {
-        if (!params.id) {
-            throw new Exception('Erro ao realizar edição')
-            return;
-       } Payer payer = Payer.get(params.int('id'))
+    def update(Long id, Map params) {
+        if (!id) return
+        Payer payer = Payer.get("payerId")
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj

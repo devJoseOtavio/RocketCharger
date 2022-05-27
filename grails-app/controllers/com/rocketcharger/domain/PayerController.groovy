@@ -12,7 +12,7 @@ class PayerController {
     def payerService
 
     def index() {
-        Integer customerId = params.int("id")
+        Integer customerId = params.long("id")
         List <Payer> payerList = Payer.createCriteria().list(max: 10, offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
@@ -20,29 +20,34 @@ class PayerController {
     }
 
     def create() {
-        return [customerId: params.int('id')]
+        return [customerId: params.long("id")]
     }
 
     def save() {
         try {
-            payerService.save(params)
+            Payer payer = payerService.save(params)
+            if (payer.hasErrors()) {
+                render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
+                return;
+            }
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar salvar'] as JSON)
+            render([success: false, message: "Erro ao tentar salvar: " + e] as JSON)
         }
     }
 
     def update() {
         try {
-            payerService.update(params)
+            Long id = params.long("id")
+            payerService.update(id, params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Erro ao tentar atualizar'] as JSON)
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
         }
     }
 
     def show() {
-        return [payer: payerService.getPayer(params.int('id'))]
+        return [payer: Payer.get(params.long("id"))]
     }
 
     private Integer getCurrentPage() {

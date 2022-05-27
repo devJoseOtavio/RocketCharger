@@ -1,7 +1,6 @@
-
 <html lang="pt-br">
 <body>
-<g:if test="${payerList?.size() > 0}">
+<g:if test="${payerList}">
     <table>
         <tr>
           <th>Nome</th>
@@ -25,7 +24,7 @@
             <td>${payer.city}</td>
             <td>${payer.state}</td>
             <td>
-             <g:link controller="payer" action="show" update="divForm" id='${payer.id}'>Editar dados</g:link>
+             <g:link controller="payer" action="show" update="divForm" id="${payer.id}">Editar dados</g:link>
             </td>
           </tr>
         </g:each>

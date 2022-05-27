@@ -20,7 +20,7 @@ class CustomerController {
 
     def save() {
         try {
-            customerService.save(params)
+            Customer customer = customerService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Ocorreu um erro"] as JSON)
@@ -29,7 +29,8 @@ class CustomerController {
 
     def update() {
        try {
-            customerService.update(params)
+            Long id = params.long("id")
+            customerService.update(id, params)
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Erro ao tentar atualizar"] as JSON)
@@ -37,7 +38,7 @@ class CustomerController {
     }
 
     def show() {
-        return [customer: customerService.getCustomer(params.int("id"))]
+        return [customer: Customer.get(params.long("id"))]
     }
 
     def customerPage() {
