@@ -137,10 +137,10 @@ function FormValidationsController() {
       }
       checkPostalCode();
       checkEmail();
-      SubmitBySuccess();
+      checkFormIsValid();
     }
 
-    function SubmitBySuccess() {
+    function checkFormIsValid() {
       let formControls = formReference.querySelectorAll(".form-control");
       let formIsValid = [...formControls].every((formControl) => {
         return formControl.className === "form-control success";
