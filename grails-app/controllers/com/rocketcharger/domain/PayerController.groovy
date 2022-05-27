@@ -25,14 +25,14 @@ class PayerController {
             Payer payer = payerService.validate(params)
             
             if (payer.hasErrors()) {
-                render([success: false, message: message(code: payer.errors.allErrors.defaultMessage)] as JSON)
+                render([success: false, message: payer.errors.allErrors.defaultMessage] as JSON)
                 return
             }
             payer = payerService.save(params)
             
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: message(code: "Ocorreu um erro: " + e.message)] as JSON)
+            render([success: false, message: "Ocorreu um erro: " + e.message] as JSON)
         }
     }
 
@@ -41,14 +41,14 @@ class PayerController {
             Payer payer = payerService.validate(params)
             
             if (payer.hasErrors()) {
-                render([success: false, message: message(code: payer.errors.allErrors.defaultMessage)] as JSON)
+                render([success: false, message: payer.errors.allErrors.defaultMessage] as JSON)
                 return
             }
             payer = payerService.update(params)
             
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: message(code: "Ocorreu um erro: " + e.message)] as JSON)
+            render([success: false, message: "Ocorreu um erro: " + e.message] as JSON)
         }
     }
 
