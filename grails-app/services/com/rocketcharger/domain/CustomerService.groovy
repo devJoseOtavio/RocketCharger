@@ -1,15 +1,14 @@
 package com.rocketcharger.domain
 
 import com.rocketcharger.domain.customer.Customer
-import grails.gorm.transactions.Transactional 
 import com.rocketcharger.utils.DomainUtils
 import com.rocketcharger.utils.ValidateUtils
+import grails.gorm.transactions.Transactional 
 
 @Transactional
 class CustomerService {
 
     public Customer save(Map params) {
-        println(params)
          Customer customer = new Customer(params)
          ValidateUtils.emailIsValid(params.email)
          ValidateUtils.postalCodeIsValid(params.postalCode)
