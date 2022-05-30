@@ -3,9 +3,10 @@ package com.rocketcharger.domain
 import com.rocketcharger.domain.payment.Payment
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.base.BaseController
 
-import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.validation.ValidationException
 import grails.converters.JSON
 
 class PaymentController {
@@ -14,10 +15,10 @@ class PaymentController {
      
    def index() {  
         Long customerId = params.long("customerId")
-        List<Payment> paymentList = Payment.createCriteria().list(max: 10, offset: getCurrentPage()) {
+        List<Payment> paymentList = Payment.createCriteria().list(max: returnSizeLimitPage(), offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
-        [paymentList: paymentList, totalCount: Payment.count()]
+        return [paymentList: paymentList, totalCount: Payment.count()]
     }
 
     def create() {

@@ -4,7 +4,7 @@
     <asset:javascript src="applications/applicationPayment.js"/>
     </head>
     <body>
-        <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'index', params: [id: customerId]) }"
+        <form data-redirect-url="${ g.createLink(controller: 'payment', action: 'list', params: [id: customerId]) }"
               action="${ g.createLink(controller: 'payment', action: 'save') }">
             <div><input type="text" name="value" placeholder="valor do pagamento"></div>
             <div><input type="text" name="billingType" placeholder="Método de pagamento"></div>

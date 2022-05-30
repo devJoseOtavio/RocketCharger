@@ -1,22 +1,20 @@
 package com.rocketcharger.domain
 
 import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.base.BaseController
 
-import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.validation.ValidationException
 import grails.converters.JSON
 
 class CustomerController {
      def customerService
 
-     
    def index() {  
-        return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
+        return [customerList: Customer.list(max: returnSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
-
-    def create() {
-    }
+    def create() {}
 
     def save() {
         try {
@@ -42,10 +40,5 @@ class CustomerController {
 
     def customerPage() {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
-    }
-    
-    private Integer getCurrentPage() {
-        if(!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
     }
  }

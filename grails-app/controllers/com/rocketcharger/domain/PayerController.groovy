@@ -1,22 +1,21 @@
 package com.rocketcharger.domain
 
 import static org.springframework.http.HttpStatus.*
-
+import com.rocketcharger.base.BaseController
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
 
 import grails.converters.JSON
 
 class PayerController {
-
     def payerService
 
     def index() {
         Integer customerId = params.int("id")
-        List<Payer> payerList = Payer.createCriteria().list(max: 10, offset: getCurrentPage()) {
+        List<Payer> payerList = Payer.createCriteria().list(max: returnSizeLimitPage(), offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
-        [payerList: payerList, totalCount: Payer.count()]
+        return [payerList: payerList, totalCount: Payer.count()]
     }
 
     def create() {
@@ -43,13 +42,5 @@ class PayerController {
 
     def show() {
         return [payer: payerService.getPayer(params.int("id"))]
-    }
-    
-    private Integer getCurrentPage() {
-        if (!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
-
-        def index = Payer.payerList()
-        render(template:"list", model:[payerList: payerList])
     }
 }

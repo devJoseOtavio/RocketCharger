@@ -16,7 +16,7 @@ class PaymentService {
         return payment
      }
 
-    public List<Payment> index() {
+    public List<Payment> list() {
         return Payment.getAll()
     }
 
