@@ -40,19 +40,28 @@ class PaymentService {
         return Payment.get(id)
     }
 
-    public List<Payment> returnPaymentsByCustomer(Long customerId, Integer max, Integer offset) {
+    public List<Payment> returnPaymentsByCustomer(Long customerId, Integer max = null, Integer offset = null) {
         List<Payment> paymentList = Payment.createCriteria().list(max: max, offset: offset){
             eq("customer", Customer.get(customerId))
         }
         return paymentList
     }
 
-    public List<Payment> returnPaymentStatusDate(PaymentStatus paymentStatus, Date yesterdayDate) {
+    public List<Payment> list(PaymentStatus paymentStatus, Date yesterdayDate) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus) and {
                 le("dueDate", yesterdayDate)
             }
         }
         return paymentList
+    }
+
+    public Payment verifyOverDueDates() {
+        Date yesterdayDate = FormatDateUtils.getYesterdayDate()
+        List<Payment> paymentList = list(PaymentStatus.PENDING, yesterdayDate)
+          for(Payment payment : paymentList) {
+              payment.status = PaymentStatus.OVERDUE
+              payment.save(failOnError:true)
+        }
     }
 }

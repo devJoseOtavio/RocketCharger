@@ -25,7 +25,7 @@ class PayerService {
 
     public Payer update(Map params) {
         if (!params.id) return
-        Payer payer = Payer.get(params.long('id'))
+        Payer payer = Payer.get(params.long("id"))
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
@@ -38,7 +38,7 @@ class PayerService {
         return payer
         }
 
-    public List<Payer> returnPayersByCustomer(Long customerId, Integer max, Integer offset) {
+    public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
         def payerCriteria = Payer.createCriteria()
         if (max == null || offset == null) {
             List<Payer> payerList = payerCriteria.list() {
