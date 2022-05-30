@@ -86,7 +86,7 @@
             type="text"
             id="address"
             name="address"
-            placeholder="Digite o seu endereço residêncial"
+            placeholder="Digite o seu endereço residencial"
             value="${customer?.address}"
             readonly
           />
@@ -158,12 +158,8 @@
       </form>
     </div>
     <div>
-<<<<<<< HEAD
       <g:link controller="payer" action="create" id="${customer.id}"
         ><button>Criar pagador</button></g:link>
-=======
-        <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
->>>>>>> origin/main
     </div>
   </body>
 </html>

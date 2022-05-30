@@ -70,7 +70,7 @@
             type="text"
             id="address"
             name="address"
-            placeholder="Digite o seu endereço residêncial"
+            placeholder="Digite o seu endereço residencial"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
