@@ -10,7 +10,6 @@ import com.rocketcharger.base.BaseController
 import com.rocketcharger.enums.PaymentMethod
 import com.rocketcharger.enums.PaymentStatus
 
-
 class PaymentController extends BaseController {
     def paymentService
     def payerService
