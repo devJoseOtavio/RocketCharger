@@ -12,7 +12,7 @@ class OverDueJob {
     def paymentService
 
     static triggers = {
-      cron name: "dueDate", cronExpression: "0/50 * * ? * * *"
+      cron name: "dueDate", cronExpression: "0 0 6 * * ?"
     }
 
     static concurrent = false
