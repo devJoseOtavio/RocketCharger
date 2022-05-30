@@ -13,18 +13,6 @@ function FormValidationsController() {
   var correctCnpjLength = 14;
 
   this.init = function () {
-    formReference;
-    nameReference;
-    cpfCnpjReference;
-    postalCodeReference;
-    emailReference;
-    addressReference;
-    complementReference;
-    districtReference;
-    cityReference;
-    stateReference;
-    correctCpfLength;
-    correctCnpjLength;
 
     formReference.addEventListener("submit", (event) => {
       checkSuccessInputs();
