@@ -26,12 +26,8 @@ class PaymentService {
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
         String subject = "Notificação de nova cobrança"
-        try {
-            emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
-            emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
-        } catch (Exception e) {
-            e.printStackTrace()
-        }
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
         return payment
     }
 
