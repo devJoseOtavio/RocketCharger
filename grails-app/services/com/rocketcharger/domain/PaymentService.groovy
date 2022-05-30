@@ -8,11 +8,12 @@ import com.rocketcharger.enums.PaymentStatus
 import com.rocketcharger.utils.FormatDateUtils
 import com.rocketcharger.domain.EmailService
 
-import grails.gorm.transactions.Transactional 
+import grails.gorm.transactions.Transactional
+import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
-    grails.gsp.PageRenderer groovyPageRenderer
+    PageRenderer groovyPageRenderer
     def emailService
     
     public Payment save(Map params) {
