@@ -3,6 +3,7 @@ package com.rocketcharger.domain
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.utils.DomainUtils
+import com.rocketcharger.utils.ValidateUtils
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -11,6 +12,7 @@ class PayerService {
     public Payer save(Map params) {
         Customer customer = Customer.get(params.int("customerId"))
         Payer payer = new Payer(params)
+        ValidateUtils.emailIsValid(params.email)
         payer.save(failOnError: true)
         return payer
     }

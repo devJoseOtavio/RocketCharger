@@ -58,7 +58,7 @@
         <div class="form-control">
           <label for="postalCode">CEP: *</label>
           <input
-            type="text"
+            type="number"
             id="postalCode"
             name="postalCode"
             placeholder="Digite o seu CEP"
