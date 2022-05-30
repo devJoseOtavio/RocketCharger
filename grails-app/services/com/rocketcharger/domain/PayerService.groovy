@@ -36,7 +36,7 @@ class PayerService {
         payer.state = params.state
         payer.save(flush: true, failOnError: true)
         return payer
-        }
+    }
 
     public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
         def payerCriteria = Payer.createCriteria()

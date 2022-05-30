@@ -22,7 +22,7 @@ class PaymentService {
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
         return payment
-     }
+    }
 
     public Payment recognizePayment(paymentId) {
         Payment payment = Payment.get(paymentId)
@@ -30,7 +30,7 @@ class PaymentService {
         payment.paymentDate = new Date()
         payment.save(failOnError: true)
         return payment
-     }
+    }
 
     public List<Payment> list() {
         return Payment.getAll()
