@@ -25,9 +25,7 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
-        String subject = "Notificação de nova cobrança"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
+        notifyNewPayment(payment)
         return payment
     }
 
@@ -36,9 +34,7 @@ class PaymentService {
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
-        String subject = "Notificação cobrança confirmada"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmCustomerPayment", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmPayerPayment", model: [payment: payment]))
+        notifyConfirmPayment(payment)
         return payment
     }
 
@@ -64,5 +60,17 @@ class PaymentService {
             }
         }
         return paymentList
+    }
+
+    public void notifyNewPayment(Payment payment) {
+        String subject = "Notificação de nova cobrança"
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
+    }
+
+    public void notifyConfirmPayment(Payment payment) {
+        String subject = "Notificação cobrança confirmada"
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmPayerPayment", model: [payment: payment]))
     }
 }
