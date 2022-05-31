@@ -31,7 +31,7 @@ class PayerController {
             }
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: "Erro ao tentar salvar: " + e] as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         }
     }
 
@@ -41,16 +41,11 @@ class PayerController {
             payerService.update(id, params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         }
     }
 
     def show() {
         return [payer: Payer.get(params.long("id"))]
-    }
-
-    private Integer getCurrentPage() {
-        if (!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
     }
 }

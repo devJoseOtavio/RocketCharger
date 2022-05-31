@@ -34,7 +34,7 @@ class PaymentController {
             paymentService.save(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Ocorreu um erro"] as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         } 
     }
 
@@ -43,16 +43,11 @@ class PaymentController {
             paymentService.update(params)
             render([success: true] as JSON)
         } catch(Exception e) {
-            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         } 
     }
 
     def show() {
         return [payment: Payment.get(id)]
-    }
-    
-    private Integer getCurrentPage() {
-        if(!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
     }
  }
