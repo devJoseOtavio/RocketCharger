@@ -9,8 +9,8 @@ class ValidateUtils {
         return email ==~ /[A-Za-z0-9_\%\+-]+(\.[A-Za-z0-9_\%\+-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,15})/
     }
 
-    public static Boolean postalCodeIsValid(String postalCode) {
-        if (postalCode == null) return null
-        return postalCode?.replaceAll("\\D+","")
+    public static Boolean isNumeric(String string) {
+        if (string == null) return null
+        return string?.replaceAll("\\D+","")
     }
 }

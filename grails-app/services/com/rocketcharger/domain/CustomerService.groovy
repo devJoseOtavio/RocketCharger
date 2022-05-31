@@ -11,7 +11,7 @@ class CustomerService {
     public Customer save(Map params) {
          Customer customer = new Customer(params)
          ValidateUtils.emailIsValid(params.email)
-         ValidateUtils.postalCodeIsValid(params.postalCode)
+         ValidateUtils.isNumeric(params.postalCode)
          customer.save(failOnError: true)
          return customer
      }
