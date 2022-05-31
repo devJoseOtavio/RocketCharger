@@ -14,7 +14,7 @@ class CustomerService {
          ValidateUtils.isNumeric(params.postalCode)
          customer.save(failOnError: true)
          return customer
-     }
+    }
 
     public List<Customer> index() {
         return Customer.getAll()
