@@ -39,7 +39,7 @@ class PaymentController extends BaseController {
         Long paymentId = params.long("id")
         try {
             paymentService.recognizePayment(paymentId)
-            redirect controller: "payment", action: "index", id: paymentId
+            redirect controller: "payment", action: "list", id: paymentId
             }
          catch (Exception e) {
             render([success: false, message: message(code: "occurrence.error")] as JSON)
