@@ -14,16 +14,14 @@ class PaymentService {
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
         return payment
-     }
+    }
 
     public List<Payment> list() {
         return Payment.getAll()
     }
 
     public Payment update(Map params){
-        if (!params.id) {
-        return;
-       }   
+        if (!params.id) return
         Payment payment = Payment.get(params.int("id"))
         payment.value = params.value
         payment.billingType = params.billingType
