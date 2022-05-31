@@ -9,6 +9,7 @@ import grails.gorm.transactions.Transactional
 class PaymentService {
 
     public Payment save(Map params) {
+        println(params)
         Payment payment = new Payment(params)
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))

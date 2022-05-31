@@ -9,12 +9,12 @@ import static org.springframework.http.HttpStatus.*
 import grails.validation.ValidationException
 import grails.converters.JSON
 
-class PaymentController {
+class PaymentController extends BaseController {
      def paymentService
 
      
-   def index() {  
-        Long customerId = params.long("customerId")
+   def list() {  
+        Long customerId = params.long("id")
         List<Payment> paymentList = Payment.createCriteria().list(max: returnSizeLimitPage(), offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
@@ -22,7 +22,7 @@ class PaymentController {
     }
 
     def create() {
-        Long customerId = params.long("customerId")
+        Long customerId = params.long("id")
         List<Payer> payerList = Payer.createCriteria().list() {
             like("customer", Customer.get(customerId)) 
         }
@@ -48,6 +48,6 @@ class PaymentController {
     }
 
     def show() {
-        return [payment: Payment.get(id)]
+        return [payment: Payment.get(params.long("id"))]
     }
  }

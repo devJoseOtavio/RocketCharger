@@ -18,7 +18,7 @@ class PayerService {
         return Payer.getAll()
     }
 
-    def update(Long id, Map params) {
+    public Payer update(Map params) {
         if (!id) return
         Payer payer = Payer.get("payerId")
         payer.name = params.name

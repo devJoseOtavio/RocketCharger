@@ -15,7 +15,7 @@ class CustomerService {
         return Customer.getAll()
     }
 
-    def update(Long id, Map params) {
+    public Customer update(Map params) {
         if (!id) return
         Customer customer = Customer.get("id")
         customer.name = params.name
