@@ -13,8 +13,7 @@ class PayerController extends BaseController{
     def index() {
         Long customerId = params.long("id")
         List<Payer> payerList = payerService.returnPayersByCustomer(customerId, returnSizeLimitPage(), getCurrentPage())
-        return [customerId: customerId, payerList: payerList, totalCount: Payer.count()] 
-        render(template:"list", model:[customerId: customerId, payerList: payerList])
+        render(template:"list", model:[customerId: customerId, payerList: payerList, totalCount: Payer.count()])
     }
 
     def create() {
@@ -26,7 +25,7 @@ class PayerController extends BaseController{
             payerService.save(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorrreu um erro: ' + e.message]  as JSON)
+            render([success: false, message: 'Ocorreu um erro: ' + e.message]  as JSON)
         }
     }
 
@@ -35,7 +34,7 @@ class PayerController extends BaseController{
             payerService.update(params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorrreu um erro: ' + e.message ]  as JSON)
+            render([success: false, message: 'Ocorreu um erro: ' + e.message ]  as JSON)
         }
     }
 

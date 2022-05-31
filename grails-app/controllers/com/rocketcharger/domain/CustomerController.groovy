@@ -4,6 +4,7 @@ import com.rocketcharger.base.BaseController
 import com.rocketcharger.domain.customer.Customer
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.validation.ValidationException
 import grails.converters.JSON
 
 class CustomerController extends BaseController{
