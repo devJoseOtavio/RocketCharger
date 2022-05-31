@@ -7,8 +7,13 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PayerService {
 
+<<<<<<< HEAD
     public Payer save(Map params) {
         Customer customer = Customer.get(params.int("customerId"))
+=======
+    def save(Map params) {
+        Customer customer = Customer.get(params.long("customerId"))
+>>>>>>> main
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
         return payer
@@ -18,13 +23,9 @@ class PayerService {
         return Payer.getAll()
     }
 
-    public Payer getPayer(Integer id) {
-        return Payer.get(id)
-    }
-
-    public Payer update(Map params) {
-        if (!params.id) return
-        Payer payer = Payer.get(params.int("id"))
+    def update(Long id, Map params) {
+        if (!id) return
+        Payer payer = Payer.get("payerId")
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj

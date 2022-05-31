@@ -15,11 +15,9 @@ class CustomerService {
         return Customer.getAll()
     }
 
-    public Customer update(Map params){
-        if (!params.id) {
-        return;
-    }   
-        Customer customer = Customer.get(params.int("id"))
+    def update(Long id, Map params) {
+        if (!id) return
+        Customer customer = Customer.get("id")
         customer.name = params.name
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
@@ -28,6 +26,7 @@ class CustomerService {
         customer.district = params.district
         customer.city = params.city
         customer.state = params.state
-        customer.save(flush: true, failOnError: true)
+        customer.save(failOnError: true)
+        return customer
     } 
 }

@@ -1,7 +1,13 @@
 <html lang="pt-br">
+<<<<<<< HEAD
   <body>
     <g:if test="${payerList}">
       <table>
+=======
+<body>
+<g:if test="${payerList}">
+    <table>
+>>>>>>> main
         <tr>
           <th>Nome</th>
           <th>CPF/CNPJ</th>
