@@ -12,6 +12,7 @@ class CustomerService {
          Customer customer = new Customer(params)
          ValidateUtils.emailIsValid(params.email)
          ValidateUtils.isNumeric(params.postalCode)
+         ValidateUtils.validatePostalCode(params.postalCode)
          customer.save(failOnError: true)
          return customer
     }
