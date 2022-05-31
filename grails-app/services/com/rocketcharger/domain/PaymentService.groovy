@@ -8,10 +8,14 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PaymentService {
 
-    public Payment save(Map params) {
-        Payment payment = new Payment(params)
-        payment.customer = Customer.get(params.long("customerId"))
+   public Payment save(Map params) {
+        Payment payment = new Payment()
+        payment.value = new BigDecimal(params.value)
+        payment.dueDate = FormatDateUtils.toDate(params.dueDate, "yyyy-MM-dd")
+        payment.billingType = params.billingType
         payment.payer = Payer.get(params.long("payerId"))
+        payment.customer = Customer.get(params.long("customerId"))
+        payment.status = params.status
         payment.save(failOnError: true)
         return payment
     }
