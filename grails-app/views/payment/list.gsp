@@ -13,7 +13,7 @@
         <g:render template="list" model="[paymentList: paymentList]"></g:render>
     </div>
     <div id="divForm"></div>
-  <g:paginate total="${totalCount}" controller="payment" action="list" params="${params}" next="Próximo" prev="Anterior" max="2" />
+  <g:paginate total="${totalCount}" controller="payment" action="index" params="${params}" next="Próximo" prev="Anterior" max="2" />
 
 </body>
 </html>
