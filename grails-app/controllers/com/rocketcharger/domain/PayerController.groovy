@@ -22,23 +22,28 @@ class PayerController extends BaseController{
 
     def save() {
         try {
-            payerService.save(params)
+            Payer payer = payerService.save(params)
+            if (payer.hasErrors()) {
+                render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
+                return;
+            }
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorreu um erro: ' + e.message]  as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         }
     }
 
     def update() {
         try {
-            payerService.update(params)
+            Long id = params.long("id")
+            payerService.update(id, params)
             render([success: true] as JSON)
         } catch (Exception e) {
-            render([success: false, message: 'Ocorreu um erro: ' + e.message ]  as JSON)
+            render([success: false, message: message(code: "occurrence.error")] as JSON)
         }
     }
 
     def show() {
-        return [payer: payerService.getPayer(params.long("id"))]
+        return [payer: Payer.get(params.long("id"))]
     }
 }
