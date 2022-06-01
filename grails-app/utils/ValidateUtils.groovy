@@ -21,7 +21,7 @@ class ValidateUtils {
     }
 
     public static Boolean validatePostalCode(String postalCode) {
-        String cleanPostalCode = digitsOnlyCleaner(postalCode)
+        String cleanPostalCode = isNumeric(postalCode)
         if (cleanPostalCode != null && cleanPostalCode.length() == 8) {
             def get = new URL("https://viacep.com.br/ws/" + cleanPostalCode + "/json/").openConnection()
             def sluper = new JsonSlurper()

@@ -14,7 +14,7 @@ class PayerService {
         Payer payer = new Payer(params)
         ValidateUtils.emailIsValid(params.email)
         ValidateUtils.isNumeric(params.postalCode)
-        alidateUtils.validatePostalCode(params.postalCode)
+        ValidateUtils.validatePostalCode(params.postalCode)
         payer.save(failOnError: true)
         return payer
     }
