@@ -26,7 +26,7 @@
                      <g:link controller="customer" action="show" update="divForm" id="${customer.id}">editar dados</g:link>
                   </td>
                </tr>
-            </g:each>
+            </g:each
          </table>
       </g:if>
       <g:else>
