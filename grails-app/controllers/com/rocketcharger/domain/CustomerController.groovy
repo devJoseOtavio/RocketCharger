@@ -8,6 +8,7 @@ import grails.validation.ValidationException
 import grails.converters.JSON
 
 class CustomerController extends BaseController {
+    
      def customerService
 
    def index() {  

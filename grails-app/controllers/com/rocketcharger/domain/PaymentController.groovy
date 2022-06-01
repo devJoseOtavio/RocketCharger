@@ -11,6 +11,7 @@ import grails.validation.ValidationException
 import grails.converters.JSON
 
 class PaymentController extends BaseController {
+
     def paymentService
     def payerService
 
@@ -40,8 +41,7 @@ class PaymentController extends BaseController {
         try {
             paymentService.recognizePayment(paymentId)
             redirect controller: "payment", action: "list", id: paymentId
-            }
-         catch (Exception e) {
+        } catch(Exception e) {
             render([success: false, message: message(code: "occurrence.error")] as JSON)
         }
     }
