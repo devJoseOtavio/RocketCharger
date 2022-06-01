@@ -1,12 +1,12 @@
 <html>
-    <head>
-        <title>Criar cliente</title>
-        <asset:stylesheet src="customer/show.css" />
-        <asset:javascript src="applications/applicationForm.js"/>
-    </head>
-    <body>
-   <form data-redirect="${ g.createLink(controller: "customer", action: "list") }"
-         data-url="${ g.createLink(controller: "customer", action: "update") }" > 
+   <head>
+      <title>Criar cliente</title>
+      <asset:stylesheet src="customer/show.css" />
+      <asset:javascript src="applications/applicationForm.js"/>
+   </head>
+   <body>
+      <form data-redirect="${ g.createLink(controller: "customer", action: "list") }"
+      data-url="${ g.createLink(controller: "customer", action: "update") }" > 
         <input type="hidden" name="customerId" id="customerId" value="${customer.id}">
         <input type="text" name="name" id="name" placeholder="Ex: João Da Silva" value="${customer?.name}" readonly><br>
         <input type="text" name="cpfCnpj" placeholder="Informe o CPF/CNPJ" value="${customer?.cpfCnpj}" readonly><br>
@@ -19,10 +19,10 @@
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hide">Salvar</button>
         <button type="reset">Cancelar</button>
-    </form> 
-    <div>
-        <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
-        <g:link controller="payment" action="create" id="${customer.id}"><button>Nova Cobrança</button></g:link>
-    </div>
-    </body>
+      </form> 
+      <div>
+         <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
+         <g:link controller="payment" action="create" id="${customer.id}"><button>Nova Cobrança</button></g:link>
+      </div>
+   </body>
 </html>
