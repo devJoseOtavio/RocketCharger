@@ -3,8 +3,8 @@
     <title>Adicionar pagador</title>
     <asset:javascript src="applications/applicationForm.js"/>
 </head>
-            <form data-redirect-url="${ g.createLink(controller: "payer", action: "index", params: [id: customerId]) }"
-                  action="${ g.createLink(controller: "payer", action: "save") }">  
+            <form data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId]) }"
+                  data-url="${ g.createLink(controller: "payer", action: "save") }">  
             <div><input type="text" name="name" id="name" placeholder="Ex: João Da Silva"></div>
             <div><input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="Informe o CPF/CNPJ"></div>
             <div><input type="email" name="email" id="email" placeholder="Ex: email@meuprovedor.com"></div>
