@@ -79,7 +79,7 @@ class PaymentService {
           for(Payment payment : paymentList) {
               payment.status = PaymentStatus.OVERDUE
               payment.save(failOnError:true)
+            }
         }
     }
-}
 }
