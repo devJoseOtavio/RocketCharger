@@ -5,15 +5,21 @@ import com.rocketcharger.domain.payer.Payer
 
 class Payment {
 
-    String value
+    BigDecimal value
 
     String billingType
     
     String status
 
-    String dueDate
+    Date dueDate
+
+    Date paymentDate
 
     Customer customer
     
     Payer payer
+    
+        static constraints = {
+            paymentDate nullable: true
+    }
 }
