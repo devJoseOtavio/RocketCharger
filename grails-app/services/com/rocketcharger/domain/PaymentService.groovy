@@ -72,6 +72,7 @@ class PaymentService {
         String subject = "Notificação cobrança confirmada"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmCustomerPayment", model: [payment: payment]))
         emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmPayerPayment", model: [payment: payment]))
+    }
     
     public Payment verifyOverDueDates() {
         Date yesterdayDate = FormatDateUtils.getYesterdayDate()
@@ -79,7 +80,6 @@ class PaymentService {
           for(Payment payment : paymentList) {
               payment.status = PaymentStatus.OVERDUE
               payment.save(failOnError:true)
-            }
         }
     }
 }
