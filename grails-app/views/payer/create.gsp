@@ -41,8 +41,12 @@
 
         <div class="form-control">
           <label for="email">Email: *</label>
-          <input type="email" id="email" name="email"
-          placeholder="Ex: meuemail@provedor.com"/>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            placeholder="Ex: meuemail@provedor.com"
+          />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg
@@ -130,7 +134,12 @@
           <small class="js-msg
           "></small>
         </div>
-            <input hidden value="${customerId}" name="customer" id="customer">
+            <input 
+              hidden 
+              value="${customerId}" 
+              name="customer" 
+              id="customer"
+              />
             <button type="submit">Salvar</button>
         </form>
         </div>

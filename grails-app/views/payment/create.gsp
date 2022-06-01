@@ -47,7 +47,8 @@
         type="hidden"
         value="${customerId}"
         name="customerId"
-        id="customerId"/>
+        id="customerId"
+        />
       <div>
         <button type="submit">Salvar</button>
       </div>
