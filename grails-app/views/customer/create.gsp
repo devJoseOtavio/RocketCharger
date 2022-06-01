@@ -14,8 +14,8 @@
         autocomplete="off"
         class="form"
         data-redirect="${ g.createLink(controller: "customer", action: "customerPage") }"
-        data-url="${ g.createLink(controller: "customer", action: "save") }"
-      >
+        data-url="${ g.createLink(controller: "customer", action: "save") }">
+        
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
           <input
