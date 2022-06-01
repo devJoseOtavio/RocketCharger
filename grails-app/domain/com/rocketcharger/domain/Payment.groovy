@@ -22,6 +22,6 @@ class Payment {
     Payer payer
 
     static constraints = {
-        paymentDate nullable: true
+        paymentDate nullable:  true
     }
 }
