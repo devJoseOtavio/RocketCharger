@@ -1,6 +1,6 @@
 <html>
 <head>
-    <meta name="layout" content="${gspLayout ?: 'main'}"/>
+    <asset:javascript src="applications/applicationPostRegisterAndLogin.js"/>
     <title><g:message code='springSecurity.login.title'/></title>
 </head>
 
