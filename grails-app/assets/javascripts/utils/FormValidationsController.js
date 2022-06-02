@@ -20,7 +20,7 @@ function FormValidationsController() {
   var correctCpfLength = 11;
   var correctCnpjLength = 14;
 
-  function checkName() {
+  function validateName() {
     let nameValue = nameReference.value;
     if (!nameValue) {
       setErrorFor(nameReference, "O seu nome é obrigatório!");
@@ -29,7 +29,7 @@ function FormValidationsController() {
     setSucessFor(nameReference);
   }
 
-  function checkCpf() {
+  function validateCpf() {
     let cpfCnpjValue = cpfCnpj.value;
     if (cpfCnpjValue.length == correctCpfLength) {
       if (!cpfCnpjValue) {
@@ -54,7 +54,7 @@ function FormValidationsController() {
     }
   }
 
-  function checkCnpj() {
+  function validateCnpj() {
     let cpfCnpjValue = cpfCnpj.value;
     if (
       cpfCnpjValue.length !== correctCnpjLength ||
@@ -75,7 +75,7 @@ function FormValidationsController() {
     setSucessFor(cpfCnpjReference);
   }
 
-  function checkEmail() {
+  function validateEmail() {
     let emailValue = emailReference.value;
     if (!emailValue) {
       setErrorFor(emailReference, "O email é obrigatório");
@@ -84,7 +84,7 @@ function FormValidationsController() {
     setSucessFor(emailReference);
   }
 
-  function checkPostalCode() {
+  function validatePostal() {
     let postalCodeValue = postalCodeReference.value;
     if (!postalCodeValue) {
       setErrorFor(postalCodeReference, "Favor informar o CEP!");
@@ -93,20 +93,20 @@ function FormValidationsController() {
     setSucessFor(postalCodeReference);
   }
 
-  function checkSuccessInputs() {
+  function validateSucessInputs() {
     let cpfCnpjValue = cpfCnpj.value;
-    checkName();
+    validateName();
     if (cpfCnpjValue.length == correctCpfLength) {
-      checkCpf();
+      validateCpf();
     } else {
-      checkCnpj();
+      validateCnpj();
     }
-    checkPostalCode();
-    checkEmail();
-    checkFormIsValid();
+    validatePostal();
+    validateEmail();
+    validateFormIsValid();
   }
 
-  function checkFormIsValid() {
+  function validateFormIsValid() {
     let formControls = formReference.querySelectorAll(".form-control");
     let formIsValid = [...formControls].every((formControl) => {
       return formControl.className === "form-control success";
@@ -154,13 +154,13 @@ function FormValidationsController() {
 
   function formListener() {
     formReference.addEventListener("submit", (event) => {
-      checkSuccessInputs();
+      validateSucessInputs();
     });
   }
 
   function nameListener() {
     nameReference.addEventListener("focusout", (event) => {
-      checkName();
+      validateName();
     });
   }
 
@@ -168,16 +168,16 @@ function FormValidationsController() {
     cpfCnpjReference.addEventListener("focusout", (event) => {
       let cpfCnpjValue = cpfCnpj.value;
       if (cpfCnpjValue.length == correctCpfLength) {
-        checkCpf();
+        validateCpf();
         return;
       }
-      checkCnpj();
+      validateCnpj();
     });
   }
 
   function postalCodeListener() {
     postalCodeReference.addEventListener("focusout", function () {
-      checkPostalCode();
+      validatePostal();
       if (validatePostalCode(this.value)) {
         getPostalCode(this.value, fillAddress);
       }
@@ -186,7 +186,7 @@ function FormValidationsController() {
 
   function emailListener() {
     emailReference.addEventListener("focusout", (event) => {
-      checkEmail();
+      validateEmail();
     });
   }
 }
