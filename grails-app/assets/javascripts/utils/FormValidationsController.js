@@ -1,10 +1,10 @@
 function FormValidationsController() {
   this.init = function () {
-    formListener();
-    nameListener();
-    cpfCnpjListener();
-    postalCodeListener();
-    emailListener();
+    bindSubmitForm();
+    bindInputName();
+    bindInputCpfCnpj();
+    bindInputPostalCode();
+    bindInputEmail();
   };
 
   var formReference = document.querySelector("form");
@@ -93,7 +93,7 @@ function FormValidationsController() {
     setSucessFor(postalCodeReference);
   }
 
-  function validateSucessInputs() {
+  function validateRequiredsInputs() {
     let cpfCnpjValue = cpfCnpj.value;
     validateName();
     if (cpfCnpjValue.length == correctCpfLength) {
@@ -152,19 +152,19 @@ function FormValidationsController() {
     $(formControl).addClass("form-control error").removeClass("success");
   }
 
-  function formListener() {
+  function bindSubmitForm() {
     formReference.addEventListener("submit", (event) => {
-      validateSucessInputs();
+      validateRequiredsInputs();
     });
   }
 
-  function nameListener() {
+  function bindInputName() {
     nameReference.addEventListener("focusout", (event) => {
       validateName();
     });
   }
 
-  function cpfCnpjListener() {
+  function bindInputCpfCnpj() {
     cpfCnpjReference.addEventListener("focusout", (event) => {
       let cpfCnpjValue = cpfCnpj.value;
       if (cpfCnpjValue.length == correctCpfLength) {
@@ -175,7 +175,7 @@ function FormValidationsController() {
     });
   }
 
-  function postalCodeListener() {
+  function bindInputPostalCode() {
     postalCodeReference.addEventListener("focusout", function () {
       validatePostal();
       if (validatePostalCode(this.value)) {
@@ -184,7 +184,7 @@ function FormValidationsController() {
     });
   }
 
-  function emailListener() {
+  function bindInputEmail() {
     emailReference.addEventListener("focusout", (event) => {
       validateEmail();
     });
