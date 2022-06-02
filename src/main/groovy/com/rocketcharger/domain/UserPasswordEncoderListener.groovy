@@ -7,6 +7,11 @@ import org.grails.datastore.mapping.engine.event.PreUpdateEvent
 import org.springframework.beans.factory.annotation.Autowired
 import grails.events.annotation.gorm.Listener
 import groovy.transform.CompileStatic
+import com.rocketcharger.domain.User
+import com.rocketcharger.domain.Role
+import com.rocketcharger.domain.UserRole
+import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.domain.CustomUserDetails
 
 @CompileStatic
 class UserPasswordEncoderListener {

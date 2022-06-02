@@ -6,6 +6,8 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.rocketcharger.domain.User
 import com.rocketcharger.domain.Role
 import com.rocketcharger.domain.UserRole
+import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.domain.CustomUserDetails
 
 @Transactional
 @Secured('permitAll')

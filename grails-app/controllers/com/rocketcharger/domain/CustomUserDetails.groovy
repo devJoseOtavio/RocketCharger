@@ -2,6 +2,11 @@ package com.rocketcharger.domain
 
 import grails.plugin.springsecurity.userdetails.GrailsUser
 import org.springframework.security.core.GrantedAuthority
+import com.rocketcharger.domain.User
+import com.rocketcharger.domain.Role
+import com.rocketcharger.domain.UserRole
+import com.rocketcharger.domain.customer.Customer
+import com.rocketcharger.domain.CustomUserDetails
 
 class CustomUserDetails extends GrailsUser {
 
