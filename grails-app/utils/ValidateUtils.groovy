@@ -41,9 +41,7 @@ class ValidateUtils {
             def get = new URL("https://viacep.com.br/ws/" + cleanPostalCode + "/json/").openConnection()
             def sluper = new JsonSlurper()
             def getResponse = sluper.parseText(get.content.text)
-            if (getResponse.erro) {
-                return false
-            }
+            if (getResponse.erro) return false 
             return true
         }
         return false
