@@ -15,9 +15,24 @@ class ValidateUtils {
         return email ==~ /[A-Za-z0-9_\%\+-]+(\.[A-Za-z0-9_\%\+-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,15})/
     }
 
-    public static Boolean isNumeric(String string) {
+    public static String isNumeric(String string) {
         if (string == null) return null
-        return string?.replaceAll("\\D+","")
+        return string?.replaceAll("[^0-9]", '')
+    }
+
+    public static Boolean validateNotNull(String parameter) {
+        if (parameter != null) {
+            return true
+        }
+        return false
+    }
+
+    public static Boolean validateCpfCnpj(String cpfCnpj) {
+        String cleanCpfCnpj = isNumeric(cpfCnpj)
+        if (cleanCpfCnpj != null && cleanCpfCnpj.length() ==  11 || cleanCpfCnpj.length() ==  14) {
+            return true
+        }
+        return false
     }
 
     public static Boolean validatePostalCode(String postalCode) {

@@ -11,10 +11,17 @@ class PayerService {
 
     public Payer save(Map params) {
         Customer customer = Customer.get(params.int("customerId"))
-        Payer payer = new Payer(params)
-        ValidateUtils.emailIsValid(params.email)
-        ValidateUtils.isNumeric(params.postalCode)
-        ValidateUtils.validatePostalCode(params.postalCode)
+        Payer payer = new Payer()
+        payer = validate(payer, params)
+        if (payer.hasErrors()) return payer
+        payer.name = params.name
+        payer.email = params.email
+        payer.cpfCnpj = params.cpfCnpj
+        payer.postalCode = params.postalCode
+        payer.address = params.address
+        payer.district = params.district
+        payer.city = params.city
+        payer.state = params.state
         payer.save(failOnError: true)
         return payer
     }
@@ -30,6 +37,8 @@ class PayerService {
     public Payer update(Map params) {
         if (!params.id) DomainUtils.addError(payer, "Erro ao realizar edição")
         Payer payer = Payer.get(params.int("id"))
+        payer = validate(payer, params)
+        if (payer.hasErrors()) return payer
         payer.name = params.name
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
@@ -42,30 +51,29 @@ class PayerService {
         return payer
     }
 
-    public Payer validate(Map params) {
-        Payer payer = new Payer()
-        if (!params.name) {
+    public Payer validate(Payer payer, Map params) {
+        if (!ValidateUtils.validateNotNull(params.name)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.email) {
+        if (!ValidateUtils.emailIsValid(params.email)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.cpfCnpj) {
+        if (!ValidateUtils.validateCpfCnpj(params.cpfCnpj)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.postalCode) {
+        if (!ValidateUtils.validatePostalCode(params.postalCode)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.address) {
+        if (!ValidateUtils.validateNotNull(params.address)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.district) {
+        if (!ValidateUtils.validateNotNull(params.district)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.city) {
+        if (!ValidateUtils.validateNotNull(params.city)) {
             DomainUtils.addError(payer, "")
         }
-        if (!params.state) {
+        if (!ValidateUtils.validateNotNull(params.state)) {
             DomainUtils.addError(payer, "")
         }
         return payer

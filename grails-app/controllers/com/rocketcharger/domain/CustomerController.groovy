@@ -17,15 +17,13 @@ class CustomerController {
 
     def save() {
         try {
-            Customer customer = customerService.validate(params)
+            Customer customer = customerService.save(params)
 
             if (customer.hasErrors()) {
                 render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
-            customer = customerService.save(params)
-            
-            
+
             render([success: true] as JSON)
         } catch (Exception e) {
             render([success: false, message: "Ocorreu um erro: " + e.message] as JSON)
@@ -34,14 +32,14 @@ class CustomerController {
 
     def update() {
         try {
-            Customer customer = customerService.validate(params)
+            Customer customer = customerService.update(params)
 
             if (customer.hasErrors()) {
                 render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
                 return
             }
-            customer = customerService.update(params)
 
+            render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: "Ocorreu um erro: " + e.message] as JSON)
         } 

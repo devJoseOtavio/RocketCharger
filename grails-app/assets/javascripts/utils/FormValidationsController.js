@@ -17,6 +17,7 @@ function FormValidationsController() {
   var districtReference = document.getElementById("district");
   var cityReference = document.getElementById("city");
   var stateReference = document.getElementById("state");
+  var correctPostalCodeLength = 8;
   var correctCpfLength = 11;
   var correctCnpjLength = 14;
 
@@ -86,8 +87,8 @@ function FormValidationsController() {
 
   function validatePostal() {
     let postalCodeValue = postalCodeReference.value;
-    if (!postalCodeValue) {
-      setErrorFor(postalCodeReference, "Favor informar o CEP!");
+    if (!postalCodeValue || postalCodeValue.length != correctPostalCodeLength) {
+      setErrorFor(postalCodeReference, "Favor verificar o CEP");
       return;
     }
     setSucessFor(postalCodeReference);

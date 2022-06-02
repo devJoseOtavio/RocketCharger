@@ -9,12 +9,19 @@ import grails.gorm.transactions.Transactional
 class CustomerService {
 
     public Customer save(Map params) {
-         Customer customer = new Customer(params)
-         ValidateUtils.emailIsValid(params.email)
-         ValidateUtils.isNumeric(params.postalCode)
-         ValidateUtils.validatePostalCode(params.postalCode)
-         customer.save(failOnError: true)
-         return customer
+        Customer customer = new Customer()
+        customer = validate(customer, params)
+        if (customer.hasErrors()) return customer
+        customer.name = params.name
+        customer.email = params.email
+        customer.cpfCnpj = params.cpfCnpj
+        customer.postalCode = params.postalCode
+        customer.address = params.address
+        customer.district = params.district
+        customer.city = params.city
+        customer.state = params.state
+        customer.save(failOnError: true)
+        return customer
     }
 
     public List<Customer> index() {
@@ -27,6 +34,8 @@ class CustomerService {
 
     public Customer update(Map params){
         Customer customer = Customer.get(params.int("id"))
+        customer = validate(customer, params)
+        if (customer.hasErrors()) return customer
         customer.name = params.name
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
@@ -39,31 +48,30 @@ class CustomerService {
         return customer
     }
 
-    public Customer validate(Map params) {
-        Customer customer = new Customer()
-        if (!params.name) {
+    public Customer validate(Customer customer, Map params) {
+        if (!ValidateUtils.validateNotNull(params.name)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.email) {
+        if (!ValidateUtils.emailIsValid(params.email)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.cpfCnpj) {
+        if (!ValidateUtils.validateCpfCnpj(params.cpfCnpj)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.postalCode) {
+        if (!ValidateUtils.validatePostalCode(params.postalCode)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.address) {
+        if (!ValidateUtils.validateNotNull(params.address)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.district) {
+        if (!ValidateUtils.validateNotNull(params.district)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.city) {
+        if (!ValidateUtils.validateNotNull(params.city)) {
             DomainUtils.addError(customer, "")
         }
-        if (!params.state) {
-           DomainUtils.addError(customer, "")
+        if (!ValidateUtils.validateNotNull(params.state)) {
+            DomainUtils.addError(customer, "")
         }
         return customer
     } 
