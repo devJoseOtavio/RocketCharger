@@ -41,6 +41,6 @@ class CustomerController extends BaseController {
     }
 
     def list() {
-        return [customerList: Customer.list(max: returnSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
+        return [customerList: Customer.list(max: getSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
     }
  }
