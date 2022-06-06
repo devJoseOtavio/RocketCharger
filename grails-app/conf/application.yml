@@ -86,8 +86,6 @@ grails:
                 scriptlet: html
                 taglib: none
                 staticparts: none
----
-grails:
     mail:
         host: "smtp.gmail.com"
         port: 465
