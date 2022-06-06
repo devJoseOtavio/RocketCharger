@@ -15,7 +15,7 @@ class PaymentController extends BaseController {
      
    def list() {  
         Long customerId = params.long("id")
-        List<Payment> paymentList = Payment.createCriteria().list(max: returnSizeLimitPage(), offset: getCurrentPage()) {
+        List<Payment> paymentList = Payment.createCriteria().list(max: getSizeLimitPage(), offset: getCurrentPage()) {
             like("customer", Customer.get(customerId)) 
         }
         return [paymentList: paymentList, totalCount: Payment.count()]
