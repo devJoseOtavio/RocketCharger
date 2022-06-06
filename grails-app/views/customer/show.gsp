@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-control">
-          <label for="email">Email: *</label>
+          <label for="email">email: *</label>
           <input
             type="email"
             id="email"
