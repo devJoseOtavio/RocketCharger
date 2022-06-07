@@ -6,12 +6,17 @@ import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.enums.PaymentMethod
 import com.rocketcharger.enums.PaymentStatus
 import com.rocketcharger.utils.FormatDateUtils
+import com.rocketcharger.domain.EmailService
 
-import grails.gorm.transactions.Transactional 
+import grails.gorm.transactions.Transactional
+import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
-
+    
+    PageRenderer groovyPageRenderer
+    def emailService
+    
     public Payment save(Map params) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
@@ -21,6 +26,7 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.status = PaymentStatus.PENDING
         payment.save(failOnError: true)
+        notifyNewPayment(payment)
         return payment
     }
 
@@ -28,7 +34,8 @@ class PaymentService {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
-        payment.save(failOnError: true)
+        payment.save(flush: true, failOnError: true)
+        notifyConfirmPayment(payment)
         return payment
     }
 
@@ -56,6 +63,18 @@ class PaymentService {
         return paymentList
     }
 
+    public void notifyNewPayment(Payment payment) {
+        String subject = "Nova cobrança"
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailSendCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailSendPayerPayment", model: [payment: payment]))
+    }
+
+    public void notifyConfirmPayment(Payment payment) {
+        String subject = "Cobrança confirmada"
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmCustomerPayment", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/emailConfirmPayerPayment", model: [payment: payment]))
+    }
+    
     public Payment verifyOverDueDates() {
         Date yesterdayDate = FormatDateUtils.getYesterdayDate()
         List<Payment> paymentList = list(PaymentStatus.PENDING, yesterdayDate)
