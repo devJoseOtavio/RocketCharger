@@ -49,7 +49,7 @@ class CustomerService {
     }
 
     public Customer validate(Customer customer, Map params) {
-        if (!ValidateUtils.validateNotNull(params.name)) {
+        if (!ValidateUtils.isNotNull(params.name)) {
             DomainUtils.addError(customer, "")
         }
         if (!ValidateUtils.emailIsValid(params.email)) {
@@ -61,16 +61,16 @@ class CustomerService {
         if (!ValidateUtils.validatePostalCode(params.postalCode)) {
             DomainUtils.addError(customer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.address)) {
+        if (!ValidateUtils.isNotNull(params.address)) {
             DomainUtils.addError(customer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.district)) {
+        if (!ValidateUtils.isNotNull(params.district)) {
             DomainUtils.addError(customer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.city)) {
+        if (!ValidateUtils.isNotNull(params.city)) {
             DomainUtils.addError(customer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.state)) {
+        if (!ValidateUtils.isNotNull(params.state)) {
             DomainUtils.addError(customer, "")
         }
         return customer

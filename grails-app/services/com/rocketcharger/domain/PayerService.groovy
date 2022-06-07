@@ -52,7 +52,7 @@ class PayerService {
     }
 
     public Payer validate(Payer payer, Map params) {
-        if (!ValidateUtils.validateNotNull(params.name)) {
+        if (!ValidateUtils.isNotNull(params.name)) {
             DomainUtils.addError(payer, "")
         }
         if (!ValidateUtils.emailIsValid(params.email)) {
@@ -64,16 +64,16 @@ class PayerService {
         if (!ValidateUtils.validatePostalCode(params.postalCode)) {
             DomainUtils.addError(payer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.address)) {
+        if (!ValidateUtils.isNotNull(params.address)) {
             DomainUtils.addError(payer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.district)) {
+        if (!ValidateUtils.isNotNull(params.district)) {
             DomainUtils.addError(payer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.city)) {
+        if (!ValidateUtils.isNotNull(params.city)) {
             DomainUtils.addError(payer, "")
         }
-        if (!ValidateUtils.validateNotNull(params.state)) {
+        if (!ValidateUtils.isNotNull(params.state)) {
             DomainUtils.addError(payer, "")
         }
         return payer
