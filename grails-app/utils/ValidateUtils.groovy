@@ -29,13 +29,9 @@ class ValidateUtils {
 
     public static Boolean validateCpfCnpj(String cpfCnpj) {
         String cleanCpfCnpj = isNumeric(cpfCnpj)
-        if (cleanCpfCnpj == null) {
-            return false
-        } 
-        if (cleanCpfCnpj.length() !=  11 || cleanCpfCnpj.length() !=  14) {
-            return false
-        }
-            return true
+        if (cleanCpfCnpj == null) return false
+        if (cleanCpfCnpj.length() !=  11 && cleanCpfCnpj.length() !=  14) return false
+        return true
     }
 
     public static Boolean validatePostalCode(String postalCode) {
