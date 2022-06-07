@@ -17,6 +17,7 @@ class CustomerService {
         customer.cpfCnpj = params.cpfCnpj
         customer.postalCode = params.postalCode
         customer.address = params.address
+        customer.addressNumber = params.addressNumber
         customer.district = params.district
         customer.city = params.city
         customer.state = params.state
@@ -33,10 +34,13 @@ class CustomerService {
         customer = validate(customer, params)
         if (customer.hasErrors()) return customer
         customer.name = params.name
+        customer.phone = params.phone
         customer.email = params.email
         customer.cpfCnpj = params.cpfCnpj
         customer.postalCode = params.postalCode
         customer.address = params.address
+        customer.addressNumber = params.addressNumber
+        customer.number = params.number
         customer.district = params.district
         customer.city = params.city
         customer.state = params.state
@@ -58,6 +62,9 @@ class CustomerService {
             DomainUtils.addError(customer, "")
         }
         if (!ValidateUtils.isNotNull(params.address)) {
+            DomainUtils.addError(customer, "")
+        }
+        if (!ValidateUtils.isNotNull(params.addressNumber)) {
             DomainUtils.addError(customer, "")
         }
         if (!ValidateUtils.isNotNull(params.district)) {

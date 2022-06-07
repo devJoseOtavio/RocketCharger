@@ -6,6 +6,8 @@ class Payer {
 
     String name
 
+    String phone
+
     String email
 
     String cpfCnpj
@@ -13,6 +15,8 @@ class Payer {
     String postalCode
 
     String address
+
+    String addressNumber
 
     String district
 

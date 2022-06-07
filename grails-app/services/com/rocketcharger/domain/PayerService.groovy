@@ -19,6 +19,7 @@ class PayerService {
         payer.cpfCnpj = params.cpfCnpj
         payer.postalCode = params.postalCode
         payer.address = params.address
+        payer.addressNumber = params.addressNumber
         payer.district = params.district
         payer.city = params.city
         payer.state = params.state
@@ -40,10 +41,13 @@ class PayerService {
         payer = validate(payer, params)
         if (payer.hasErrors()) return payer
         payer.name = params.name
+        payer.phone = params.phone
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
         payer.postalCode = params.postalCode
         payer.address = params.address
+        payer.addressNumber = params.addressNumber
+        payer.number = params.number
         payer.district = params.district
         payer.city = params.city
         payer.state = params.state
@@ -79,6 +83,9 @@ class PayerService {
             DomainUtils.addError(payer, "")
         }
         if (!ValidateUtils.isNotNull(params.address)) {
+            DomainUtils.addError(payer, "")
+        }
+        if (!ValidateUtils.isNotNull(params.addressNumber)) {
             DomainUtils.addError(payer, "")
         }
         if (!ValidateUtils.isNotNull(params.district)) {
