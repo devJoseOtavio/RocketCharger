@@ -4,6 +4,8 @@ class Customer {
 
     String name
 
+    String phone
+
     String email
 
     String cpfCnpj
@@ -11,6 +13,8 @@ class Customer {
     String postalCode
 
     String address
+
+    String number
 
     String district
 

@@ -1,16 +1,20 @@
 <html lang="pt-br">
-<head>
-        <script
-      src="https://kit.fontawesome.com/c8d140aaae.js"
-      crossorigin="anonymous"
-    ></script>
+  <head>
+      <meta name="layout" content="main"/>
+      <script src="https://kit.fontawesome.com/c8d140aaae.js" crossorigin="anonymous"></script>
         <title>Adicionar pagador</title>
-    <asset:stylesheet src="index/style.css" />
-    <asset:javascript src="applications/applicationForm.js"/>
-</head>
+      <asset:stylesheet src="index/style.css" />
+      <asset:javascript src="applications/applicationForm.js"/>
+  </head>
+      <body>
         <div class="container">
-        <form autocomplete="off" class="form" data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
-              data-url="${ g.createLink(controller: "payer", action: "save") }">  
+            <div class="header">
+                <h2>Adicionar pagador</h2>
+            </div>
+        <form
+            autocomplete="off" class="form" 
+            data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
+            data-url="${ g.createLink(controller: "payer", action: "save") }">  
 
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
@@ -25,7 +29,20 @@
           <small class="js-msg"></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
+          <label for="phone">Celular *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Informe seu número de contato"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg"></small>
+        </div>
+
+        <div class="form-control two">
           <label for="cpfCnpj">CPF/CNPJ: *</label>
           <input
             type="number"
@@ -39,7 +56,7 @@
           "></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
           <label for="email">Email: *</label>
           <input 
             type="email" 
@@ -53,7 +70,7 @@
           "></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two">
           <label for="postalCode">CEP: *</label>
           <input
             type="text"
@@ -68,7 +85,7 @@
           "></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
           <label for="address">Endereço: *</label>
           <input
             type="text"
@@ -82,7 +99,20 @@
           "></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
+          <label for="number">Número *</label>
+          <input
+            type="text"
+            id="number"
+            name="number"
+            placeholder="Informe o número de sua residência"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small class="js-msg"></small>
+        </div>
+
+        <div class="form-control two">
           <label for="complement">Complemento: </label>
           <input
             type="text"
@@ -94,7 +124,7 @@
           <i class="fas fa-check-circle"></i>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
           <label for="district">Bairro: *</label>
           <input
             type="text"
@@ -107,7 +137,7 @@
           <small class="js-msg"></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two">
           <label for="city">Cidade: *</label>
           <input
             type="text"
@@ -121,7 +151,7 @@
           "></small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control two left">
           <label for="state">Estado: *</label>
           <input
             type="text"
@@ -137,10 +167,10 @@
             <input 
               hidden 
               value="${customerId}" 
-              name="customer" 
-              id="customer"
+              name="customerId" 
+              id="customerId"
               />
-            <button type="submit">Salvar</button>
+            <button type="submit" id="button">Salvar</button>
         </form>
         </div>
     </body>

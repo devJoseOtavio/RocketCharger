@@ -8,6 +8,7 @@ import grails.gorm.transactions.Transactional
 class PayerService {
 
     public Payer save(Map params) {
+        println params
         Customer customer = Customer.get(params.long("customerId"))
         Payer payer = new Payer(params)
         payer.customer = customer
@@ -27,10 +28,12 @@ class PayerService {
         if (!params.id) return
         Payer payer = Payer.get(params.long("id"))
         payer.name = params.name
+        payer.phone = params.phone
         payer.email = params.email
         payer.cpfCnpj = params.cpfCnpj
         payer.postalCode = params.postalCode
         payer.address = params.address
+        payer.number = params.number
         payer.district = params.district
         payer.city = params.city
         payer.state = params.state

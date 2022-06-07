@@ -4,6 +4,7 @@
          <table>
             <tr>
                <th>Nome</th>
+               <th>Celular<th>
                <th>CPF/CNPJ</th>
                <th>E-mail</th>
                <th>CEP</th>
@@ -15,6 +16,7 @@
             <g:each var="payer" in="${payerList}">
                <tr>
                   <td>${payer.name}</td>
+                  <td>${payer.phone}</td>
                   <td>${payer.cpfCnpj}</td>
                   <td>${payer.email}</td>
                   <td>${payer.postalCode}</td>
