@@ -9,9 +9,11 @@ import grails.converters.JSON
 
 class CustomerController extends BaseController {
     
-     def customerService
+ 
+    def customerService
 
-   def index() {  
+
+    def index() {  
         return [customerList: Customer.list(max: getSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
@@ -20,6 +22,12 @@ class CustomerController extends BaseController {
     def save() {
         try {
             Customer customer = customerService.save(params)
+
+            if (customer.hasErrors()) {
+                render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
+                return
+            }
+
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: message(code: "occurrence.error")] as JSON)
@@ -27,9 +35,14 @@ class CustomerController extends BaseController {
     }
 
     def update() {
-       try {
-            Long id = params.long("id")
-            customerService.update(id, params)
+        try {
+            Customer customer = customerService.update(params)
+
+            if (customer.hasErrors()) {
+                render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
+                return
+            }
+
             render([success: true] as JSON)
         } catch(Exception e) {
             render([success: false, message: message(code: "occurrence.error")] as JSON)
