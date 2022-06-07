@@ -1,4 +1,5 @@
 <html lang="pt-br">
+<<<<<<< HEAD
   <head>
       <meta name="layout" content="main"/>
       <script src="https://kit.fontawesome.com/c8d140aaae.js" crossorigin="anonymous"></script>
@@ -15,6 +16,20 @@
             autocomplete="off" class="form" 
             data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
             data-url="${ g.createLink(controller: "payer", action: "save") }">  
+=======
+<head>
+        <script
+      src="https://kit.fontawesome.com/c8d140aaae.js"
+      crossorigin="anonymous"
+    ></script>
+        <title>Adicionar pagador</title>
+    <asset:stylesheet src="index/style.css" />
+    <asset:javascript src="applications/applicationForm.js"/>
+</head>
+        <div class="container">
+        <form autocomplete="off" class="form" data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
+              data-url="${ g.createLink(controller: "payer", action: "save") }">  
+>>>>>>> main
 
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
@@ -100,11 +115,11 @@
         </div>
 
         <div class="form-control two left">
-          <label for="number">Número *</label>
+          <label for="addressNumber">Número *</label>
           <input
             type="text"
-            id="number"
-            name="number"
+            id="addressNumber"
+            name="addressNumber"
             placeholder="Informe o número de sua residência"
           />
           <i class="fas fa-exclamation-circle"></i>

@@ -7,8 +7,8 @@
         <asset:javascript src="applications/applicationForm.js"/>
     <title>Cadastro RocketCharger</title>
   </head>
-
   <body>
+
     <div class="container">
       <div class="header">
         <h2>Crie sua conta, é grátis!</h2>
@@ -86,8 +86,7 @@
             type="text"
             id="address"
             name="address"
-            placeholder="Digite o seu endereço residêncial"
-            disabled
+            placeholder="Digite o seu endereço residencial"
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -96,11 +95,11 @@
         </div>
 
         <div class="form-control two left">
-          <label for="houseNumber">Número *</label>
+          <label for="addressNumber">Número *</label>
           <input
             type="text"
-            id="houseNumber"
-            name="houseNumber"
+            id="addressNumber"
+            name="addressNumber"
             placeholder="Informe o número de sua residência"
           />
           <i class="fas fa-exclamation-circle"></i>
@@ -127,7 +126,6 @@
             id="district"
             name="district"
             placeholder="Informe o seu bairro"
-            disabled
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -141,7 +139,6 @@
             id="city"
             name="city"
             placeholder="Informe a sua cidade"
-            disabled
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -155,8 +152,7 @@
             type="text"
             id="state"
             name="state"
-            placeholder="Informe o seu estado"
-            disabled
+            placeholder="Informe o seu estado"        
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -169,6 +165,5 @@
         </button>
       </form>
     </div>
-    <asset:javascript src="utils/postalCodeApi.js"/>
   </body>
 </html>

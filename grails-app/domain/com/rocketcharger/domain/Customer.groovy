@@ -14,7 +14,7 @@ class Customer {
 
     String address
 
-    String number
+    String addressNumber
 
     String district
 
@@ -23,7 +23,13 @@ class Customer {
     String state
     
      static constraints = {
-        name size: 3..100
-        email size: 5..100
+        name blank: false 
+        email email: true, blank: false, unique: true
+        cpfCnpj blank: false
+        postalCode blank: false
+        address blank: false
+        district blank: false
+        city blank: false
+        state blank: false
     }
 }

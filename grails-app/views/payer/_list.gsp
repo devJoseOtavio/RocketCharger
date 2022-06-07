@@ -9,6 +9,7 @@
                <th>E-mail</th>
                <th>CEP</th>
                <th>Endereço</th>
+               <th>Numero</th>
                <th>Bairro</th>
                <th>Cidade</th>
                <th>Estado</th>
@@ -21,6 +22,7 @@
                   <td>${payer.email}</td>
                   <td>${payer.postalCode}</td>
                   <td>${payer.address}</td>
+                  <td>${payer.addressNumber}</td>
                   <td>${payer.district}</td>
                   <td>${payer.city}</td>
                   <td>${payer.state}</td>

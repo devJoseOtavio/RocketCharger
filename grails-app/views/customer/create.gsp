@@ -98,11 +98,11 @@
         </div>
 
         <div class="form-control two left">
-          <label for="number">Número *</label>
+          <label for="addressNumber">Número *</label>
           <input
             type="text"
-            id="number"
-            name="number"
+            id="addressNumber"
+            name="addressNumber"
             placeholder="Informe o número de sua residência"
           />
           <i class="fas fa-exclamation-circle"></i>

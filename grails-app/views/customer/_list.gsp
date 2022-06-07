@@ -22,7 +22,7 @@
                   <td>${customer.email}</td>
                   <td>${customer.postalCode}</td>
                   <td>${customer.address}</td>
-                  <td>${customer.number}</td>
+                  <td>${customer.addressNumber}</td>
                   <td>${customer.district}</td>
                   <td>${customer.city}</td>
                   <td>${customer.state}</td>
