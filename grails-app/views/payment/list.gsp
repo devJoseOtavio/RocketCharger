@@ -6,7 +6,7 @@
 <body>
     
     <div>
-        <g:link controller="payment" action="create" update="divForm">Adicionar cobrança</g:link>
+        <g:link controller="customer" action="list" params="${customerId}" update="divForm">Pagina inicial</g:link>
     </div>
 
     <div id="divLista">

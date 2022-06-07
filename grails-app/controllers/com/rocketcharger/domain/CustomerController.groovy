@@ -1,8 +1,7 @@
 package com.rocketcharger.domain
 
-import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.base.BaseController
-
+import com.rocketcharger.domain.customer.Customer
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.validation.ValidationException
@@ -54,7 +53,7 @@ class CustomerController extends BaseController {
         return [customer: Customer.get(params.long("id"))]
     }
 
-    def customerPage() {
-        return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
+    def list() {
+        return [customerList: Customer.list(max: getSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
     }
  }

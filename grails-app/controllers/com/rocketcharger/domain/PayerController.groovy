@@ -11,11 +11,9 @@ class PayerController extends BaseController {
     def payerService
 
     def index() {
-        Integer customerId = params.int("id")
-        List<Payer> payerList = Payer.createCriteria().list(max: getSizeLimitPage(), offset: getCurrentPage()) {
-            like("customer", Customer.get(customerId)) 
-        }
-        return [payerList: payerList, totalCount: Payer.count()]
+        Long customerId = params.long("id")
+        List<Payer> payerList = payerService.returnPayersByCustomer(customerId, getSizeLimitPage(), getCurrentPage())
+        render(template:"list", model:[customerId: customerId, payerList: payerList, totalCount: Payer.count()])
     }
 
     def create() {
