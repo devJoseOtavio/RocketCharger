@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <title>Conta</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="divLista">
-        <g:render template="list" model="[customerList: customerList]"></g:render>
+      <g:render template="list" model="[customerList: customerList]"></g:render>
     </div>
-     <div id="divForm"></div>
-</body>
+    <div id="divForm"></div>
+  </body>
 </html>
