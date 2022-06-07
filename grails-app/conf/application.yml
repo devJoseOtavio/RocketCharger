@@ -109,8 +109,8 @@ environments:
         dataSource:
             dbCreate: "update"
             #logSql: true
-            url: "jdbc:mysql://localhost/rocketchargerteste?useSSL=false&allowPublicKeyRetrieval=true"
-            driverClassName: "com.mysql.jdbc.Driver"
+            url: "jdbc:mysql://localhost/rocketcharger"
+            driverClassName: "com.mysql.cj.jdbc.Driver"
             username: "root"
             password: "basedeelite"
             type: "com.zaxxer.hikari.HikariDataSource"

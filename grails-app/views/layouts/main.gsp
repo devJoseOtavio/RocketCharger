@@ -14,6 +14,7 @@
     <g:layoutHead/>
 </head>
 <body>
+<g:link controller="customer" action="logout">logout</g:link>
 <g:layoutBody/>
 </body>
 </html>

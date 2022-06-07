@@ -10,16 +10,12 @@ import com.rocketcharger.domain.CustomUserDetails
 
 class CustomUserDetails extends GrailsUser {
 
-   final String fullname
-
    CustomUserDetails(String username, String password, boolean enabled,
                  boolean accountNonExpired, boolean credentialsNonExpired,
                  boolean accountNonLocked,
                  Collection<GrantedAuthority> authorities,
-                 long id, String fullname) {
+                 long id) {
       super(username, password, enabled, accountNonExpired,
             credentialsNonExpired, accountNonLocked, authorities, id)
-
-      this.fullname = fullname
    }
 }

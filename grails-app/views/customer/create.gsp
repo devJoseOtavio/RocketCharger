@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Create customer</title>
+        <meta name="layout" content="main" />
         <asset:javascript src="applications/applicationForm.js"/>
     </head>
     <body>

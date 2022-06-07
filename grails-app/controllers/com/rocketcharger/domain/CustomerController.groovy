@@ -5,6 +5,8 @@ import com.rocketcharger.domain.customer.Customer
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
+
 
 class CustomerController {
      def customerService
@@ -14,7 +16,7 @@ class CustomerController {
         return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
     }
 
-
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
     }
 
