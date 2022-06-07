@@ -62,8 +62,17 @@ body {
 }
   
 .form-control label {
-  text-shadow: 0.1em 0.1em 0.2em rgb(201, 194, 194) ;
+  text-shadow: 0.1em 0.1em 0.2em rgb(201, 194, 194);
   color: #000000;
+}
+
+#method {
+  margin-top: 10px;
+}
+
+#payerId {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .form-control input {
