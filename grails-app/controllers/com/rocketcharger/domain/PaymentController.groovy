@@ -4,29 +4,27 @@ import com.rocketcharger.domain.payment.Payment
 import com.rocketcharger.domain.payer.Payer
 import com.rocketcharger.domain.customer.Customer
 import com.rocketcharger.base.BaseController
-
+import com.rocketcharger.enums.PaymentMethod
+import com.rocketcharger.enums.PaymentStatus
 import static org.springframework.http.HttpStatus.*
 import grails.validation.ValidationException
 import grails.converters.JSON
 
 class PaymentController extends BaseController {
-     def paymentService
 
-     
+    def paymentService
+    def payerService
+
    def list() {  
         Long customerId = params.long("id")
-        List<Payment> paymentList = Payment.createCriteria().list(max: getSizeLimitPage(), offset: getCurrentPage()) {
-            like("customer", Customer.get(customerId)) 
-        }
-        return [paymentList: paymentList, totalCount: Payment.count()]
+        List<Payment> paymentList = paymentService.returnPaymentsByCustomer(customerId, getSizeLimitPage(), getCurrentPage())
+        return [customerId: customerId, paymentList: paymentList, totalCount: paymentList.size()]
     }
 
     def create() {
         Long customerId = params.long("id")
-        List<Payer> payerList = Payer.createCriteria().list() {
-            like("customer", Customer.get(customerId)) 
-        }
-        return [payerList: payerList, totalCount: Payer.count(), customerId: customerId, payerList: payerList]
+        List<Payer> payerList = payerService.returnPayersByCustomer(customerId)
+        return [customerId: customerId, payerList: payerList]
     }
 
     def save() {
@@ -38,13 +36,14 @@ class PaymentController extends BaseController {
         } 
     }
 
-    def update() {
-       try {
-            paymentService.update(params)
-            render([success: true] as JSON)
+    def confirm() {
+        Long paymentId = params.long("id")
+        try {
+            paymentService.recognizePayment(paymentId)
+            redirect controller: "payment", action: "list", id: paymentId
         } catch(Exception e) {
             render([success: false, message: message(code: "occurrence.error")] as JSON)
-        } 
+        }
     }
 
     def show() {

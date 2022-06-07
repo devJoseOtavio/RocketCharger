@@ -47,6 +47,20 @@ class PayerService {
         return payer
     }
 
+    public List<Payer> returnPayersByCustomer(Long customerId, Integer max = null, Integer offset = null) {
+        def payerCriteria = Payer.createCriteria()
+        if (max == null || offset == null) {
+            List<Payer> payerList = payerCriteria.list() {
+                eq("customer", Customer.get(customerId))
+            }
+            return payerList
+        }
+        List<Payer> payerList = payerCriteria.list(max: max, offset: offset) {
+            eq("customer", Customer.get(customerId))
+        }
+        return payerList
+    }
+
     public Payer validate(Payer payer, Map params) {
         if (!ValidateUtils.isNotNull(params.name)) {
             DomainUtils.addError(payer, "")

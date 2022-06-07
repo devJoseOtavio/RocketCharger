@@ -9,7 +9,7 @@
       <div><input type="text" name="value" placeholder="Valor do pagamento"></div>
       <div><input type="text" name="billingType" placeholder="Método de pagamento"></div>
       <div><input type="text" name="status" placeholder="Status"></div>
-      <div><input type="text" name="dueDate" placeholder="Data de vencimento"></div>
+      <div><input type="date" name="dueDate" placeholder="Data de vencimento"></div>
       <select id="payerId" name="payerId" required>
          <option>Selecione um pagador</option>
          <g:each var="payer" in="${payerList}">
