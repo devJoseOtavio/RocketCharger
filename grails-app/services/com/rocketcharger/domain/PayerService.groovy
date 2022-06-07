@@ -30,10 +30,6 @@ class PayerService {
         return Payer.getAll()
     }
 
-    public Payer getPayer(Integer id) {
-        return Payer.get(id)
-    }
-
     public Payer update(Map params) {
         if (!params.id) DomainUtils.addError(payer, "Erro ao realizar edição")
         Payer payer = Payer.get(params.int("id"))
