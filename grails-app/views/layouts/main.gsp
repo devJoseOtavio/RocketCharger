@@ -8,13 +8,12 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="rocketico.ico" type="image/x-ico"/>
-    <asset:stylesheet src="application.css"/>
     <asset:javascript src="applications/applicationForm.js"/>
 
     <g:layoutHead/>
 </head>
 <body>
-<g:link controller="customer" action="logout">logout</g:link>
+<g:link controller="logout">logout</g:link>
 <g:layoutBody/>
 </body>
 </html>
