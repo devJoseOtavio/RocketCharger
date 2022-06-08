@@ -13,7 +13,7 @@
     <g:layoutHead/>
 </head>
 <body>
-<g:link controller="logout">logout</g:link>
+    <g:link controller="logout">logout</g:link>
 <g:layoutBody/>
 </body>
 </html>
