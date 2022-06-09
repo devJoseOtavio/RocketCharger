@@ -173,10 +173,10 @@ function FormValidationsController() {
   }
 
   function bindInputPostalCode() {
-    postalCodeReference.addEventListener("focusout", function () {
+    postalCodeReference.addEventListener("input", function () {
       validatePostal();
       if (validatePostalCode(this.value)) {
-        getPostalCode(this.value, fillAddress);
+        getPostalCode(this.value, fillAddress());
       }
     });
   }
