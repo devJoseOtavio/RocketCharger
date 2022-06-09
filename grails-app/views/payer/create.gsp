@@ -173,5 +173,6 @@
             <button type="submit" id="button">Salvar</button>
         </form>
         </div>
+        <asset:javascript src="applications/applicationMasks.js" />
     </body>
 </html>

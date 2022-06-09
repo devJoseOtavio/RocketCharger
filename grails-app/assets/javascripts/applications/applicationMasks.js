@@ -1,2 +1,2 @@
-//= require utils/mask.lib
+//= require maskLib
 //= require utils/mask.form

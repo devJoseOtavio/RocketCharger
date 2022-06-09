@@ -51,5 +51,6 @@
 
       </form>
       <a href="${ g.createLink(controller: "payment", action: "index", id: payment.id)}">Voltar</a>
+   <asset:javascript src="applications/applicationMasks.js" />
    </body>
 </html>
