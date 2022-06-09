@@ -35,11 +35,11 @@
         </div>
 
         <div class="form-control two left">
-          <label for="number">Celular *</label>
+          <label for="phone">Celular *</label>
           <input
             type="tel"
-            id="number"
-            name="number"
+            id="phone"
+            name="phone"
             placeholder="Informe seu número de contato"
             value="${payer?.phone}" 
           />
