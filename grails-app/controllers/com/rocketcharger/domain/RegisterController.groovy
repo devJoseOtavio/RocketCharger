@@ -5,13 +5,13 @@ import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
 import grails.converters.JSON
 
 import com.rocketcharger.domain.User
 import com.rocketcharger.domain.Role
 import com.rocketcharger.domain.UserRole
 import com.rocketcharger.domain.CustomUserDetails
+import com.rocketcharger.domain.customer.Customer
 
 @Transactional
 @Secured('permitAll')
@@ -30,7 +30,7 @@ class RegisterController {
             return
         } else {
             try {
-                User user = registerService.register(params)
+                registerService.register(params)
                 redirect controller: "login", action: "auth"
             } catch (ValidationException e) {
                 flash.message = "Register Failed"

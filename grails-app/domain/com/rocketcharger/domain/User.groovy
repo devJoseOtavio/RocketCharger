@@ -3,6 +3,7 @@ package com.rocketcharger.domain
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
+import com.rocketcharger.domain.customer.Customer
 
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')
@@ -13,6 +14,7 @@ class User implements Serializable {
 
     String username
     String password
+    Customer customer
     boolean enabled = true
     boolean accountExpired
     boolean accountLocked
