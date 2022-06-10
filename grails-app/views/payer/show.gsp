@@ -17,11 +17,7 @@
         class="form"
         data-redirect="${ g.createLink(controller: "payer", action: "index", params: [customerId: payer.customerId]) }" 
         data-url="${ g.createLink(controller: "payer", action: "update") }" >
-<<<<<<< Updated upstream
-        <input type="hidden" class="js-payer-id" name="id" value="${payer?.id}">
-=======
         <input type="hidden" class="js-payer-id" name="payerId" id="payerId" value="${payer.id}">
->>>>>>> Stashed changes
         
         <div class="form-control">
           <label for="name">Nome Completo: *</label>
