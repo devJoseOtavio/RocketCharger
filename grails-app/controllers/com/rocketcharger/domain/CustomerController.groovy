@@ -11,8 +11,8 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class CustomerController extends BaseController {
     
- 
     def customerService
+    def registerService
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {

@@ -20,5 +20,23 @@
     <hr>
     <p>Ainda não tem uma conta? <g:link controller="register">Registre-se</g:link></p>
   </form>
+   <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.forms['loginForm'].elements['username'].focus();
+        });
+        function passwordDisplayToggle() {
+            var toggleEl = document.getElementById("passwordToggler");
+            var eyeIcon = '\u{1F441}';
+            var xIcon = '\u{2715}';
+            var passEl = document.getElementById("password");
+            if (passEl.type === "password") {
+                toggleEl.innerHTML = xIcon;
+                passEl.type = "text";
+            } else {
+                toggleEl.innerHTML = eyeIcon;
+                passEl.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
