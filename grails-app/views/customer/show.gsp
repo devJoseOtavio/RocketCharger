@@ -15,7 +15,7 @@
       <form
         autocomplete="off"
         class="form"
-        data-redirect="${ g.createLink(controller: "customer", action: "customerPage") }"
+        data-redirect="${ g.createLink(controller: "customer", action: "list") }"
         data-url="${ g.createLink(controller: "customer", action: "update") }"
       >
         <input
@@ -41,11 +41,11 @@
         </div>
 
         <div class="form-control two left">
-          <label for="number">Celular *</label>
+          <label for="phone">Celular *</label>
           <input
             type="tel"
-            id="number"
-            name="number"
+            id="phone"
+            name="phone"
             placeholder="Informe seu número de contato"
             value="${customer?.phone}" 
           />
@@ -192,9 +192,9 @@
         <button type="reset">Cancelar</button>
       </form>
       <div>
-        <g:link controller="customer" action="index" id="${customer.id}"><button class="btn ">Voltar</button></g:link>
-        <g:link controller="payer" action="create" id="${customer.id}"><button class="btn ">Criar pagador</button></g:link>
-        <g:link controller="payment" action="create" id="${customer.id}"><button class="btn ">Nova Cobrança</button></g:link>
+        <g:link controller="customer" action="index" params="${[customerId: customer.id]}"><button class="btn ">Voltar</button></g:link>
+        <g:link controller="payer" action="create" params="${[customerId: customer.id]}"><button class="btn ">Criar pagador</button></g:link>
+        <g:link controller="payment" action="create" params="${[customerId: customer.id]}"><button class="btn ">Nova Cobrança</button></g:link>
      </div>
     </div>
     <asset:javascript src="applications/applicationMasks.js" />

@@ -33,28 +33,35 @@ function FormValidationsController() {
 
   function validateCpf() {
     let cpfCnpjValue = cpfCnpj.value;
-    if (!cpfCnpjValue) return setErrorFor(cpfCnpjReference, "Preencha seu CPF");
-    if (cpfCnpjValue.length == correctCpfLength) {
+    if (!cpfCnpjValue) {
+      setErrorFor(cpfCnpjReference, "Preencha seu CPF/CNPJ");
+      return;
+    }
+    if (
       cpfCnpjValue == "00000000000" ||
-        cpfCnpjValue == "11111111111" ||
-        cpfCnpjValue == "22222222222" ||
-        cpfCnpjValue == "33333333333" ||
-        cpfCnpjValue == "44444444444" ||
-        cpfCnpjValue == "55555555555" ||
-        cpfCnpjValue == "66666666666" ||
-        cpfCnpjValue == "77777777777" ||
-        cpfCnpjValue == "88888888888" ||
-        cpfCnpjValue == "99999999999";
-      return setErrorFor(cpfCnpjReference, "O cpf informado é inválido");
+      cpfCnpjValue == "11111111111" ||
+      cpfCnpjValue == "22222222222" ||
+      cpfCnpjValue == "33333333333" ||
+      cpfCnpjValue == "44444444444" ||
+      cpfCnpjValue == "55555555555" ||
+      cpfCnpjValue == "66666666666" ||
+      cpfCnpjValue == "77777777777" ||
+      cpfCnpjValue == "88888888888" ||
+      cpfCnpjValue == "99999999999"
+    ) {
+      setErrorFor(cpfCnpjReference, "O cpf informado é inválido");
+      return;
     }
     setSucessFor(cpfCnpjReference);
   }
 
   function validateCnpj() {
     let cpfCnpjValue = cpfCnpj.value;
-    if (!cpfCnpjValue) return setErrorFor(cpfCnpjReference, "Preencha seu CPF");
+    if (!cpfCnpjValue) {
+      setErrorFor(cpfCnpjReference, "Preencha seu CPF/CNPJ");
+      return;
+    }
     if (
-      cpfCnpjValue.length == correctCnpjLength ||
       cpfCnpjValue == "00000000000000" ||
       cpfCnpjValue == "11111111111111" ||
       cpfCnpjValue == "22222222222222" ||
@@ -66,7 +73,8 @@ function FormValidationsController() {
       cpfCnpjValue == "88888888888888" ||
       cpfCnpjValue == "99999999999999"
     ) {
-      return setErrorFor(cpfCnpjReference, "O CNPJ informado é inválido");
+      setErrorFor(cpfCnpjReference, "O CNPJ informado é inválido");
+      return;
     }
     setSucessFor(cpfCnpjReference);
   }
