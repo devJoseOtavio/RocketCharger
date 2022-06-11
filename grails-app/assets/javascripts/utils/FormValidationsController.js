@@ -17,9 +17,10 @@ function FormValidationsController() {
   var districtReference = document.getElementById("district");
   var cityReference = document.getElementById("city");
   var stateReference = document.getElementById("state");
-  var correctPostalCodeLength = 8;
-  var correctCpfLength = 11;
-  var correctCnpjLength = 14;
+  var correctPostalCodeLength = 9;
+  var correctCpfLength = 13;
+  var correctCnpjLength = 17;
+  var formatEmail = /[A-Za-z0-9_\%\+-]+(\.[A-Za-z0-9_\%\+-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,15})/;
 
   function validateName() {
     let nameValue = nameReference.value;
@@ -179,10 +180,10 @@ function FormValidationsController() {
   }
 
   function bindInputPostalCode() {
-    postalCodeReference.addEventListener("focusout", function () {
+    postalCodeReference.addEventListener("input", function () {
       validatePostal();
       if (validatePostalCode(this.value)) {
-        getPostalCode(this.value, fillAddress);
+        getPostalCode(this.value, fillAddress());
       }
     });
   }

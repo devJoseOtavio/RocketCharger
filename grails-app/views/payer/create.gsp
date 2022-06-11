@@ -170,5 +170,6 @@
         <button type="reset" class="js-cancel-button">Cancelar</button>
       </form>
         </div>
+        <asset:javascript src="applications/applicationMasks.js" />
     </body>
 </html>
