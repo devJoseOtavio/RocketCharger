@@ -1,15 +1,15 @@
 package com.rocketcharger.domain
 
-import grails.validation.ValidationException
-import grails.gorm.transactions.Transactional
-import grails.plugin.springsecurity.annotation.Secured
-import grails.converters.JSON
-
 import com.rocketcharger.domain.User
 import com.rocketcharger.domain.Role
 import com.rocketcharger.domain.UserRole
 import com.rocketcharger.domain.CustomUserDetails
 import com.rocketcharger.domain.customer.Customer
+
+import grails.validation.ValidationException
+import grails.gorm.transactions.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.JSON
 
 @Transactional
 class RegisterService {
@@ -26,14 +26,14 @@ class RegisterService {
         user.username = username
         user.password = password
         user.customer = customer
-        user.save(flush: true)
+        user.save(flush: true, failOnError: true)
         return user
     }
 
     public Customer connectCustomer(String email) {
         Customer customer = new Customer()
         customer.email = email
-        customer.save(failOnError: true)
+        customer.save(flush: true, failOnError: true)
     }
 
         public connectRoleUser(User user) {

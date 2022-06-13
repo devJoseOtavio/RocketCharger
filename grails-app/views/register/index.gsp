@@ -16,7 +16,7 @@
     
             <div class="form-group">
                     <label for="username">email</label>
-              <input type="text" class="form-control" name="username" id="username" autocapitalize="none"/>
+              <input type="email" class="form-control" name="username" id="username" autocapitalize="none"/>
             </div>
 
             <div class="form-group">

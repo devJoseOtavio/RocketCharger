@@ -9,7 +9,7 @@
   <body>
     <div class="container">
           <div class="header">
-              <h2>Dados de ${customer.name}</h2>
+              <h2>Dados de cadastro</h2>
           </div>
 
       <form
@@ -33,7 +33,6 @@
             name="name"
             placeholder="Informe seu nome completo"
             value="${customer?.name}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -62,7 +61,6 @@
             name="cpfCnpj"
             placeholder="Informe seu CPF/CNPJ"
             value="${customer?.cpfCnpj}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -77,7 +75,6 @@
             name="email"
             placeholder="Informe seu e-mail"
             value="${customer?.email}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -93,7 +90,6 @@
             placeholder="Informe o seu CEP"
             maxlength="8"
             value="${customer?.postalCode}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -108,7 +104,6 @@
             name="address"
             placeholder="Informe o seu endereço residencial"
             value="${customer?.address}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -123,7 +118,6 @@
             name="addressNumber"
             placeholder="Informe o número de sua residência"
             value="${customer?.addressNumber}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -137,7 +131,6 @@
             id="complement"
             name="complement"
             placeholder="Informe um complemento (opcional)"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -151,7 +144,6 @@
             name="district"
             placeholder="Informe o seu bairro"
             value="${customer?.district}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -166,7 +158,6 @@
             name="city"
             placeholder="Informe a sua cidade"
             value="${customer?.city}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -181,7 +172,6 @@
             name="state"
             placeholder="Informe o seu estado"
             value="${customer?.state}"
-            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -192,9 +182,9 @@
         <button type="reset">Cancelar</button>
       </form>
       <div>
-        <g:link controller="customer" action="index" id="${customer.id}"><button class="btn ">Voltar</button></g:link>
-        <g:link controller="payer" action="create" id="${customer.id}"><button class="btn ">Criar pagador</button></g:link>
-        <g:link controller="payment" action="create" id="${customer.id}"><button class="btn ">Nova Cobrança</button></g:link>
+        <g:link controller="customer" action="index"><button class="btn ">Voltar</button></g:link>
+        <g:link controller="payer" action="create"><button class="btn ">Criar pagador</button></g:link>
+        <g:link controller="payment" action="create"><button class="btn ">Nova Cobrança</button></g:link>
      </div>
     </div>
   </body>

@@ -57,7 +57,7 @@ class CustomerController extends BaseController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def show() {
-        return [customer: Customer.get(params.long("id"))]
+        return [customer: Customer.get(params.long)]
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
