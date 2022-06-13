@@ -39,7 +39,7 @@
           <small class="js-msg"></small>
         </div>
 
-        <div class="form-control two left">
+        <%-- <div class="form-control two left">
           <label for="number">Celular *</label>
           <input
             type="tel"
@@ -51,7 +51,7 @@
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
-        </div>
+        </div> --%>
 
         <div class="form-control two">
           <label for="cpfCnpj">CPF/CNPJ: *</label>

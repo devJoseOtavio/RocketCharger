@@ -13,6 +13,7 @@ class CustomerController extends BaseController {
     
     def customerService
     def registerService
+    def springSecurityService
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
@@ -57,7 +58,7 @@ class CustomerController extends BaseController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def show() {
-        return [customer: Customer.get(params.long)]
+        return [customer: springSecurityService.currentUser.customer]
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])

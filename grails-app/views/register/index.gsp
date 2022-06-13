@@ -4,42 +4,34 @@
 </head>
 
 <body>
-    <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Registrar aqui</h5>
-                    <g:if test='${flash.message}'>
-                        <div class="alert alert-danger" role="alert">${flash.message}</div>
-                    </g:if>
-              <form class="form-signin" action="register" method="POST" id="loginForm" autocomplete="off">
-    
-            <div class="form-group">
-                    <label for="username">email</label>
-              <input type="email" class="form-control" name="username" id="username" autocapitalize="none"/>
-            </div>
+  <h5>Registrar aqui</h5>
+    <g:if test='${flash.message}'>
+        <div class="alert alert-danger" role="alert">${flash.message}</div>
+    </g:if>
+    <form class="form-signin" action="register" method="POST" id="loginForm" autocomplete="off">
 
-            <div class="form-group">
-                          <label for="password">Senha</label>
-              <input type="password" class="form-control" name="password" id="password"/>
-            </div>
-
-            <div class="form-group">
-                          <label for="password">Confirmar senha</label>
-              <input type="password" class="form-control" name="repassword" id="repassword"/>
-            </div>
-            <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-            <hr class="my-4">
-            <p>Already have an account? <g:link controller="login" action="auth">Login</g:link></p>
-          </form>
-        </div>
+      <div>
+        <label for="username">email</label>
+        <input type="email" class="form-control" name="username" id="username" autocapitalize="none"/>
       </div>
-    </div>
-  </div>
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(event) {
-            document.forms['loginForm'].elements['username'].focus();
-        });
-    </script>
+
+      <div>
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" name="password" id="password"/>
+      </div>
+
+      <div>
+        <label for="password">Confirmar senha</label>
+        <input type="password" class="form-control" name="repassword" id="repassword"/>
+      </div>
+      <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Criar conta</button>
+      <hr class="my-4">
+      <p>Já tem uma conta? <g:link controller="login" action="auth">Login</g:link></p>
+  </form>
+  <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+          document.forms['loginForm'].elements['username'].focus();
+      });
+  </script>
 </body>
 </html>

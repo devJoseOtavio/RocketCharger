@@ -6,7 +6,7 @@
 <body>
   <h2>Acesso ao RocketCharger</h2>
   <p>Olá, use os campos abaixo para acessar sua conta RocketCharger.</p>
-  <form class="form-signin" action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" autocomplete="off">
+  <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" autocomplete="off">
     <div>
       <label for="username">Informe seu e-mail</label>
       <input type="text" name="${usernameParameter ?: 'username'}" id="username" autocapitalize="none"/>
