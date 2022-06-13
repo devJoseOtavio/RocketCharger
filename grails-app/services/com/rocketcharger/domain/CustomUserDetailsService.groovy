@@ -7,11 +7,6 @@ import grails.gorm.transactions.Transactional
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
-import com.rocketcharger.domain.User
-import com.rocketcharger.domain.Role
-import com.rocketcharger.domain.UserRole
-import com.rocketcharger.domain.customer.Customer
-import com.rocketcharger.domain.CustomUserDetails
 
 class CustomUserDetailsService implements GrailsUserDetailsService {
 
