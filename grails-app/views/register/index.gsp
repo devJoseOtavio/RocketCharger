@@ -26,7 +26,7 @@
       </div>
       <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Criar conta</button>
       <hr class="my-4">
-      <p>Já tem uma conta? <g:link controller="login" action="auth">Login</g:link></p>
+      <p>Já tem uma conta? <g:link controller="login" action="auth">entre aqui</g:link></p>
   </form>
 </body>
 </html>
