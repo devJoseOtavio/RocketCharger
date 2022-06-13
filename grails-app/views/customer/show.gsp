@@ -75,6 +75,7 @@
             name="email"
             placeholder="Informe seu e-mail"
             value="${customer?.email}"
+            readonly
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
@@ -182,15 +183,9 @@
         <button type="reset">Cancelar</button>
       </form>
       <div>
-<<<<<<< HEAD
-        <g:link controller="customer" action="index"><button class="btn ">Voltar</button></g:link>
-        <g:link controller="payer" action="create"><button class="btn ">Criar pagador</button></g:link>
-        <g:link controller="payment" action="create"><button class="btn ">Nova Cobrança</button></g:link>
-=======
         <g:link controller="customer" action="index" params="${[customerId: customer.id]}"><button class="btn ">Voltar</button></g:link>
         <g:link controller="payer" action="create" params="${[customerId: customer.id]}"><button class="btn ">Criar pagador</button></g:link>
         <g:link controller="payment" action="create" params="${[customerId: customer.id]}"><button class="btn ">Nova Cobrança</button></g:link>
->>>>>>> apl-springSecurity
      </div>
     </div>
     <asset:javascript src="applications/applicationMasks.js" />
