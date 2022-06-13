@@ -3,11 +3,13 @@ package com.rocketcharger.domain
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
+
 import com.rocketcharger.domain.customer.Customer
 
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
+
 class User implements Serializable {
 
     private static final long serialVersionUID = 1
@@ -23,6 +25,7 @@ class User implements Serializable {
     boolean accountLocked
     
     boolean passwordExpired
+
     Customer customer
 
     Set<Role> getAuthorities() {
