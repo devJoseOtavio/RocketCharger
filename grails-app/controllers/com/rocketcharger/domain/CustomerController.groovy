@@ -15,7 +15,7 @@ class CustomerController extends BaseController {
     def registerService
     def springSecurityService
 
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured(['ROLE_ADMIN'])
     def create() {
     }
 
