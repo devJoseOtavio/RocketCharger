@@ -8,24 +8,27 @@
     <g:if test='${flash.message}'>
         <div class="alert alert-danger" role="alert">${flash.message}</div>
     </g:if>
-    <form class="form-signin" action="register" method="POST" id="loginForm" autocomplete="off">
+    <form action="register" method="POST" id="loginForm" autocomplete="off">
 
       <div>
         <label for="username">email</label>
-        <input type="email" class="form-control" name="username" id="username" autocapitalize="none"/>
+        <input type="email" name="username" id="username" autocapitalize="none"/>
       </div>
 
       <div>
         <label for="password">Senha</label>
-        <input type="password" class="form-control" name="password" id="password"/>
+        <input type="password" name="password" id="password" required/>
       </div>
 
       <div>
         <label for="password">Confirmar senha</label>
-        <input type="password" class="form-control" name="repassword" id="repassword"/>
+        <input type="password" name="repassword" id="repassword" required/>
       </div>
-      <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Criar conta</button>
-      <hr class="my-4">
+      <div>
+        <input type="checkbox" id="checkRegister" required>Li e concordo com os <a href=https://ajuda.asaas.com/pt-BR/articles/102021-termos-e-condicoes-de-uso>Termos de Uso do RocketCharger</a>
+      </div>
+      <button id="submit" type="submit">Criar conta</button>
+      <hr>
       <p>Já tem uma conta? <g:link controller="login" action="auth">entre aqui</g:link></p>
   </form>
 </body>
