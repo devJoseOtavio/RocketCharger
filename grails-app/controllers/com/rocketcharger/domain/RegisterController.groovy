@@ -29,14 +29,8 @@ class RegisterController {
             redirect action: "index"
             return
         } else {
-            try {
-                registerService.register(params)
-                redirect controller: "login", action: "auth"
-            } catch (ValidationException e) {
-                flash.message = "Register Failed"
-                redirect action: "index"
-                return
-            }
+            registerService.register(params)
+            redirect controller: "login", action: "auth"
         }
     }
 }
