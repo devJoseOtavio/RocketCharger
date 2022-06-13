@@ -4,6 +4,8 @@ class Customer {
 
     String name
 
+    String phone
+
     String email
 
     String cpfCnpj
@@ -22,6 +24,7 @@ class Customer {
     
      static constraints = {
         name nullable: true 
+        phone nullable: true
         email email: true
         cpfCnpj nullable: true 
         postalCode nullable: true 

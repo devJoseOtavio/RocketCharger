@@ -7,19 +7,16 @@ import grails.gorm.transactions.Transactional
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
-import com.rocketcharger.domain.User
-import com.rocketcharger.domain.Role
-import com.rocketcharger.domain.UserRole
-import com.rocketcharger.domain.customer.Customer
-import com.rocketcharger.domain.CustomUserDetails
+
 
 class CustomUserDetailsService implements GrailsUserDetailsService {
 
    static final List NO_ROLES = [new SimpleGrantedAuthority(SpringSecurityUtils.NO_ROLE)]
 
-   UserDetails loadUserByUsername(String username, boolean loadRoles)
-         throws UsernameNotFoundException {
-      return loadUserByUsername(username)
+   UserDetails loadUserByUsername(String username, 
+                                 boolean loadRoles)
+      throws UsernameNotFoundException {
+         return loadUserByUsername(username)
    }
 
    @Transactional(readOnly=true, noRollbackFor=[IllegalArgumentException, UsernameNotFoundException])

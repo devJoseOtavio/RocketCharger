@@ -13,7 +13,7 @@
             </div>
         <form
             autocomplete="off" class="form" 
-            data-redirect="${ g.createLink(controller: "payer", action: "index", params: [id: customerId])}"
+            data-redirect="${ g.createLink(controller: "payer", action: "index", params: [customerId: customerId])}"
             data-url="${ g.createLink(controller: "payer", action: "save") }">  
 
         <div class="form-control">
@@ -164,14 +164,12 @@
           <small class="js-msg
           "></small>
         </div>
-            <input 
-              hidden 
-              value="${customerId}" 
-              name="customerId" 
-              id="customerId"
-              />
-            <button type="submit" id="button">Salvar</button>
-        </form>
+
+        <input type="hidden" value="${customerId}" name="customerId" id="customerId">
+        <button type="submit">Criar</button>
+        <button type="reset" class="js-cancel-button">Cancelar</button>
+      </form>
         </div>
+        <asset:javascript src="applications/applicationMasks.js" />
     </body>
 </html>

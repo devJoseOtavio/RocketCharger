@@ -2,6 +2,7 @@ function FormUtilsController() {
   this.init = function () {
     bindFormSubmit();
   };
+
   function bindFormSubmit() {
     $("form").on("submit", function (e) {
       e.preventDefault();

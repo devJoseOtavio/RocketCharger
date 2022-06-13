@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Register</title>
+    <asset:javascript src="applications/applicationRegisterLoginAndLogout.js"/>
 </head>
-
 <body>
   <h5>Registrar aqui</h5>
     <g:if test='${flash.message}'>
@@ -28,10 +28,5 @@
       <hr class="my-4">
       <p>Já tem uma conta? <g:link controller="login" action="auth">Login</g:link></p>
   </form>
-  <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function(event) {
-          document.forms['loginForm'].elements['username'].focus();
-      });
-  </script>
 </body>
 </html>

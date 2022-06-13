@@ -15,7 +15,7 @@
       <form
         autocomplete="off"
         class="form"
-        data-redirect="${ g.createLink(controller: "customer", action: "customerPage") }"
+        data-redirect="${ g.createLink(controller: "customer", action: "list") }"
         data-url="${ g.createLink(controller: "customer", action: "update") }"
       >
         <input
@@ -39,19 +39,19 @@
           <small class="js-msg"></small>
         </div>
 
-        <%-- <div class="form-control two left">
+        <div class="form-control two left">
           <label for="number">Celular *</label>
           <input
             type="tel"
-            id="number"
-            name="number"
+            id="phone"
+            name="phone"
             placeholder="Informe seu número de contato"
             value="${customer?.phone}" 
           />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
-        </div> --%>
+        </div>
 
         <div class="form-control two">
           <label for="cpfCnpj">CPF/CNPJ: *</label>
@@ -182,10 +182,17 @@
         <button type="reset">Cancelar</button>
       </form>
       <div>
+<<<<<<< HEAD
         <g:link controller="customer" action="index"><button class="btn ">Voltar</button></g:link>
         <g:link controller="payer" action="create"><button class="btn ">Criar pagador</button></g:link>
         <g:link controller="payment" action="create"><button class="btn ">Nova Cobrança</button></g:link>
+=======
+        <g:link controller="customer" action="index" params="${[customerId: customer.id]}"><button class="btn ">Voltar</button></g:link>
+        <g:link controller="payer" action="create" params="${[customerId: customer.id]}"><button class="btn ">Criar pagador</button></g:link>
+        <g:link controller="payment" action="create" params="${[customerId: customer.id]}"><button class="btn ">Nova Cobrança</button></g:link>
+>>>>>>> apl-springSecurity
      </div>
     </div>
+    <asset:javascript src="applications/applicationMasks.js" />
   </body>
 </html>
