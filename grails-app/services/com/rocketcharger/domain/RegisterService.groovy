@@ -14,7 +14,7 @@ import grails.converters.JSON
 @Transactional
 class RegisterService {
 
-    public register(Map params) {
+    public User register(Map params) {
         Customer customer = connectCustomer(params.username)
         User user = connectUser(params.username, params.password, customer)
         connectRoleUser(user)
@@ -36,7 +36,7 @@ class RegisterService {
         customer.save(flush: true, failOnError: true)
     }
 
-        public connectRoleUser(User user) {
+    public UserRole connectRoleUser(User user) {
         def role = Role.get(2)
         UserRole.create(user, role)
         UserRole.withSession {
