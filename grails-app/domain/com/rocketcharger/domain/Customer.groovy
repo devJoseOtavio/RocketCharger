@@ -25,7 +25,7 @@ class Customer {
      static constraints = {
         name nullable: true 
         phone nullable: true
-        email email: true
+        email email: true, nullable: false
         cpfCnpj nullable: true 
         postalCode nullable: true 
         address nullable: true 
