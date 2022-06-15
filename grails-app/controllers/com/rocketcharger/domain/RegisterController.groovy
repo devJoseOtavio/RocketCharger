@@ -22,30 +22,19 @@ class RegisterController {
             flash.message = "Password and Re-Password not match"
             redirect action: "index"
             return
-        } else {
-            try {
-                def user = User.findByUsername(params.username)?: new User(username: params.username, password: params.password).save()
-                def role = Role.get(params.role.id)
-                if(user && role) {
-                    UserRole.create user, role
+        } 
+            def user = User.findByUsername(params.username)?: new User(username: params.username, password: params.password).save()
+            def role = Role.get(params.role.id)
+            if(user && role) {
+                UserRole.create user, role
 
-                    UserRole.withSession {
-                      it.flush()
-                      it.clear()
-                    }
-
-                    flash.message = "You have registered successfully. Please login."
-                    redirect controller: "login", action: "auth"
-                } else {
-                    flash.message = "Register failed"
-                    render view: "index"
-                    return
+                UserRole.withSession {
+                    it.flush()
+                    it.clear()
                 }
-            } catch (ValidationException e) {
-                flash.message = "Register Failed"
-                redirect action: "index"
-                return
-            }
+
+                flash.message = "You have registered successfully. Please login."
+                redirect controller: "login", action: "auth"
+        } 
         }
     }
-}
