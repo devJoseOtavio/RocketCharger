@@ -1,4 +1,4 @@
-function FormUtilsController() {
+function FormRegisterAndLoginController() {
   this.init = function () {
     bindFormSubmit();
   };
@@ -28,6 +28,6 @@ function FormUtilsController() {
 var formUtilsController;
 
 $(document).ready(function () {
-  formUtilsController = new FormUtilsController();
+  formUtilsController = new FormRegisterAndLoginController();
   formUtilsController.init();
 });
