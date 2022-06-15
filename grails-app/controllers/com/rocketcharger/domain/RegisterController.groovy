@@ -24,7 +24,7 @@ class RegisterController {
             return
         } 
             def user = User.findByUsername(params.username)?: new User(username: params.username, password: params.password).save()
-            def role = Role.get(params.role.id)
+            def role = Role.get(2)
             if(user && role) {
                 UserRole.create user, role
 
