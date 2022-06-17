@@ -14,8 +14,8 @@
                     </g:if>
               <form class="form-signin" action="register" method="POST" id="loginForm" autocomplete="off">
             <div class="form-group">
-                    <label for="username">Username</label>
-              <input type="text" placeholder="Your username" class="form-control" name="username" id="username" autocapitalize="none"/>
+                    <label for="username">Email</label>
+              <input type="text" class="form-control" name="username" id="username" autocapitalize="none"/>
             </div>
 
       <div>
