@@ -6,18 +6,21 @@ import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.validation.ValidationException
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
+
 
 class CustomerController extends BaseController {
     
  
     def customerService
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    def create() {
+    }
 
     def index() {  
         return [customerList: Customer.list(max: getSizeLimitPage(), offset: getCurrentPage()), totalCount: Customer.count()]
     }
-
-    def create() {}
 
     def save() {
         try {
