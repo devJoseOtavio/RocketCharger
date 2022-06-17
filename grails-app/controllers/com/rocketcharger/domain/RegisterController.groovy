@@ -1,9 +1,7 @@
 package com.rocketcharger.domain
 
-
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 
