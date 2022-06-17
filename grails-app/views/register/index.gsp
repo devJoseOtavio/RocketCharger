@@ -1,7 +1,7 @@
 <html>
 <head>
-    <asset:javascript src="applications/applicationPostRegisterAndLogin.js"/>
     <title>Register</title>
+    <asset:javascript src="applications/applicationRegisterLoginAndLogout.js"/>
 </head>
 <body>
     <div class="row">
@@ -14,26 +14,25 @@
                     </g:if>
               <form class="form-signin" action="register" method="POST" id="loginForm" autocomplete="off">
             <div class="form-group">
-                    <label for="username">Username</label>
-              <input type="text" placeholder="Your username" class="form-control" name="username" id="username" autocapitalize="none"/>
+                    <label for="username">Email</label>
+              <input type="text" class="form-control" name="username" id="username" autocapitalize="none"/>
             </div>
 
-            <div class="form-group">
-                          <label for="password">Password</label>
-              <input type="password" placeholder="Your password" class="form-control" name="password" id="password"/>
-            </div>
-
-            <div class="form-group">
-                          <label for="password">Re-Enter Password</label>
-              <input type="password" placeholder="Re-enter password" class="form-control" name="repassword" id="repassword"/>
-            </div>
-            <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-            <hr class="my-4">
-            <p>Already have an account? <g:link controller="login" action="auth">Login</g:link></p>
-          </form>
-        </div>
+      <div>
+        <label for="password">Senha</label>
+        <input type="password" name="password" id="password" required/>
       </div>
-    </div>
-  </div>
+
+      <div>
+        <label for="password">Confirmar senha</label>
+        <input type="password" name="repassword" id="repassword" required/>
+      </div>
+      <div>
+        <input type="checkbox" id="checkRegister" required>Li e concordo com os <a href=https://ajuda.asaas.com/pt-BR/articles/102021-termos-e-condicoes-de-uso>Termos de Uso do RocketCharger</a>
+      </div>
+      <button id="submit" type="submit">Criar conta</button>
+      <hr>
+      <p>Já tem uma conta? <g:link controller="login" action="auth">entre aqui</g:link></p>
+  </form>
 </body>
 </html>
