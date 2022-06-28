@@ -1,15 +1,12 @@
-# Rocket-Charger
+# Descrição
 
-# Neste projeto estaremos desenvolvendo um baby Asaas, um sistema para gestão financeira que irá facilitar sua emissão de boletos, pagamentos, cobranças e lembretes aos seus clientes.
+Neste projeto foi desenvolvido um sistema para gestão financeira que irá facilitar sua emissão de boletos, pagamentos, cobranças e lembretes aos seus clientes.
 
-# Algumas utilidades a serem desenvolvidas:
+Projeto criado com base MVC
 
-# - Faça vendas parceladas ou recorrentes no cartão de crédito;
-# - Cobre pelo débito direto do seu celular, sem maquininhas;
-# - Venda online ou receba doações com o link de pagamento;
-# - Receba pagamentos instantâneos com o Pix do baby Asaas;
-# - Automatize a emissão e envio de NFS-e;
-# - Consulta e Negativação via Serasa;
+# Requisitos
 
-# Autor: Luiz Filipe Lima Teston
-# Tecnologias: GRAILS, HTML, CSS e JS.
+-Grails 4.0.0
+-MySql, Azure e outros, qualquer versão.
+
+# Tecnologias utilizadas: GRAILS, HTML, CSS e JS.
