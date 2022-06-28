@@ -9,4 +9,4 @@ Projeto criado com base MVC
 -Grails 4.0.0
 -MySql, Azure e outros, qualquer versão.
 
-# Tecnologias utilizadas: GRAILS, HTML, CSS e JS.
+Tecnologias utilizadas: GRAILS, HTML, CSS e JS.
